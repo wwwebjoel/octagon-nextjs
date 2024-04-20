@@ -14,15 +14,16 @@ const OctagonWithIntersectionPoints = () => {
         <div className="flex justify-center items-center mt-10">
             <div className="relative">
                 <div className="w-0 h-0 bg-gray-200 relative">
-                    <div className={'w-2 h-2 bg-red-600 rounded-full'}></div>
-                    <IntersectionPoints radius={radius} gap={gap} level={1}/>
-                    <IntersectionPoints radius={radius} gap={gap} level={2}/>
-                    <IntersectionPoints radius={radius} gap={gap} level={3}/>
-                    <IntersectionPoints radius={radius} gap={gap} level={4}/>
-                    <Lines radius={radius} gap={gap} level={1}/>
-                    <Lines radius={radius} gap={gap} level={2}/>
-                    <Lines radius={radius} gap={gap} level={3}/>
-                    <Lines radius={radius} gap={gap} level={4}/>
+                    {/*Center Point*/}
+                    {/*<div className={'w-2 h-2 bg-red-600 rounded-full'}></div>*/}
+
+                        {[1, 2, 3, 4].map(level => (
+                            <React.Fragment key={level}>
+                                <IntersectionPoints radius={radius} gap={gap} level={level} />
+                                <Lines radius={radius} gap={gap} level={level} />
+                            </React.Fragment>
+                        ))}
+
                 </div>
             </div>
         </div>
