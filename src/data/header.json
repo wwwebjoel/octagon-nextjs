@@ -1,0 +1,33 @@
+{
+  "topHeader": [
+    {
+      "title": "perennials",
+      "bottomHeader": [
+        {"title":  "essence"},
+        {"title":  "roots"},
+        {"title":  "environment"},
+        {"title":  "contributions"}
+      ]
+    },
+    {
+      "title": "annuals",
+      "bottomHeader": [
+        {"title":  "foundations"},
+        {"title":  "distortions"},
+        {"title":  "contributions"}
+      ]
+    },
+    {
+      "title": "dailies",
+      "bottomHeader": [
+        {"title":  "expressions   "}
+      ]
+    },
+    {
+      "title": "ripples"
+    },
+    {
+      "title": "Wellgorithms"
+    }
+  ]
+}

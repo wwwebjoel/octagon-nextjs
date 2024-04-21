@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import {Providers} from "@/store/provider";
 
 const montserrat = "Montserrat Alternates, sans-serif";
 
@@ -14,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+      <Providers>
     <html lang="en">
       <body style={{ fontFamily: montserrat }}>{children}</body>
     </html>
+      </Providers>
   );
 }
