@@ -5,19 +5,19 @@ import { createSlice } from '@reduxjs/toolkit';
 const slice = createSlice({
   name: 'header',
   initialState: {
-    logoShrink: false,
+    activeTopMenuItem: 'perennials',
+    activeBottomMenuItem: 'essence'
   },
   reducers: {
-    logoShrinked: (header, action) => {
-      header.logoShrink = true;
+    activeTopMenuItemChanged: (state, action)=>{
+      state.activeTopMenuItem = action.payload.item
     },
-
-    logoExpanded: (header, action) => {
-      header.logoShrink = false;
-    },
+    activeBottomMenuItemChanged: (state, action)=>{
+      state.activeBottomMenuItem = action.payload.item
+    }
   },
 });
 
-export const { logoExpanded, logoShrinked } = slice.actions;
+export const { activeTopMenuItemChanged, activeBottomMenuItemChanged } = slice.actions;
 
 export default slice.reducer;
