@@ -1,13 +1,13 @@
 import React from 'react';
 import Point from '@/components/Point';
 
-interface IntersectionPointsProps {
+interface PointsProps {
     radius: number;
     gap?: number;
     level?: number;
 }
 
-const IntersectionPoints: React.FC<IntersectionPointsProps> = ({ radius, gap=0, level=1 }) => {
+const Points: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
     const r = radius + gap *(level-1)
     const iPoints = Array.from({ length: 8 }).map((_, index) => {
         const angle = 45 * index;
@@ -28,4 +28,4 @@ const IntersectionPoints: React.FC<IntersectionPointsProps> = ({ radius, gap=0, 
     return <>{iPoints}</>;
 };
 
-export default IntersectionPoints;
+export default Points;

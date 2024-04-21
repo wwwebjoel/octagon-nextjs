@@ -16,7 +16,8 @@ const config: Config = {
       zIndex: {
         'point': '100',
         'line': '90',
-        'gapLine': '90'
+        'gapLine': '90',
+        'trapezoid': '80',
       }
     },
   },

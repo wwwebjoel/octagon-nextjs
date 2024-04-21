@@ -16,7 +16,7 @@ const Lines: React.FC<LinesProps> = ({ radius, gap =0, level=1}) => {
         return (
             <div
                 key={index}
-                className="absolute h-0 w-0 overflow-visible"
+                className="absolute h-0 w-0 overflow-visible z-line"
                 style={{
                     left: `${r * Math.cos(angle * Math.PI / 180)}px`,
                     top: `${r * Math.sin(angle * Math.PI / 180)}px`
