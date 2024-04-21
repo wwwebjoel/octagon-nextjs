@@ -2,6 +2,7 @@ import React from 'react';
 import Points from "@/components/Points";
 import Lines from "@/components/Lines";
 import Trapezoids from "@/components/Trapezoids";
+import Center from "@/components/Center";
 
 interface OctagonProps {
     radius: number;
@@ -17,7 +18,7 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level=0 }) => {
                     <div className="relative">
                         <div className="w-0 h-0 bg-gray-200 relative">
                             {/* Center Point */}
-                            {/* <div className={'w-2 h-2 bg-red-600 rounded-full'}></div> */}
+                            <Center radius={radius}/>
 
                             {Array.from({ length: level }).map((_, index) => {
                                 const level = index + 1;
