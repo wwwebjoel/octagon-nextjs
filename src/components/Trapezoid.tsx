@@ -19,10 +19,11 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
             {level > 1 &&
                 <div className={'h-0 w-0 relative z-trapezoid'} style={{rotate: `${(index * 45 )+ 112.5}deg`}}>
                 <div
-                className={' cursor-pointer hover:bg-green-300 flex justify-center items-center'}
+                className={' cursor-pointer bg-opacity-50 flex justify-center items-center'}
                 style={{
                     width: longSide,
                     height: height,
+                    background: 'linear-gradient(0deg, rgba(254, 121, 249, 0.6) 0%, rgba(160, 107, 228, 0.6) 43%, rgba(86, 74, 141, 0.6) 100%)',
                     clipPath: `polygon( ${longSide}px 0, ${shortSide+sideExtraLength}px ${height}px, ${sideExtraLength}px ${height}px, 0 0 )`
                 }}>
                     Data

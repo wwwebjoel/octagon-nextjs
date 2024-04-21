@@ -22,7 +22,7 @@ const Lines: React.FC<LinesProps> = ({ radius, gap =0, level=1}) => {
                     top: `${r * Math.sin(angle * Math.PI / 180)}px`
                 }}
             >
-                <Line side={side} index={index} />
+                <Line side={side} index={index} level={level}/>
                 { level>1 &&
                     <div className={'rotate-[68deg]'}><GapLine gap={gap} index={index}/></div>
                 }
