@@ -9,7 +9,7 @@ const OctagonWithIntersectionPoints = () => {
     const gap = 60
 
     return (
-        <div className="relative aspect-square h-screen w-auto m-auto p-5">
+        <div className="relative aspect-square h-[min(100vh, 100vw)] w-auto m-auto p-5">
             <div className="relative bg-yellow-200 h-full w-full origin-center flex items-center justify-center">
         <div className="flex justify-center items-center mt-10">
             <div className="relative">
