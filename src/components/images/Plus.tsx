@@ -4,8 +4,9 @@ function Plus() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            className={'w-full h-full'}
+            height={22}
+            width={22}
             fill="none"
             viewBox="0 0 20 20"
         >

@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Button1 from "@/components/common/Button1";
+import {Button1} from "@/components/common/Buttons";
 import headerData from "@/data/header.json"
 import {useDispatch, useSelector} from "react-redux";
 import {activeTopMenuItemChanged} from "@/store/header";

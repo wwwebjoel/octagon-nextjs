@@ -15,16 +15,15 @@ const config: Config = {
         'gradient-top-header': "linear-gradient(180deg, rgba(160, 107, 228, 0.6) 13%, rgba(86, 74, 141, 0.6) 71%)",
         'gradient-trapezoid-inactive': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 0%, rgba(160, 107, 228, 0.6) 43%, rgba(86, 74, 141, 0.6) 100%)",
         'gradient-trapezoid-active': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 0%, rgba(160, 107, 228, 0.6) 43%, rgba(86, 74, 141, 0.6) 100%)",
-        'gradient-button-purple': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)"
-
-
-
-
+        'gradient-button-purple': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)",
+        'gradient-box-purple': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)",
+        'gradient-round-plus': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)"
 },
       colors: {
         "inner-yellow": "#FFF500",
         "inner-purple": "#4E3D82",
         "inner-orange": "#E37C00",
+        "inner-purple2": "#9D53E7",
       },
       zIndex: {
         'point': '100',
