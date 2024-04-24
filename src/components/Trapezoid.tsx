@@ -1,4 +1,5 @@
 import React from 'react';
+import {transformNumber} from "../../utilities/transformNumber";
 
 interface TrapezoidProps {
     radius: number;
@@ -17,7 +18,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
     return (
         <>
             {level > 1 &&
-                <div className={'h-0 w-0 relative z-trapezoid'} style={{rotate: `${(index * 45 )+ 112.5}deg`}}>
+                <div className={'h-0 w-0 relative z-trapezoid'} style={{rotate: `${((index) * 45 )+ 112.5}deg`}}>
                 <div
                 className={' cursor-pointer bg-opacity-50 flex justify-center items-center bg-gradient-trapezoid-inactive'}
                 style={{
@@ -25,7 +26,9 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
                     height: height,
                     clipPath: `polygon( ${longSide}px 0, ${shortSide+sideExtraLength}px ${height}px, ${sideExtraLength}px ${height}px, 0 0 )`
                 }}>
-                    Data
+                    Level: {level}
+                    Index: {transformNumber(index)}
+
                 </div>
 
             </div>}

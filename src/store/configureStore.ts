@@ -3,8 +3,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './reducer';
 
-const createStore = function () {
-  return configureStore({ reducer });
-};
+const createStore = (): ReturnType<typeof configureStore> => {
 
-export default createStore;
+  return configureStore({ reducer });
+}
+
+export default createStore

@@ -10,7 +10,7 @@ interface PointsProps {
 const Points: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
     const r = radius + gap *(level-1)
     const iPoints = Array.from({ length: 8 }).map((_, index) => {
-        const angle = 45 * index;
+        const angle = (45 * index)
         return (
             <div
                 key={index}
