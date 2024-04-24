@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import {Providers} from "@/store/provider";
+import {Providers} from "@/store/Provider";
 
 const montserrat = "Montserrat Alternates, sans-serif";
 
