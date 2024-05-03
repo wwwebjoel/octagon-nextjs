@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "@/components/header/Header";
 import VirtuesBox from "@/components/boxes/VirtuesBox";
 import WordsBox from "@/components/boxes/WordsBox";
+import ColorPicker from "@/components/colorPicker/HexColors";
 
 export default function Home() {
     const radius = 80
@@ -13,10 +14,11 @@ export default function Home() {
           } src={'/images/main-background.png'} alt={'Main Background'} width={844} height={600} />
           <Header />
 
-          <div className={'flex w-max m-auto gap-40 py-10'}>
-              <WordsBox />
-              <Octagon radius={radius} gap={gap} level={level}/>
-              <VirtuesBox />
+          <div className={'relative flex w-max m-auto gap-40 py-10'}>
+              {/*<WordsBox />*/}
+              {/*<Octagon radius={radius} gap={gap} level={level}/>*/}
+              {/*<VirtuesBox />*/}
+              <ColorPicker />
 
           </div>
   </div>
