@@ -1,6 +1,7 @@
 import React from 'react'
 import HexColors from "@/components/colorPicker/HexColors";
 import CloseIcon from "@/components/common/CloseIcon";
+import ColorPlusIcon from "@/components/colorPicker/ColorPlusIcon";
 
 const ColorPicker = ()=>{
     return(
@@ -12,6 +13,23 @@ const ColorPicker = ()=>{
 
             </div>
             <HexColors />
+
+            <div className={'mt-[26px] mb-2 flex gap-8 items-center'}>
+                <div className={`bg-white w-[72px] shrink-0 aspect-square rounded-[10px] overflow-hidden`}></div>
+                <div className={`w-full grid grid-cols-5 gap-3`}>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                    <ColorPlusIcon/>
+                </div>
+
+            </div>
         </div>
     )
 }

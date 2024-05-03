@@ -20,7 +20,10 @@ function HexColors() {
            {
                colors.map(color=>{
                    return(
-                       <div className={'hover:border-[3px] hover:border-white cursor-pointer'} key={color} style={{backgroundColor: color, width: '30px', height: '28px'}}>
+                       <div key={color} style={{backgroundColor: color, width: '30px', height: '28px'}}>
+                           <div className={`w-full h-full hover:border-[3px] hover:border-white hover:rounded-sm cursor-pointer`}>
+
+                           </div>
 
                    </div>)
                })
