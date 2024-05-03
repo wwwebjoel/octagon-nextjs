@@ -3,7 +3,7 @@ import Image from "next/image";
 import Header from "@/components/header/Header";
 import VirtuesBox from "@/components/boxes/VirtuesBox";
 import WordsBox from "@/components/boxes/WordsBox";
-import ColorPicker from "@/components/colorPicker/HexColors";
+import ColorPicker from "@/components/colorPicker/ColorPicker";
 
 export default function Home() {
     const radius = 80
