@@ -10,9 +10,9 @@ interface TrapezoidState {
 }
 
 const initialState: TrapezoidState = {
-    selectedTrapezoidLevel: 2,
-    selectedTrapezoidId: 1,
-    activeTrapezoidLevel: 2,
+    selectedTrapezoidLevel: 3,
+    selectedTrapezoidId: 2,
+    activeTrapezoidLevel: 3,
     activeTrapezoidId: 1,
 };
 
