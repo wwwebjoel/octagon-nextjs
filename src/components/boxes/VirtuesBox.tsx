@@ -5,14 +5,19 @@ import {Button3} from "@/components/common/Buttons";
 import Box from "@/components/common/Box";
 import virtuesData from "@/data/virtues.json"
 import NavDown from "@/components/images/NavDown";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {trapezoidDataWritten} from "@/store/octagon";
+import {getNonNullTrapezoidDataValues} from "../../../utilities/octagon";
 
 const VirtuesBox = ()=>{
     const dispatch = useDispatch()
+    const octagonState: any = useSelector<any>(state=>state.entities.octagon)
 
     const handleClick = (virtue : string)=>{
-        dispatch(trapezoidDataWritten({data: virtue}))
+        if(!getNonNullTrapezoidDataValues(octagonState).includes(virtue)){
+            dispatch(trapezoidDataWritten({data: virtue}))
+        }
+
     }
 
     return(

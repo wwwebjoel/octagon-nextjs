@@ -8,7 +8,7 @@ interface ProvidersProps {
   children: ReactNode;
 }
 
-const store: Store = ConfigureStore();
+export const store: Store = ConfigureStore();
 
 export const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return <Provider store={store}>{children}</Provider>;

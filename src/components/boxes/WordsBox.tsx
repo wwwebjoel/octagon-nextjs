@@ -1,8 +1,8 @@
 'use client'
 import React from 'react';
 import Box from "@/components/common/Box";
+import {getNonNullTrapezoidDataValues} from "../../../utilities/octagon";
 import { useSelector } from "react-redux";
-import { transformNumber } from "../../../utilities/transformNumber";
 
 interface Trapezoid {
     selected: boolean;
@@ -10,38 +10,33 @@ interface Trapezoid {
 }
 
 interface Level {
-    octagon: (state: State) => State;
     level: number;
     selected: boolean;
     trapezoid: Record<number, Trapezoid>;
 }
 
-interface State {
+interface RootState {
+    entities: {
+        octagon: OctagonState;
+    };
+    // ...other state slices
+}
+
+interface OctagonState {
     [levelKey: string]: Level;
 }
 
-const getNonNullTrapezoidDataValues = (state: State): string[] => {
-    const nonNullDataValues: string[] = [];
-
-    Object.values(state).forEach(level => {
-        Object.values(level.trapezoid).forEach(trapezoid => {
-            if (trapezoid.data !== null) {
-                nonNullDataValues.push(trapezoid.data);
-            }
-        });
-    });
-
-    return nonNullDataValues;
-};
-
 const WordsBox: React.FC = () => {
+    // Properly type the useSelector hook using the RootState interface
+    const octagonState : any = useSelector((state: RootState) => state.entities.octagon);
 
-    const octagonData: any = useSelector<State>(state => state.entities.octagon);
+    // the state as an argument and return an array of strings:
+    const words = getNonNullTrapezoidDataValues(octagonState);
 
     return (
         <Box>
             <div className={'font-black text-lg mb-5'}>words</div>
-            {getNonNullTrapezoidDataValues(octagonData).map((word, index) => (
+            {getNonNullTrapezoidDataValues(octagonState).map((word, index) => (
                 <div key={index}>{word}</div>
             ))}
         </Box>
