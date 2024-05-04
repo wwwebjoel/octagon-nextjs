@@ -1,20 +1,19 @@
 import React from "react";
 
-function Icon() {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="21"
-            height="20"
-            fill="none"
-            viewBox="0 0 21 20"
-        >
-            <path
-                fill="#fff"
-                d="M10.5 20a9.738 9.738 0 01-3.9-.788 10.099 10.099 0 01-3.175-2.137c-.9-.9-1.612-1.958-2.137-3.175A9.738 9.738 0 01.5 10c0-1.383.262-2.683.788-3.9a10.099 10.099 0 012.137-3.175c.9-.9 1.958-1.612 3.175-2.137A9.738 9.738 0 0110.5 0c1.383 0 2.683.263 3.9.787a10.098 10.098 0 013.175 2.138c.9.9 1.613 1.958 2.137 3.175A9.738 9.738 0 0120.5 10a9.738 9.738 0 01-.788 3.9 10.098 10.098 0 01-2.137 3.175c-.9.9-1.958 1.613-3.175 2.137a9.738 9.738 0 01-3.9.788z"
-            ></path>
-        </svg>
-    );
+function Unity({ selected }: { selected: boolean }) {
+  return (
+    <div
+      className={`${
+        selected ? "bg-[#FFF500]" : "bg-white  bg-opacity-50"
+      } w-5 aspect-square rounded-full flex justify-center items-center`}
+    >
+      <div
+        className={`${
+          selected ? "bg-[#FFAC01]" : "bg-white"
+        } h-3 aspect-square rounded-full`}
+      ></div>{" "}
+    </div>
+  );
 }
 
-export default Icon;
+export default Unity;
