@@ -1,8 +1,8 @@
-'use client'
-import React, { ReactNode } from 'react';
-import { Provider } from 'react-redux';
-import { Store } from 'redux';
-import ConfigureStore from './configureStore';
+"use client";
+import React, { ReactNode } from "react";
+import { Provider } from "react-redux";
+import { Store } from "redux";
+import ConfigureStore from "./configureStore";
 
 interface ProvidersProps {
   children: ReactNode;

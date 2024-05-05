@@ -21,309 +21,34 @@ interface AnchorState {
   [key: string]: Level;
 }
 
-const initialState: AnchorState = {
-    level1: {
-      level: 1,
-      selected: false,
-      point: {
-        1: {
-          id: 1,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-        2: {
-          id: 2,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        3: {
-          id: 3,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        4: {
-          id: 4,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        5: {
-          id: 5,
-          selected: false,
-          shape: "unity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        6: {
-          id: 6,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        7: {
-          id: 7,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-        8: {
-          id: 8,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-      },
-    },
-    level2: {
-      level: 2,
-      selected: false,
-      point: {
-        1: {
-          id: 1,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-        2: {
-          id: 2,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        3: {
-          id: 3,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        4: {
-          id: 4,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        5: {
-          id: 5,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        6: {
-          id: 6,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        7: {
-          id: 7,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-        8: {
-          id: 8,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-      },
-    },
-    level3: {
-      level: 3,
-      selected: false,
-      point: {
-        1: {
-          id: 1,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-        2: {
-          id: 2,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        3: {
-          id: 3,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        4: {
-          id: 4,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        5: {
-          id: 5,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        6: {
-          id: 6,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        7: {
-          id: 7,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-        8: {
-          id: 8,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-      },
-    },
-    level4: {
-      level: 4,
-      selected: false,
-      point: {
-        1: {
-          id: 1,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-        2: {
-          id: 2,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        3: {
-          id: 3,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        4: {
-          id: 4,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        5: {
-          id: 5,
-          selected: false,
-          shape: "patience",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        6: {
-          id: 6,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-  
-        7: {
-          id: 7,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-        8: {
-          id: 8,
-          selected: false,
-          shape: "clarity",
-          size: "2px",
-          color: "FFAC01",
-          luminocity: "100%",
-        },
-      },
-    },
-  };
+const defaultPoint = {
+  selected: false,
+  shape: 'unity',
+  size: '2px',
+  color: 'FFAC01',
+  luminocity: '100%',
+};
 
+const createPoint = (id: number) => ({ id, ...defaultPoint });
+
+
+const createLevel = (level: number) => ({
+  level,
+  selected: false,
+  point: Object.fromEntries(
+    Array(8).fill(null).map((_, i) => [i + 1, createPoint(i + 1)])
+  ),
+});
+const createInitialState = ()=>{
+
+const initialState: AnchorState = {};
+  for (let i = 1; i <= 4; i++) {
+    initialState[`level${i}`] = createLevel(i);
+  }
+  return initialState;
+}
+
+const initialState = createInitialState();
 
 interface AnchorPointSelectedPayload {
   id: number;
