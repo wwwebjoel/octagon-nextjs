@@ -2,15 +2,9 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 
-// Define the state type
-type SelectionState = {
-  point: boolean;
-  line: boolean;
-  trapezoid: boolean;
-};
-
-// initialState with explicit type
-const initialState: SelectionState = {
+const initialState = {
+  level: -1,
+  id: -1,
   point: false,
   line: false,
   trapezoid: false,
@@ -20,20 +14,26 @@ const slice = createSlice({
   name: 'currentSelection',
   initialState,
   reducers: {
-    lineSelected: (state) => {
-      Object.keys(state).forEach((key) => {
-        state[key as keyof SelectionState] = key === 'line';
-      });
+    lineSelected: (state, action) => {
+      state.level = action.payload.level
+      state.id = action.payload.id
+      state.line= true
+      state.point = false
+      state.trapezoid = false
     },
-    pointSelected: (state) => {
-        Object.keys(state).forEach((key) => {
-          state[key as keyof SelectionState] = key === 'point';
-        });
+    pointSelected: (state, action) => {
+      state.level = action.payload.level
+      state.id = action.payload.id
+      state.line= false
+      state.point = true
+      state.trapezoid = false
       },
-      trapezoidSelected: (state) => {
-        Object.keys(state).forEach((key) => {
-          state[key as keyof SelectionState] = key === 'trapezoid';
-        });
+      trapezoidSelected: (state, action) => {
+        state.level = action.payload.level
+        state.id = action.payload.id
+        state.line= false
+        state.point = false
+        state.trapezoid = true
       },
   },
 });

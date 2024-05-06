@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@/components/common/Box";
-import MediumBox from "@/components/common/MediumBox";
+import AnchorBox from "../boxes/AnchorBox";
 import Clarity from "../anchors/Clarity";
 import Unity from "../anchors/Unity";
 import Balance from "../anchors/Balance"
@@ -9,25 +9,27 @@ import Patience from "../anchors/Patience"
 import Flow from "../anchors/Flow"
 import Aspiration from "../anchors/Aspiration"
 import Boundary from "../anchors/Boundaries"
+
+const items = [
+    { icon: <Clarity />, title: "clarity" },
+    { icon: <Unity />, title: "unity" },
+    { icon: <Balance />, title: "balance" },
+    { icon: <Optimism />, title: "optimism" },
+    { icon: <Patience />, title: "patience" },
+    { icon: <Boundary />, title: "boundary" },
+    { icon: <Flow />, title: "flow" },
+    { icon: <Aspiration />, title: "aspiration" }
+  ];
+  
 const Properties = () => {
   return (
     <Box>
       <div className={`grid grid-cols-2 gap-[10px]`}>
-        <MediumBox selected={true} icon={<Clarity selected={true}/>} title={"clarity"} />
-
-        <MediumBox icon={<Unity/>} title={"unity"} />
-
-        <MediumBox icon={<Balance/>} title={"balance"} />
-
-        <MediumBox icon={<Optimism/>} title={"optimism"} />
-
-        <MediumBox icon={<Patience/>} title={"patience"} />
-
-        <MediumBox icon={<Boundary/>} title={"boundary"} />
-
-        <MediumBox icon={<Flow/>} title={"flow"} />
-
-        <MediumBox icon={<Aspiration/>} title={"aspiration"} />
+        {items.map((item)=>{
+            return(
+                <AnchorBox key={item.title} icon={item.icon} title={item.title} />
+            )
+        })}
       </div>
     </Box>
   );

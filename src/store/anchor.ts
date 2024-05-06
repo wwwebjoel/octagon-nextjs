@@ -69,13 +69,19 @@ const anchorSlice = createSlice({
           state[levelKey].point[pointKey].selected = false;
         });
       });
+    },
+    anchorPointShapeChanged: (state, action)=>{
+      console.log('anchorPointShapeChanged')
+      const { id, level, shape } = action.payload;
+      state[`level${level}`].point[id].shape = shape;
     }
   },
 });
 
 export const {
   anchorPointSelected,
-  anchorPointsSelectionReset
+  anchorPointsSelectionReset,
+  anchorPointShapeChanged
 } = anchorSlice.actions;
 
 export default anchorSlice.reducer;

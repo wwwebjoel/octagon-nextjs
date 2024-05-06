@@ -3,6 +3,11 @@ import { useSelector, TypedUseSelectorHook } from 'react-redux';
 import Clarity from './anchors/Clarity';
 import Unity from './anchors/Unity';
 import Patience from './anchors/Patience';
+import Balance from './anchors/Balance';
+import Optimism from './anchors/Optimism';
+import Boundaries from './anchors/Boundaries';
+import Flow from './anchors/Flow';
+import Aspiration from './anchors/Aspiration';
 
 interface RootState {
   entities: {
@@ -41,6 +46,12 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
             {shape === 'clarity' && <Clarity selected={selected} />}
             {shape === 'unity' && <Unity selected={selected} />}
             {shape === 'patience' && <Patience />}
+            {shape === 'balance' && <Balance />}
+            {shape === 'optimism' && <Optimism />}
+            {shape === 'boundary' && <Boundaries />}
+            {shape === 'flow' && <Flow />}
+            {shape === 'aspiration' && <Aspiration />}
+               
         </div>
     );
 }

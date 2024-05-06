@@ -16,7 +16,7 @@ export default function Home() {
           <Header />
 
           <div className={'relative flex w-max m-auto gap-40 py-10'}>
-              <WordsBox />
+              {/* <WordsBox /> */}
               <Octagon radius={radius} gap={gap} level={level}/>
               {/* <VirtuesBox /> */}
               {/* <ColorPicker /> */}

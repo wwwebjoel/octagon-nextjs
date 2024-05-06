@@ -3,6 +3,7 @@ import React from 'react';
 import Point from '@/components/Point';
 import { anchorPointSelected, anchorPointsSelectionReset } from '@/store/anchor';
 import { useDispatch, useSelector } from 'react-redux';
+import { pointSelected } from '@/store/currentSelection';
 
 interface PointsProps {
     radius: number;
@@ -16,7 +17,8 @@ const Points: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
 
     const handleClick = (level: number, id: number)=>{
         dispatch(anchorPointsSelectionReset())
-        dispatch(anchorPointSelected({level, id}))
+        dispatch(pointSelected({level, id}))
+        dispatch(anchorPointSelected({level, id}))   
     }
 
     const r = radius + gap *(level-1)

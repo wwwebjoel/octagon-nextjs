@@ -6,13 +6,15 @@ import trapezoidReducer from './trapezoid'
 import octagonReducer from './octagon'
 import anchorReducer from './anchor'
 import currentSelectionReducer from './currentSelection';
+import propertiesReducer from './properties'
 
 const rootReducer: Reducer = combineReducers({
   header: headerReducer,
   trapezoid: trapezoidReducer,
   octagon: octagonReducer,
   anchor: anchorReducer,
-  currentSelection: currentSelectionReducer
+  currentSelection: currentSelectionReducer,
+  properties: propertiesReducer
 });
 
 export default rootReducer;
