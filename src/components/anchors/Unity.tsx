@@ -1,6 +1,6 @@
 import React from "react";
 
-function Unity({ selected }: { selected: boolean }) {
+function Unity({ selected = false }: { selected?: boolean }) {
   return (
     <div
       className={`${

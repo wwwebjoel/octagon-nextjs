@@ -23,7 +23,7 @@ interface AnchorState {
 
 const defaultPoint = {
   selected: false,
-  shape: 'unity',
+  shape: 'clarity',
   size: '2px',
   color: 'FFAC01',
   luminocity: '100%',

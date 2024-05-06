@@ -4,6 +4,7 @@ import Header from "@/components/header/Header";
 import VirtuesBox from "@/components/boxes/VirtuesBox";
 import WordsBox from "@/components/boxes/WordsBox";
 import ColorPicker from "@/components/colorPicker/ColorPicker";
+import Properties from "@/components/properties/Properties";
 
 export default function Home() {
     const radius = 80
@@ -17,8 +18,9 @@ export default function Home() {
           <div className={'relative flex w-max m-auto gap-40 py-10'}>
               <WordsBox />
               <Octagon radius={radius} gap={gap} level={level}/>
-              <VirtuesBox />
+              {/* <VirtuesBox /> */}
               {/* <ColorPicker /> */}
+              <Properties/>
 
           </div>
   </div>
