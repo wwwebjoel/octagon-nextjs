@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { useSelector, TypedUseSelectorHook } from 'react-redux';
 import Clarity from './anchors/Clarity';
@@ -11,6 +12,9 @@ import Aspiration from './anchors/Aspiration';
 
 interface RootState {
   entities: {
+    properties: {
+      size: number;
+    };
     anchor: {
       [level: string]: {
         level: number;
@@ -20,7 +24,7 @@ interface RootState {
             id: number;
             selected: boolean;
             shape: string;
-            size: string;
+            size: number;
             color: string;
             luminocity: string;
           };
@@ -35,14 +39,18 @@ interface PointProps {
   id: number;
 }
 
+
 const Point: React.FC<PointProps> = ({ level, id }) => {
+
     const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
     const pointData = useTypedSelector((state) => state.entities.anchor[`level${level}`].point[`${id}`]);
     const { selected, shape, size, color, luminocity } = pointData;
 
     return (
-        <div className='absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0'>
+        <div 
+        className='absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0'
+        style={{ height: `${size}px` }} >
             {shape === 'clarity' && <Clarity selected={selected} />}
             {shape === 'unity' && <Unity selected={selected} />}
             {shape === 'patience' && <Patience />}
@@ -51,7 +59,7 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
             {shape === 'boundary' && <Boundaries />}
             {shape === 'flow' && <Flow />}
             {shape === 'aspiration' && <Aspiration />}
-               
+
         </div>
     );
 }

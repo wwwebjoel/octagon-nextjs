@@ -4,8 +4,7 @@ function Patience() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="20"
+            className="h-full aspect-square"
             fill="none"
             viewBox="0 0 17 20"
         >

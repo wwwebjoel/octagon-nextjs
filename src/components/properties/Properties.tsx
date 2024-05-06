@@ -9,6 +9,7 @@ import Patience from "../anchors/Patience"
 import Flow from "../anchors/Flow"
 import Aspiration from "../anchors/Aspiration"
 import Boundary from "../anchors/Boundaries"
+import RangeSlider from "../common/RangeSlider";
 
 const items = [
     { icon: <Clarity />, title: "clarity" },
@@ -31,6 +32,7 @@ const Properties = () => {
             )
         })}
       </div>
+      <RangeSlider />
     </Box>
   );
 };

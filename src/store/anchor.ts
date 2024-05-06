@@ -6,7 +6,7 @@ interface Point {
   id: number;
   selected: boolean;
   shape: string;
-  size: string;
+  size: number;
   color: string;
   luminocity: string;
 }
@@ -24,7 +24,7 @@ interface AnchorState {
 const defaultPoint = {
   selected: false,
   shape: 'clarity',
-  size: '2px',
+  size: 20,
   color: 'FFAC01',
   luminocity: '100%',
 };
@@ -71,9 +71,12 @@ const anchorSlice = createSlice({
       });
     },
     anchorPointShapeChanged: (state, action)=>{
-      console.log('anchorPointShapeChanged')
       const { id, level, shape } = action.payload;
       state[`level${level}`].point[id].shape = shape;
+    },
+    anchorPointSizeChanged: (state, action)=>{
+      const { id, level, size } = action.payload;
+      state[`level${level}`].point[id].size = size;
     }
   },
 });
@@ -81,7 +84,8 @@ const anchorSlice = createSlice({
 export const {
   anchorPointSelected,
   anchorPointsSelectionReset,
-  anchorPointShapeChanged
+  anchorPointShapeChanged,
+  anchorPointSizeChanged
 } = anchorSlice.actions;
 
 export default anchorSlice.reducer;

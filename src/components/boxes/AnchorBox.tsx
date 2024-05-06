@@ -10,8 +10,7 @@ export default function AnchorBox ({title, icon}: {title: string, icon: any}){
     const {level, id, point} : {level: number, id: number, point: boolean} = pointSelectionData;
 
     const handleClick = (id:number, level: number, shape: string)=>{
-        console.log(id)
-        console.log(level)
+    
         if(point){
            dispatch(anchorPointShapeChanged({id, level, shape: title}))
         }

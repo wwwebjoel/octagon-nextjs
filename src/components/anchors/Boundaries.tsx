@@ -4,8 +4,8 @@ function Boundaries() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="33"
-            height="10"
+            className="h-full aspect-square"
+
             fill="none"
             viewBox="0 0 33 10"
         >
