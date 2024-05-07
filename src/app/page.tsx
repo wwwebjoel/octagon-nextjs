@@ -15,11 +15,11 @@ export default function Home() {
           } src={'/images/main-background.png'} alt={'Main Background'} width={844} height={600} />
           <Header />
 
-          <div className={'relative flex w-max m-auto gap-40 py-10'}>
+          <div className={'relative flex w-max m-auto gap-4 py-10'}>
               {/* <WordsBox /> */}
               <Octagon radius={radius} gap={gap} level={level}/>
               {/* <VirtuesBox /> */}
-              {/* <ColorPicker /> */}
+               <ColorPicker />
               <Properties/>
 
           </div>

@@ -25,7 +25,7 @@ const defaultPoint = {
   selected: false,
   shape: 'clarity',
   size: 20,
-  color: 'FFAC01',
+  color: '#fff',
   luminocity: '100%',
 };
 
@@ -77,6 +77,10 @@ const anchorSlice = createSlice({
     anchorPointSizeChanged: (state, action)=>{
       const { id, level, size } = action.payload;
       state[`level${level}`].point[id].size = size;
+    },
+    anchorPointColorChanged: (state, action)=>{
+      const { id, level, color } = action.payload;
+      state[`level${level}`].point[id].color = color;
     }
   },
 });
@@ -85,7 +89,8 @@ export const {
   anchorPointSelected,
   anchorPointsSelectionReset,
   anchorPointShapeChanged,
-  anchorPointSizeChanged
+  anchorPointSizeChanged,
+    anchorPointColorChanged
 } = anchorSlice.actions;
 
 export default anchorSlice.reducer;

@@ -1,10 +1,14 @@
+'use client'
 import React from 'react'
 import HexColors from "@/components/colorPicker/HexColors";
 import CloseIcon from "@/components/common/CloseIcon";
 import ColorPlusIcon from "@/components/colorPicker/ColorPlusIcon";
 import ColorPickerBoxDownArrow from "@/components/colorPicker/ColorPickerBoxDownArrow";
-
+import {ActiveColorBox} from "@/components/colorPicker/ActiveColorBox";
 const ColorPicker = ()=>{
+
+
+
     return(
         <div className={'relative'}>
             <div className={'relative bg-[#151515] bg-opacity-85 p-4 rounded-[13px] overflow-hidden'}>
@@ -17,7 +21,9 @@ const ColorPicker = ()=>{
                 <HexColors/>
 
                 <div className={'mt-[26px] mb-2 flex gap-8 items-center'}>
-                    <div className={`bg-white w-[72px] shrink-0 aspect-square rounded-[10px] overflow-hidden`}></div>
+
+                    <ActiveColorBox />
+
                     <div className={`w-full grid grid-cols-5 gap-3`}>
                         <ColorPlusIcon/>
                         <ColorPlusIcon/>

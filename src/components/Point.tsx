@@ -51,7 +51,7 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
         <div 
         className='absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0'
         style={{ height: `${size}px` }} >
-            {shape === 'clarity' && <Clarity selected={selected} />}
+            {shape === 'clarity' && <Clarity selected={selected} color={color} />}
             {shape === 'unity' && <Unity selected={selected} />}
             {shape === 'patience' && <Patience />}
             {shape === 'balance' && <Balance />}

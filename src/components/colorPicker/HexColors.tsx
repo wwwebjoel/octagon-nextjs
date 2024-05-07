@@ -1,4 +1,5 @@
 import React from "react";
+import SingleHexColor from "@/components/colorPicker/SingleHexColor";
 
 const colors = [
     "#FEFFFE", "#EBEBEB", "#D6D6D6", "#C2C2C2", "#ADADAD", "#999", "#858585", "#707070", "#5C5C5C", "#474747",
@@ -15,17 +16,15 @@ const colors = [
     "#D8C9FE", "#EFCAFE", "#F9D3E0", "#FFDAD8", "#FFE2D6", "#FEECD4", "#FEF1D5", "#FDFBDD", "#F6FADB", "#DEEED4"
 ];
 function HexColors() {
+
     return (
        <div className={`grid grid-cols-12 gap-0 rounded-lg overflow-hidden`}>
            {
                colors.map(color=>{
-                   return(
-                       <div key={color} style={{backgroundColor: color, width: '30px', height: '28px'}}>
-                           <div className={`w-full h-full hover:border-[3px] hover:border-white hover:rounded-sm cursor-pointer`}>
-
-                           </div>
-
-                   </div>)
+                   return(<React.Fragment key={color}>
+                        <SingleHexColor color={color} />
+                       </React.Fragment>
+                   )
                })
            }</div>
     );

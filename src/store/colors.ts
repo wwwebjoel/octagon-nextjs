@@ -4,23 +4,20 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
 const initialState = {
-  shape: '',
-  color: '',
-  size: -1,
-  luminocity: '',
+  activeColor: '#FFFFFF'
 };
 
 const slice = createSlice({
-  name: 'properties',
+  name: 'colors',
   initialState,
   reducers: {
-    sizeChanged: (state, action)=>{
-      state.size = action.payload.size
+    activeColorChanged: (state, action)=>{
+      state.activeColor = action.payload.color
     }
   
   },
 });
 
-export const { sizeChanged } = slice.actions;
+export const { activeColorChanged } = slice.actions;
 
 export default slice.reducer;

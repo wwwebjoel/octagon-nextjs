@@ -1,8 +1,18 @@
 import React from 'react'
 
-const Clarity = ({selected=false}: {selected?: boolean})=>{
-    return <div className={`${selected? "bg-[#FFF500]": "bg-white  bg-opacity-50"} rotate-45 rounded-sm h-full aspect-square flex items-center justify-center`}>
-    <div className={`${selected?"bg-[#FFAC01]": "bg-white"} h-[60%] aspect-square rounded-full`}></div>
+const Clarity = ({selected=false, color="#fff"}: {selected?: boolean; color?: string;})=>{
+    return <div className={`relative rotate-45 h-full aspect-square flex items-center justify-center`}
+    >
+        <div className={`absolute w-full h-full rounded-sm`}
+             style={{
+                 backgroundColor: color,
+                 opacity: selected? 1 : 0.5
+             }}></div>
+    <div className={`h-[60%] aspect-square rounded-full relative`}
+    style={{
+        backgroundColor: color,
+    }}
+    ></div>
 </div>
 }
 

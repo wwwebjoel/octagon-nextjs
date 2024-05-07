@@ -6,8 +6,8 @@ import { anchorPointShapeChanged } from '@/store/anchor'
 
 export default function AnchorBox ({title, icon}: {title: string, icon: any}){
     const dispatch = useDispatch()
-    const pointSelectionData : any = useSelector<any>((state)=>state.entities.currentSelection)
-    const {level, id, point} : {level: number, id: number, point: boolean} = pointSelectionData;
+    const currentSelectionData : any = useSelector<any>((state)=>state.entities.currentSelection)
+    const {level, id, point} : {level: number, id: number, point: boolean} = currentSelectionData;
 
     const handleClick = (id:number, level: number, shape: string)=>{
     
