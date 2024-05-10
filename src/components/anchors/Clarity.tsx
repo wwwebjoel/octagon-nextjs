@@ -8,12 +8,14 @@ const Clarity = ({selected=false, color="#fff"}: {selected?: boolean; color?: st
                  backgroundColor: color,
                  opacity: selected? 1 : 0.5
              }}></div>
-    <div className={`h-[60%] aspect-square rounded-full relative`}
-    style={{
-        backgroundColor: color,
-    }}
-    ></div>
-</div>
+        <div className={`h-[60%] relative aspect-square rounded-full overflow-hidden`}
+             style={{
+                 backgroundColor: color,
+             }}
+        >
+            {selected && <div className="absolute inset-0 bg-black opacity-10"></div>}
+        </div>
+    </div>
 }
 
 export default Clarity
