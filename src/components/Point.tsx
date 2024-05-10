@@ -9,6 +9,7 @@ import Optimism from './anchors/Optimism';
 import Boundaries from './anchors/Boundaries';
 import Flow from './anchors/Flow';
 import Aspiration from './anchors/Aspiration';
+import {AnchorTips} from "@/components/AnchorTips";
 
 interface RootState {
   entities: {
@@ -59,6 +60,10 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
             {shape === 'boundary' && <Boundaries />}
             {shape === 'flow' && <Flow />}
             {shape === 'aspiration' && <Aspiration />}
+
+            {level===1 && id===7 && <div className={'absolute -top-[23px] left-[22px]'}>
+                <AnchorTips />
+            </div>}
 
         </div>
     );

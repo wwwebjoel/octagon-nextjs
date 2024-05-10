@@ -4,8 +4,7 @@ function RightArrow() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
+            className={`w-full max-w-[32px]`}
             fill="none"
             viewBox="0 0 32 32"
         >

@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import HexColors from "@/components/colorPicker/HexColors";
-import CloseIcon from "@/components/common/CloseIcon";
+import CloseIcon from "@/components/common/RoundedCloseIcon";
 import ColorPlusIcon from "@/components/colorPicker/ColorPlusIcon";
 import ColorPickerBoxDownArrow from "@/components/colorPicker/ColorPickerBoxDownArrow";
 import {ActiveColorBox} from "@/components/colorPicker/ActiveColorBox";
