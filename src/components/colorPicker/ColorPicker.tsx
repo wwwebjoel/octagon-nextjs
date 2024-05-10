@@ -25,16 +25,9 @@ const ColorPicker = ()=>{
                     <ActiveColorBox />
 
                     <div className={`w-full grid grid-cols-5 gap-3`}>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
-                        <ColorPlusIcon/>
+                        {Array.from({ length: 10 }, (_, index) => (
+                            <ColorPlusIcon key={index} position={index+1} />
+                        ))}
                     </div>
 
                 </div>

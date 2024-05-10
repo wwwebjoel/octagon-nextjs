@@ -17,6 +17,8 @@ const colors = [
 ];
 function HexColors() {
 
+
+
     return (
        <div className={`grid grid-cols-12 gap-0 rounded-lg overflow-hidden`}>
            {
