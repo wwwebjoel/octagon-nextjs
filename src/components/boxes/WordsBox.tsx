@@ -33,12 +33,24 @@ const WordsBox: React.FC = () => {
     // the state as an argument and return an array of strings:
     const words = getNonNullTrapezoidDataValues(octagonState);
 
+    const currentSelection: any = useSelector((state: any) => state.entities.currentSelection);
+    const { level, id } = currentSelection || {};
+
+    // Access level and id safely, returning null if either is undefined
+    const currentSelectedData: any = useSelector((state: any) =>
+        state.entities.octagon[`level${level}`]?.trapezoid[id]?.data
+    );
+
     return (
         <Box>
             <div className={'font-black text-lg mb-5'}>words</div>
+
+           <div className={`flex flex-col gap-[10px]`}>
             { Array.from(new Set(getNonNullTrapezoidDataValues(octagonState))).map((word, index) => (
-                <div key={index}>{word}</div>
+                <div className={`${currentSelectedData === word ? 'bg-[#FFAC01]': 'bg-[#9D53E7]'} rounded-full flex justify-center p-1`}
+                    key={index}>{word}</div>
             ))}
+           </div>
         </Box>
     );
 };

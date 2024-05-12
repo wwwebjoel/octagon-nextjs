@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import RoundPlus from "@/components/images/RoundPlus";
 import RoundMinus from "@/components/images/RoundMinus";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +11,6 @@ interface SingleVirtueButtonProps {
 
 const SingleVirtueButton: React.FC<SingleVirtueButtonProps> = ({ label }) => {
     const dispatch = useDispatch();
-
 
     const currentSelection: any = useSelector((state: any) => state.entities.currentSelection);
     const { level, id } = currentSelection || {};
