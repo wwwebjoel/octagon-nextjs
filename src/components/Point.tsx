@@ -27,7 +27,7 @@ interface RootState {
             shape: string;
             size: number;
             color: string;
-            luminocity: string;
+            luminosity: number;
           };
         };
       };
@@ -46,15 +46,17 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
     const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
     const pointData = useTypedSelector((state) => state.entities.anchor[`level${level}`].point[`${id}`]);
-    const { selected, shape, size, color, luminocity } = pointData;
+    const { selected, shape, size, color, luminosity } = pointData;
 
     const modules: any = useSelector<any>(state=>state.entities.modules)
 
     return (
         <div 
-        className='absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0'
-        style={{ height: `${size}px` }} >
-            {shape === 'clarity' && <Clarity selected={selected} color={color} />}
+        className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0 ${selected? !modules.anchorTips? "animate-pulse": "animate-none" : 'animate-none'} `}
+        style={{ height: `${size}px` ,
+        opacity: level===1 && id===7 && modules.anchorTips? 1 : luminosity/100
+        }} >
+            {shape === 'clarity' && <Clarity selected={selected} color={color}/>}
             {shape === 'unity' && <Unity selected={selected} />}
             {shape === 'patience' && <Patience />}
             {shape === 'balance' && <Balance />}

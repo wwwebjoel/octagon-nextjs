@@ -11,6 +11,7 @@ import Aspiration from "../anchors/Aspiration"
 import Boundary from "../anchors/Boundaries"
 import RangeSlider from "../common/RangeSlider";
 import SizeRangeSlider from "@/components/properties/SizeRangeSlider";
+import LuminosityRangeSlider from "@/components/properties/LuminosityRangeSlider";
 
 const items = [
     { icon: <Clarity />, title: "clarity" },
@@ -34,6 +35,7 @@ const Properties = () => {
         })}
       </div>
       <SizeRangeSlider />
+        <LuminosityRangeSlider />
     </Box>
   );
 };

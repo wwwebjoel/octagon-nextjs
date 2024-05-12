@@ -8,7 +8,7 @@ interface Point {
   shape: string;
   size: number;
   color: string;
-  luminocity: string;
+  luminosity: number;
 }
 
 interface Level {
@@ -26,7 +26,7 @@ const defaultPoint = {
   shape: 'clarity',
   size: 20,
   color: '#fff',
-  luminocity: '100%',
+  luminosity: 70,
 };
 
 const createPoint = (id: number) => ({ id, ...defaultPoint });
@@ -78,6 +78,10 @@ const anchorSlice = createSlice({
       const { id, level, size } = action.payload;
       state[`level${level}`].point[id].size = size;
     },
+    anchorPointLuminosityChanged: (state, action)=>{
+      const { id, level, luminosity } = action.payload;
+      state[`level${level}`].point[id].luminosity = luminosity;
+    },
     anchorPointColorChanged: (state, action)=>{
       const { id, level, color } = action.payload;
       state[`level${level}`].point[id].color = color;
@@ -90,7 +94,8 @@ export const {
   anchorPointsSelectionReset,
   anchorPointShapeChanged,
   anchorPointSizeChanged,
-    anchorPointColorChanged
+    anchorPointColorChanged,
+    anchorPointLuminosityChanged
 } = anchorSlice.actions;
 
 export default anchorSlice.reducer;
