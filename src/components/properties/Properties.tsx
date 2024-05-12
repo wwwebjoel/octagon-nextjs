@@ -10,6 +10,7 @@ import Flow from "../anchors/Flow"
 import Aspiration from "../anchors/Aspiration"
 import Boundary from "../anchors/Boundaries"
 import RangeSlider from "../common/RangeSlider";
+import SizeRangeSlider from "@/components/properties/SizeRangeSlider";
 
 const items = [
     { icon: <Clarity />, title: "clarity" },
@@ -32,7 +33,7 @@ const Properties = () => {
             )
         })}
       </div>
-      <RangeSlider />
+      <SizeRangeSlider />
     </Box>
   );
 };
