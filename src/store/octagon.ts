@@ -115,6 +115,18 @@ const slice = createSlice({
         }
       });
     },
+
+    applyDataToLevel: (state, action) => {
+      const { level, id } = action.payload;
+      const levelKey = `level${level}`;
+      const data = state[levelKey].trapezoid[id].data
+
+      Object.keys(state[levelKey].trapezoid).forEach((key: any) => {
+        if (!state[levelKey].trapezoid[key].data) {
+          state[levelKey].trapezoid[key].data = data;
+        }
+      });
+    }
   },
 });
 
@@ -122,6 +134,7 @@ export const {
   trapezoidSelectionChanged,
   newTrapezoidSelected,
   trapezoidDataWritten,
+    applyDataToLevel
 } = slice.actions;
 
 export default slice.reducer;

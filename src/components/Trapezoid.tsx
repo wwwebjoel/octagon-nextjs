@@ -26,15 +26,15 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
     const shortSide = (radius + (level-2) * gap) / Math.sqrt(1 + 1 / Math.sqrt(2));
     const sideExtraLength = (longSide-shortSide)/2
 
-    const handleClick = ()=>{
+    const handleClick = (data:string)=>{
         dispatch(newTrapezoidSelected({level: level, id: (transformNumber(index))}))
-        dispatch(trapezoidSelected({level, id: (transformNumber(index))}))
+        dispatch(trapezoidSelected({level, id: (transformNumber(index)), data}))
     }
     const selectedLevel:any = useSelector<any>(state=>state.entities.currentSelection.level)
     return (
         <>
             {level > 1 &&
-                <div className={'h-0 w-0 relative z-trapezoid'} style={{rotate: `${((index) * 45 )+ 112.5}deg`}}  onClick = {handleClick}>
+                <div className={'h-0 w-0 relative z-trapezoid'} style={{rotate: `${((index) * 45 )+ 112.5}deg`}}  onClick = {()=>handleClick(thisTrapeZoidData.data)}>
 
                 <div
                 className={`${thisTrapeZoidData.selected? 'bg-gradient-trapezoid-active': `${ selectedLevel === level? 'bg-inner-carnationPink bg-opacity-70': 'bg-opacity-50' } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}

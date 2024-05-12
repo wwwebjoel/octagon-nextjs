@@ -61,7 +61,6 @@ export const {
   clearActiveTrapezoid,
   selectedTrapezoidLevelChanged,
   selectedTrapezoidIdChanged,
-  clearSelectedTrapezoid,
 } = slice.actions;
 
 export default slice.reducer;

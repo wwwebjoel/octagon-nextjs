@@ -28,13 +28,13 @@ const slice = createSlice({
       state.point = true
       state.trapezoid = false
       },
-      trapezoidSelected: (state, action) => {
-        state.level = action.payload.level
-        state.id = action.payload.id
-        state.line= false
-        state.point = false
-        state.trapezoid = true
-      },
+    trapezoidSelected: (state, action) => {
+      state.level = action.payload.level
+      state.id = action.payload.id
+      state.line= false
+      state.point = false
+      state.trapezoid = true
+    },
   },
 });
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import RoundPlus from "@/components/images/RoundPlus";
+import RoundMinus from "@/components/images/RoundMinus";
 
 interface ButtonProps {
     label: string;
@@ -27,7 +28,8 @@ export const Button3: React.FC<ButtonProps> = ({ label, active=false }) => {
     return (
         <div className={`${active?'bg-inner-orange':'bg-black bg-opacity-30'} text-white h-[30px] w-full flex items-center justify-between font-semibold text-sm leading-5 p-1 pl-2 cursor-pointer rounded-[20px]`}>
             <div> {label}</div>
-            <RoundPlus />
+            {/*<RoundPlus />*/}
+            <RoundMinus />
         </div>
     );
 };

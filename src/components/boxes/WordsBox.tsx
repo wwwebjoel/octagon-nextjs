@@ -36,7 +36,7 @@ const WordsBox: React.FC = () => {
     return (
         <Box>
             <div className={'font-black text-lg mb-5'}>words</div>
-            {getNonNullTrapezoidDataValues(octagonState).map((word, index) => (
+            { Array.from(new Set(getNonNullTrapezoidDataValues(octagonState))).map((word, index) => (
                 <div key={index}>{word}</div>
             ))}
         </Box>
