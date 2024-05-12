@@ -15,13 +15,6 @@ const VirtuesBox = ()=>{
     const dispatch = useDispatch()
     const octagonState: any = useSelector<any>(state=>state.entities.octagon)
 
-    const handleClick = (virtue : string)=>{
-        // if(!getNonNullTrapezoidDataValues(octagonState).includes(virtue)){
-        //     dispatch(trapezoidDataWritten({data: virtue}))
-        // }
-        dispatch(trapezoidDataWritten({data: virtue}))
-
-    }
 
     return(
         <>
@@ -36,14 +29,16 @@ const VirtuesBox = ()=>{
                    {
                        virtuesData?.virtues.map((virtue, index)=>{
 
-                           return<div onClick={()=>{handleClick(virtue)}} key={index}>
-                               <SingleVirtueButton label={virtue}/>
-                           </div>
+                           return <React.Fragment key={index}>
+
+                                   <SingleVirtueButton label={virtue}/>
+
+                           </React.Fragment>
                        })
                    }
-               </div>
-           </div>
-           <div className={'absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2'}>
+                    </div>
+                </div>
+                <div className={'absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2'}>
                <ApplyToAllButton />
            </div>
             </Box>

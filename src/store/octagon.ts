@@ -107,13 +107,23 @@ const slice = createSlice({
           Object.keys(trapezoids).forEach((key) => {
             let trapezoid = trapezoids[Number(key)];
             if (action.payload.data) {
-              if (trapezoid.selected && trapezoid.data === null) {
+              if (trapezoid.selected && !trapezoid.data) {
                 trapezoid.data = action.payload.data;
               }
             }
           });
         }
       });
+    },
+
+    trapezoidDataDeleted: (
+        state : any,
+        action
+    ) => {
+      const {data, id, level} = action.payload
+      if(state[`level${level}`].trapezoid[id].data === data){
+        state[`level${level}`].trapezoid[id].data = null
+      }
     },
 
     applyDataToLevel: (state, action) => {
@@ -134,7 +144,8 @@ export const {
   trapezoidSelectionChanged,
   newTrapezoidSelected,
   trapezoidDataWritten,
-    applyDataToLevel
+  trapezoidDataDeleted,
+  applyDataToLevel
 } = slice.actions;
 
 export default slice.reducer;
