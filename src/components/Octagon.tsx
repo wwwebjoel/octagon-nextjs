@@ -3,6 +3,7 @@ import Points from "@/components/Points";
 import Lines from "@/components/Lines";
 import Trapezoids from "@/components/Trapezoids";
 import Center from "@/components/Center";
+import Stars from "@/components/Stars";
 
 interface OctagonProps {
     radius: number;
@@ -13,7 +14,7 @@ interface OctagonProps {
 const Octagon: React.FC<OctagonProps> = ({ radius, gap, level=0 }) => {
     const octagonDiameter = 2 * (radius+(level-1)*gap)
     return (
-        <div className={'relative p-5'}>
+        <div className={'relative p-10'}>
             <div className="relative" style={{
                 width: octagonDiameter,
                 height: octagonDiameter,
@@ -35,6 +36,10 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level=0 }) => {
                                         </React.Fragment>
                                     )
                                 })}
+
+                               <div className={'origin-center rotate-[22.5deg]'}>
+                                   <Stars radius={radius} gap={gap} level={level}/>
+                               </div>
                             </div>
                         </div>
                     </div>
