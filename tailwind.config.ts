@@ -24,6 +24,7 @@ const config: Config = {
         "inner-purple": "#4E3D82",
         "inner-orange": "#E37C00",
         "inner-purple2": "#9D53E7",
+        "inner-carnationPink": "#FFA0CA",
       },
       zIndex: {
         'point': '100',

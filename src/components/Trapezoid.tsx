@@ -4,6 +4,7 @@ import {transformNumber} from "../../utilities/transformNumber";
 import {useSelector} from "react-redux";
 import {newTrapezoidSelected} from "@/store/octagon"
 import {useDispatch} from "react-redux";
+import {trapezoidSelected} from "@/store/currentSelection";
 
 interface TrapezoidProps {
     radius: number;
@@ -27,15 +28,16 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
 
     const handleClick = ()=>{
         dispatch(newTrapezoidSelected({level: level, id: (transformNumber(index))}))
+        dispatch(trapezoidSelected({level, id: (transformNumber(index))}))
     }
-
+    const selectedLevel:any = useSelector<any>(state=>state.entities.currentSelection.level)
     return (
         <>
             {level > 1 &&
                 <div className={'h-0 w-0 relative z-trapezoid'} style={{rotate: `${((index) * 45 )+ 112.5}deg`}}  onClick = {handleClick}>
 
                 <div
-                className={`${thisTrapeZoidData.selected? 'bg-gradient-trapezoid-active': 'bg-gradient-trapezoid-inactive cursor-pointer'} bg-opacity-50 flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
+                className={`${thisTrapeZoidData.selected? 'bg-gradient-trapezoid-active': `${ selectedLevel === level? 'bg-inner-carnationPink bg-opacity-70': 'bg-opacity-50' } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
                 style={{
                     width: longSide,
                     height: height,

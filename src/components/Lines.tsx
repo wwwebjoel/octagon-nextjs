@@ -24,7 +24,7 @@ const Lines: React.FC<LinesProps> = ({ radius, gap =0, level=1}) => {
             >
                 <Line side={side} index={index} level={level}/>
                 { level>1 &&
-                    <div className={'rotate-[68deg]'}><GapLine gap={gap} index={index}/></div>
+                    <div className={'rotate-[68deg]'}><GapLine gap={gap} index={index} level={level}/></div>
                 }
             </div>
         );
