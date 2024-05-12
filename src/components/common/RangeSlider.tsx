@@ -42,20 +42,43 @@ export default function RangeSlider() {
   const grab = false;
 
   return (
-      <div>
-        <input
-            className={`w-full h-2 bg-wwr_black accent-black rounded-lg appearance-none cursor-pointer dark:bg-gray-700 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-[24px] [&::-webkit-slider-thumb]:w-[24px] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-black hover:[&::-webkit-slider-thumb]:scale-125 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:duration-300 ${
-            grab
-                ? '[&::-webkit-slider-thumb]:cursor-grabbing'
-                : '[&::-webkit-slider-thumb]:cursor-grab'
-        } `}
-            type="range"
-            min="10"
-            max="30"
-            value={sliderValue}
-            onChange={handleSliderChange}
-        />
-        {/*<p>Value: {sliderValue}</p>*/}
+      <div className={' my-5 w-full'}>
+          <div className={'rounded-full bg-white bg-opacity-20 w-full py-[8px] px-1'}>
+              <div className={'relative top-0 left-0 h-[0] w-full'}>
+
+                  <input
+                      className={`absolute top-0 left-0 w-full h-2 bg-transparent accent-[#ffac01] rounded-lg cursor-pointer -translate-y-1/2
+               `}
+                      type="range"
+                      min="10"
+                      max="30"
+                      value={sliderValue}
+                      // onChange={handleSliderChange}
+                  />
+
+                  <input
+                      className={`absolute top-0 left-0 h-2 -translate-y-1/2
+              w-full bg-transparent appearance-none 
+              [&::-webkit-slider-thumb]:appearance-none
+               [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6
+                [&::-webkit-slider-thumb]:bg-gradient-slider-thumb
+                 [&::-webkit-slider-thumb]:rounded-full
+                  [&::-webkit-slider-thumb]:border-solid
+                   [&::-webkit-slider-thumb]:border-[1px]
+                    [&::-webkit-slider-thumb]:border-white
+                    [&::-webkit-slider-thumb]:drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]
+                     `}
+                      type="range"
+                      min="10"
+                      max="30"
+                      value={sliderValue}
+                      onChange={handleSliderChange}
+                  />
+              </div>
+          </div>
+
+          {/*<p>Value: {sliderValue}</p>*/}
+
       </div>
   );
 }
