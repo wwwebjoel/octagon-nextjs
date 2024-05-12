@@ -8,6 +8,7 @@ import NavDown from "@/components/images/NavDown";
 import {useDispatch, useSelector} from "react-redux";
 import {trapezoidDataWritten} from "@/store/octagon";
 import {getNonNullTrapezoidDataValues} from "../../../utilities/octagon";
+import ApplyToAllButton from "@/components/common/ApplyToAllButton";
 
 const VirtuesBox = ()=>{
     const dispatch = useDispatch()
@@ -40,7 +41,9 @@ const VirtuesBox = ()=>{
                    }
                </div>
            </div>
-
+           <div className={'absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2'}>
+               <ApplyToAllButton />
+           </div>
             </Box>
         </>
     )

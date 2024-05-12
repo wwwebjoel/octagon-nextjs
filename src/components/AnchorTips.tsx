@@ -1,7 +1,17 @@
 import RightArrow from "@/components/images/RightArrow";
 import CloseIcon from "@/components/common/CloseIcon";
+import {useDispatch} from "react-redux";
+import {anchorTipsModuleDeactivated, chooseWordBoxModuleActivated, wordsBoxModuleActivated} from "@/store/modules";
 
 export function AnchorTips(){
+    const dispatch = useDispatch();
+
+    const handleClose = ()=>{
+        dispatch(anchorTipsModuleDeactivated())
+        dispatch(wordsBoxModuleActivated())
+        dispatch(chooseWordBoxModuleActivated())
+    }
+
     return(
         <div className={`flex w-[332px] h-max`}>
             <div className={`bg-white w-3 h-6 mt-5 shrink-0 -mr-px`}
@@ -10,7 +20,9 @@ export function AnchorTips(){
             }}
             ></div>
             <div className={`relative rounded-[20px] bg-white p-5`}>
-                <div className={'absolute top-2 right-3'}>
+                <div
+                    onClick={handleClose}
+                    className={'absolute top-2 right-3'}>
                     <CloseIcon color={'#989898'}/></div>
                 <div>
                     <div className={`font-medium text-xl pb-[10px]`}>click on any anchor</div>

@@ -48,6 +48,8 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
     const pointData = useTypedSelector((state) => state.entities.anchor[`level${level}`].point[`${id}`]);
     const { selected, shape, size, color, luminocity } = pointData;
 
+    const modules: any = useSelector<any>(state=>state.entities.modules)
+
     return (
         <div 
         className='absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0'
@@ -61,7 +63,7 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
             {shape === 'flow' && <Flow />}
             {shape === 'aspiration' && <Aspiration />}
 
-            {level===1 && id===7 && <div className={'absolute -top-[23px] left-[22px]'}>
+            {level===1 && id===7 && modules.anchorTips && <div className={'absolute -top-[23px] left-[22px]'}>
                 <AnchorTips />
             </div>}
 

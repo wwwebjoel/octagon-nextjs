@@ -2,7 +2,7 @@
 import React from 'react'
 import {NextRoundButton} from "@/components/common/NextRoundButton";
 import {useDispatch} from "react-redux";
-import {landscapeModuleDeactivated} from "@/store/modules";
+import {anchorTipsModuleActivated, landscapeModuleDeactivated, octagonModuleActivated} from "@/store/modules";
 import {anchorPointSelected, anchorPointsSelectionReset} from "@/store/anchor";
 import {pointSelected} from "@/store/currentSelection";
 
@@ -12,6 +12,8 @@ export default function Landscape(){
             dispatch(landscapeModuleDeactivated())
             dispatch(anchorPointsSelectionReset())
             dispatch(anchorPointSelected({level:1, id:7}))
+        dispatch(octagonModuleActivated())
+        dispatch(anchorTipsModuleActivated())
     }
 
     return(

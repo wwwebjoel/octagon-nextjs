@@ -4,8 +4,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
 const initialState = {
-  landscape: true,
+    landscape: true,
+    octagon: false,
     anchorTips: false,
+    chooseWordBox: false,
+    wordsBox: false,
 };
 
 const slice = createSlice({
@@ -14,11 +17,33 @@ const slice = createSlice({
     reducers: {
         landscapeModuleDeactivated: state=>{
             state.landscape = false;
+        },
+        octagonModuleActivated:state=>{
+            state.octagon = true;
+        },
+        octagonModuleDeactivated:state=>{
+            state.octagon = false;
+        },
+        anchorTipsModuleActivated: state=>{
+            state.anchorTips = true;
+        },
+        anchorTipsModuleDeactivated: state=>{
+            state.anchorTips = false;
+        },
+        wordsBoxModuleActivated: state=>{
+            state.wordsBox = true;
+        },
+        chooseWordBoxModuleActivated: state=>{
+            state.chooseWordBox = true;
         }
     },
 });
 
-export const { landscapeModuleDeactivated } = slice.actions;
+export const { landscapeModuleDeactivated,
+wordsBoxModuleActivated,
+chooseWordBoxModuleActivated,
+anchorTipsModuleDeactivated,anchorTipsModuleActivated,
+octagonModuleDeactivated,
+octagonModuleActivated} = slice.actions;
 
 export default slice.reducer;
-

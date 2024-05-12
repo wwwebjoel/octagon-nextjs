@@ -11,6 +11,7 @@ import Properties from "@/components/properties/Properties";
 import Landscape from "@/components/firstLoad/landscape";
 import {useSelector} from "react-redux";
 import {AnchorTips} from "@/components/AnchorTips";
+import ApplyToAllButton from "@/components/common/ApplyToAllButton";
 
 export default function Home() {
     const radius = 80
@@ -25,13 +26,12 @@ export default function Home() {
           <Header />
 
           <div className={'relative flex w-max m-auto gap-4 py-10'}>
-              {/* <WordsBox /> */}
-              {!modules.landscape && <Octagon radius={radius} gap={gap} level={level}/>}
-              {/* <VirtuesBox /> */}
+              {modules.wordsBox && <WordsBox/>}
+              {modules.octagon && <Octagon radius={radius} gap={gap} level={level}/>}
+              {modules.chooseWordBox && <VirtuesBox/>}
               {/* <ColorPicker />*/}
               {/*<Properties/>*/}
               {modules.landscape && <Landscape />}
-              {modules.anchorTips && <AnchorTips/>}
 
           </div>
   </div>
