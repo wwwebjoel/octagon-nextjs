@@ -2,18 +2,24 @@ import {useDispatch, useSelector} from "react-redux";
 import {activeColorChanged} from "@/store/colors";
 import {anchorPointColorChanged} from "@/store/anchor";
 import ColorIcon from "@/components/images/ColorIcon";
+import {addVirtueColor} from "@/store/virtues";
 
 export default function PropertiesColors(){
     const dispatch = useDispatch()
     const currentSelectionData : any = useSelector<any>((state)=>state.entities.currentSelection)
     const {level, id, point, line, trapezoid} : {level: number; id: number; point: boolean; line:boolean; trapezoid: boolean;} = currentSelectionData;
 
+    const selectedTrapezoidData: any = useSelector((state: any) =>
+        state.entities.octagon[`level${level}`]?.trapezoid[id]?.data
+    );
+
+
     const handleClick = (id:number, level: number, color: string)=>{
         if(point){
             dispatch(anchorPointColorChanged({id, level, color}))
         }
-        if(trapezoid){
-
+        if(trapezoid && selectedTrapezoidData){
+            dispatch(addVirtueColor({virtue:selectedTrapezoidData, color}))
         }
     }
 

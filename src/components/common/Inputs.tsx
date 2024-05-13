@@ -28,7 +28,7 @@ export const Input1: React.FC<TextInputProps> = ({ placeholder, ...rest }) => {
             <input
                 className="relative text-black h-[30px] w-full flex items-center justify-between font-semibold text-sm leading-5 p-1 pl-2 rounded-[20px] border border-gray-300 focus:outline-none focus:border-indigo-500"
                 placeholder={placeholder}
-                value={newVirtue}
+                value={newVirtue || ""}
                 onChange={handleChange}
                 {...rest}
             />

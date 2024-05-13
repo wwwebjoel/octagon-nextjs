@@ -20,6 +20,8 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
 
     const thisTrapeZoidData: any = useSelector<any>(state=>state.entities.octagon[`level${level}`]?.trapezoid[transformNumber(index)])
 
+    const thisVirtueColor: any = useSelector<any>(state=>state.entities.virtues.find((item:any)=>thisTrapeZoidData && item.virtue === thisTrapeZoidData)?.color)
+
 
     const height = gap * Math.sin(67.5 * Math.PI/180)
     const longSide = (radius + (level-1) * gap) / Math.sqrt(1 + 1 / Math.sqrt(2));
@@ -47,6 +49,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
                     {/*Index: {transformNumber(index)}*/}
 
                     {thisTrapeZoidData.data}
+                    {thisVirtueColor}
                 </div>
 
             </div>}

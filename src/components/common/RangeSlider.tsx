@@ -25,6 +25,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, sliderValue,title, 
                         min={min}
                         max={max}
                         value={sliderValue}
+                        readOnly={true}
                     />
 
                     <input
