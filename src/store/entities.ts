@@ -9,6 +9,7 @@ import currentSelectionReducer from './currentSelection';
 import propertiesReducer from './properties'
 import colorsReducer from './colors'
 import modulesReducer from './modules'
+import virtuesReducer from './virtues'
 
 const rootReducer: Reducer = combineReducers({
   header: headerReducer,
@@ -18,7 +19,8 @@ const rootReducer: Reducer = combineReducers({
   currentSelection: currentSelectionReducer,
   properties: propertiesReducer,
   colors: colorsReducer,
-  modules: modulesReducer
+  modules: modulesReducer,
+  virtues: virtuesReducer
 });
 
 export default rootReducer;

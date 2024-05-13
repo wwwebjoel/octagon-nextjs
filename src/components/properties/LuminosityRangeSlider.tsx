@@ -43,6 +43,7 @@ export default function LuminosityRangeSlider() {
             max={100}
             sliderValue={sliderValue}
             handleSliderChange={handleSliderChange}
+            title={'luminosity'}
         />
     );
 }

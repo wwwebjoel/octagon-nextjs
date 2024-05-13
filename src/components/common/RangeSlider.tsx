@@ -4,12 +4,18 @@ interface RangeSliderProps {
     min: number;
     max: number;
     sliderValue: number;
+    title: string;
     handleSliderChange: (value: string) => void;
 }
 
-const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, sliderValue, handleSliderChange }) => {
+const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, sliderValue,title, handleSliderChange}) => {
     return (
         <div className="my-5 w-full">
+            <div className={`pb-2 text-base font-semibold flex justify-between`}>
+                <div>{title}</div>
+                {title === 'luminosity' && <div>{`${sliderValue}%`}</div>}
+
+            </div>
             <div className="rounded-full bg-white bg-opacity-20 w-full py-[8px] px-1">
                 <div className="relative top-0 left-0 h-[0] w-full">
 

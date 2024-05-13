@@ -5,6 +5,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Trapezoid {
   selected: boolean;
   data: string | number | null;
+  color: string | null;
 }
 
 interface Level {
@@ -17,50 +18,27 @@ interface State {
   [key: string]: Level;
 }
 
-const initialState: State = {
-  level2: {
-    level: 2,
-    selected: false,
-    trapezoid: {
-      1: { selected: false, data: null },
-      2: { selected: false, data: null },
-      3: { selected: false, data: null },
-      4: { selected: false, data: null },
-      5: { selected: false, data: null },
-      6: { selected: false, data: null },
-      7: { selected: false, data: null },
-      8: { selected: false, data: null },
-    },
-  },
-  level3: {
-    level: 3,
-    selected: false,
-    trapezoid: {
-      1: { selected: false, data: null },
-      2: { selected: false, data: null },
-      3: { selected: false, data: null },
-      4: { selected: false, data: null },
-      5: { selected: false, data: null },
-      6: { selected: false, data: null },
-      7: { selected: false, data: null },
-      8: { selected: false, data: null },
-    },
-  },
-  level4: {
-    level: 4,
-    selected: false,
-    trapezoid: {
-      1: { selected: false, data: null },
-      2: { selected: false, data: null },
-      3: { selected: false, data: null },
-      4: { selected: false, data: null },
-      5: { selected: false, data: null },
-      6: { selected: false, data: null },
-      7: { selected: false, data: null },
-      8: { selected: false, data: null },
-    },
-  },
+const generateTrapezoid = (): { [key: number]: Trapezoid } => {
+  const trapezoid: { [key: number]: Trapezoid } = {};
+  for (let i = 1; i <= 8; i++) {
+    trapezoid[i] = { selected: false, data: null , color: null};
+  }
+  return trapezoid;
 };
+
+const generateLevels = (): State => {
+  const levels: State = {};
+  for (let i = 2; i <= 4; i++) {
+    levels[`level${i}`] = {
+      level: i,
+      selected: false,
+      trapezoid: generateTrapezoid(),
+    };
+  }
+  return levels;
+};
+
+const initialState: State = generateLevels();
 
 const slice = createSlice({
   name: "octagon",

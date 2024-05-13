@@ -45,6 +45,8 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
 
     const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
+    const currentSelectionData : any = useSelector<any>((state)=>state.entities.currentSelection)
+
     const pointData = useTypedSelector((state) => state.entities.anchor[`level${level}`].point[`${id}`]);
     const { selected, shape, size, color, luminosity } = pointData;
 
@@ -52,7 +54,7 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
 
     return (
         <div 
-        className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0 ${selected? !modules.anchorTips? "animate-pulse": "animate-none" : 'animate-none'} `}
+        className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0 ${selected? !modules.anchorTips && currentSelectionData.point? "animate-pulse": "animate-none" : 'animate-none'} `}
         style={{ height: `${size}px` ,
         opacity: level===1 && id===7 && modules.anchorTips? 1 : luminosity/100
         }} >

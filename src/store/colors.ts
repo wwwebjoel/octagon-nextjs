@@ -8,6 +8,9 @@ const initialState: {
   savedColors: {
     [key: number]: null | string;
   };
+  propertiesColors: {
+    [key: number]: null | string;
+  };
 } = {
   activeColor: '#FFFFFF',
   savedColors: {
@@ -19,6 +22,16 @@ const initialState: {
     6: null,
     7: null,
     8: null
+  },
+  propertiesColors: {
+    1: '#FFAC01',
+    2: '#B76EF9',
+    3: '#9D6C32',
+    4: '#7B952A',
+    5: '#4154AA',
+    6: '#4F81E5',
+    7: '#FFA0CA',
+    8: '#97C211'
   }
 };
 

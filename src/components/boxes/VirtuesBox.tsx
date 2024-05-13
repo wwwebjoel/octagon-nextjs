@@ -1,20 +1,16 @@
 'use client'
 import React from 'react'
 import {Input1} from "@/components/common/Inputs";
-import {Button3} from "@/components/common/Buttons";
 import Box from "@/components/common/Box";
-import virtuesData from "@/data/virtues.json"
 import NavDown from "@/components/images/NavDown";
-import {useDispatch, useSelector} from "react-redux";
-import {trapezoidDataWritten} from "@/store/octagon";
-import {getNonNullTrapezoidDataValues} from "../../../utilities/octagon";
+import {useSelector} from "react-redux";
+
 import ApplyToAllButton from "@/components/common/ApplyToAllButton";
 import SingleVirtueButton from "@/components/common/SingleVirtueButton";
 
 const VirtuesBox = ()=>{
-    const dispatch = useDispatch()
-    const octagonState: any = useSelector<any>(state=>state.entities.octagon)
 
+    const virtuesData = useSelector((state:any)=>state.entities.virtues)
 
     return(
         <>
@@ -27,11 +23,11 @@ const VirtuesBox = ()=>{
                     <Input1/>
                     <div className={'flex flex-col gap-2.5 mt-3'}>
                    {
-                       virtuesData?.virtues.map((virtue, index)=>{
+                       virtuesData?.map((item:any, index:number)=>{
 
                            return <React.Fragment key={index}>
 
-                                   <SingleVirtueButton label={virtue}/>
+                                   <SingleVirtueButton label={item.virtue}/>
 
                            </React.Fragment>
                        })
