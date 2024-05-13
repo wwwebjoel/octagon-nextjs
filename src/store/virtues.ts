@@ -29,12 +29,13 @@ const virtuesSlice = createSlice({
       }
     },
     addVirtueColor: (state, action: PayloadAction<{ virtue: string; color: string }>) => {
-      console.log('Current state:', state)
+
       const { virtue, color } = action.payload;
       const foundVirtue = state.find(item => item.virtue === virtue);
       if (foundVirtue) {
         foundVirtue.color = color;
       }
+
 
     }
   }

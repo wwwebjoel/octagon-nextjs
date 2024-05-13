@@ -20,7 +20,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
 
     const thisTrapeZoidData: any = useSelector<any>(state=>state.entities.octagon[`level${level}`]?.trapezoid[transformNumber(index)])
 
-    const thisVirtueColor: any = useSelector<any>(state=>state.entities.virtues.find((item:any)=>thisTrapeZoidData && item.virtue === thisTrapeZoidData)?.color)
+    const thisVirtueData = useSelector((state: any) => state.entities.virtues.find((item:any) => item.virtue === thisTrapeZoidData?.data));
 
 
     const height = gap * Math.sin(67.5 * Math.PI/180)
@@ -39,8 +39,9 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
                 <div className={'h-0 w-0 relative z-trapezoid'} style={{rotate: `${((index) * 45 )+ 112.5}deg`}}  onClick = {()=>handleClick(thisTrapeZoidData.data)}>
 
                 <div
-                className={`${thisTrapeZoidData.selected? 'bg-gradient-trapezoid-active': `${ selectedLevel === level? 'bg-inner-carnationPink bg-opacity-70': 'bg-opacity-50' } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
+                className={`${thisTrapeZoidData.selected? 'bg-gradient-trapezoid-active' :`${!thisVirtueData?.color && selectedLevel === level? 'bg-inner-carnationPink bg-opacity-70': 'bg-opacity-50' } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
                 style={{
+                    ...(thisVirtueData?.color && !thisTrapeZoidData.selected && {background: thisVirtueData.color}),
                     width: longSide,
                     height: height,
                     clipPath: `polygon( ${longSide}px 0, ${shortSide+sideExtraLength}px ${height}px, ${sideExtraLength}px ${height}px, 0 0 )`
@@ -49,7 +50,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
                     {/*Index: {transformNumber(index)}*/}
 
                     {thisTrapeZoidData.data}
-                    {thisVirtueColor}
+
                 </div>
 
             </div>}
