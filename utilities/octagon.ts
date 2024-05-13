@@ -4,7 +4,7 @@ interface Trapezoid {
 }
 
 interface Level {
-    octagon: (state: State) => State;
+
     level: number;
     selected: boolean;
     trapezoid: Record<number, Trapezoid>;
