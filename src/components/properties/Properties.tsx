@@ -13,6 +13,10 @@ import RangeSlider from "../common/RangeSlider";
 import SizeRangeSlider from "@/components/properties/SizeRangeSlider";
 import LuminosityRangeSlider from "@/components/properties/LuminosityRangeSlider";
 import PropertiesColors from "@/components/properties/PropertiesColors";
+import BalanceLine from "../lines/BalanceLine";
+import UnityLine from "../lines/UnityLine";
+import OptimismLine from "../lines/OptimismLine";
+import ClarityLine from "../lines/ClarityLine";
 
 const items = [
     { icon: <Clarity />, title: "clarity" },
@@ -38,6 +42,14 @@ const Properties = () => {
       <SizeRangeSlider />
         <PropertiesColors />
         <LuminosityRangeSlider />
+        
+        <ClarityLine />
+        <br />
+        <OptimismLine />
+        <br />
+        <BalanceLine />
+        <br />
+        <UnityLine />
     </Box>
   );
 };
