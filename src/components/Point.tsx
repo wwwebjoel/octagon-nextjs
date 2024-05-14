@@ -26,7 +26,7 @@ interface RootState {
             selected: boolean;
             shape: string;
             size: number;
-            color: string;
+            color: string | null;
             luminosity: number;
           };
         };
@@ -58,7 +58,7 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
         style={{ height: `${size}px` ,
         opacity: level===1 && id===7 && modules.anchorTips? 1 : luminosity/100
         }} >
-            {shape === 'clarity' && <Clarity selected={selected} color={color}/>}
+            {shape === 'clarity' && <Clarity selected={selected} color={color || "#fff"}/>}
             {shape === 'unity' && <Unity selected={selected} />}
             {shape === 'patience' && <Patience />}
             {shape === 'balance' && <Balance />}

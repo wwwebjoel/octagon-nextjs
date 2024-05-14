@@ -7,7 +7,7 @@ interface Point {
   selected: boolean;
   shape: string;
   size: number;
-  color: string;
+  color: string | null;
   luminosity: number;
 }
 
@@ -25,7 +25,7 @@ const defaultPoint = {
   selected: false,
   shape: 'clarity',
   size: 20,
-  color: '#fff',
+  color: null,
   luminosity: 70,
 };
 

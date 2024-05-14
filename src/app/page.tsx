@@ -29,7 +29,6 @@ export default function Home() {
               {modules.wordsBox && <WordsBox/>}
               {modules.octagon && <Octagon radius={radius} gap={gap} level={level}/>}
               {modules.chooseWordBox && <VirtuesBox/>}
-               {/*<ColorPicker />*/}
               <Properties/>
               {modules.landscape && <Landscape />}
 
