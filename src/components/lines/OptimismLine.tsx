@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const OptimismLine: React.FC = ({height=10}: {height?: number}) => {
+const OptimismLine: React.FC = ({height=7}: {height?: number}) => {
 
   const bgColor= '#fff'
 

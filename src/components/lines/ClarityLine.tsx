@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ClarityLine = ({height=16}: {height?:number}) => {
+const ClarityLine = ({height=7}: {height?:number}) => {
   return (
     <div className='w-full' style={{
         height: `${height}px`,

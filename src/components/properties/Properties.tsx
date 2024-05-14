@@ -17,8 +17,11 @@ import BalanceLine from "../lines/BalanceLine";
 import UnityLine from "../lines/UnityLine";
 import OptimismLine from "../lines/OptimismLine";
 import ClarityLine from "../lines/ClarityLine";
+import { Button1 } from "../common/Buttons";
+import { useDispatch, useSelector } from "react-redux";
+import { anchorModuleActivated, pathModuleActivated } from "@/store/modules";
 
-const items = [
+const anchorTypes = [
     { icon: <Clarity />, title: "clarity" },
     { icon: <Unity />, title: "unity" },
     { icon: <Balance />, title: "balance" },
@@ -28,28 +31,46 @@ const items = [
     { icon: <Flow />, title: "flow" },
     { icon: <Aspiration />, title: "aspiration" }
   ];
+
+  const lineTypes = [
+    { icon: <ClarityLine />, title: "clarity" },
+    { icon: <UnityLine />, title: "unity" },
+    { icon: <BalanceLine />, title: "balance" },
+    { icon: <OptimismLine />, title: "optimism" },
+  ];
   
 const Properties = () => {
+  const dispatch = useDispatch();
+
+  const {anchor, path} : {anchor: boolean, path: boolean} = useSelector((state: any) => state.entities.modules.propertiesBox.type)
+
   return (
     <Box>
-      <div className={`grid grid-cols-2 gap-[10px]`}>
-        {items.map((item)=>{
+       <div className={'bg-white overflow-hidden w-max flex mb-4 rounded-[20px]'}>
+         <div onClick={()=>dispatch(anchorModuleActivated())}> <Button1 label="anchors" active={anchor}/></div>
+         <div onClick={()=>dispatch(pathModuleActivated())}> <Button1 label="paths" active={path}/></div>
+        
+        </div>
+      {anchor && <div className={`grid grid-cols-2 gap-[10px]`}>
+        {anchorTypes.map((item)=>{
             return(
-                <AnchorBox key={item.title} icon={item.icon} title={item.title} />
+                <AnchorBox key={item.title} icon={item.icon} title={item.title} property="anchor" />
             )
         })}
-      </div>
+      </div>}
+    {path &&   <div className={`grid grid-cols-2 gap-[10px]`}>
+        {lineTypes.map((item)=>{
+            return(
+                <div key={item.title} className="w-full">
+                  <AnchorBox icon={item.icon} title={item.title} property="line" />
+                  </div>
+            )
+        })}
+      </div>}
       <SizeRangeSlider />
         <PropertiesColors />
         <LuminosityRangeSlider />
-        
-        <ClarityLine />
-        <br />
-        <OptimismLine />
-        <br />
-        <BalanceLine />
-        <br />
-        <UnityLine />
+      
     </Box>
   );
 };

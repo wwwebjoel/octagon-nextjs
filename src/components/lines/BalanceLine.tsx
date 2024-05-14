@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
 
-const BalanceLine: React.FC = ({height=16}: {height?: number}) => {
+const BalanceLine: React.FC = ({height=9}: {height?: number}) => {
 
   const [numberOfCircles, setNumberOfCircles] = useState(0)
 

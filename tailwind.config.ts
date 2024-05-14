@@ -18,7 +18,8 @@ const config: Config = {
         'gradient-button-purple': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)",
         'gradient-box-purple': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)",
         'gradient-round-plus': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)",
-        'gradient-slider-thumb': "linear-gradient(180deg, #B76EF9 0%, #564A8D 100%)"
+        'gradient-slider-thumb': "linear-gradient(180deg, #B76EF9 0%, #564A8D 100%)",
+        'gradient-propertyBox-top-button': 'linear-gradient(180deg, rgba(254, 121, 249, 0.2) 0%, rgba(160, 107, 228, 0.2) 43%, rgba(86, 74, 141, 0.2) 100%)'
 },
       colors: {
         "inner-yellow": "#FFF500",
