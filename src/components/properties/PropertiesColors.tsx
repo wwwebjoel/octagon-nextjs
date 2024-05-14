@@ -3,28 +3,13 @@ import {activeColorChanged} from "@/store/colors";
 import {anchorPointColorChanged} from "@/store/anchor";
 import ColorIcon from "@/components/images/ColorIcon";
 import {addVirtueColor} from "@/store/virtues";
+import React, { useState } from "react";
+import SingleColorProperty from "./SingleColorProperty";
 
 export default function PropertiesColors(){
-    const dispatch = useDispatch()
-    const currentSelectionData : any = useSelector<any>((state)=>state.entities.currentSelection)
-    const {level, id, point, line, trapezoid} : {level: number; id: number; point: boolean; line:boolean; trapezoid: boolean;} = currentSelectionData;
-
-    const selectedTrapezoidData: any = useSelector((state: any) =>
-        state.entities.octagon[`level${level}`]?.trapezoid[id]?.data
-    );
-
-
-    const handleClick = (id:number, level: number, color: string)=>{
-        if(point){
-            dispatch(anchorPointColorChanged({id, level, color}))
-        }
-        if(trapezoid && selectedTrapezoidData){
-            dispatch(addVirtueColor({virtue:selectedTrapezoidData, color}))
-        }
-    }
-
-    const propertiesColorBox = useSelector((state:any)=>state.entities.colors.propertiesColors)
-
+    
+    const [showColorPicker, setShowColorPicker] = useState(-1)
+   
     return(
         <div>
             <div className={`pb-2 text-base font-semibold flex gap-[10px]`}>
@@ -33,15 +18,10 @@ export default function PropertiesColors(){
             </div>
             <div className={'flex justify-between gap-0.5'}>
                 {Array.from({length: 8}).map((_, i) => {
-                    const backgroundColor = propertiesColorBox[`${i + 1}`]
                     return (
-                        <div className={`h-6 w-6 aspect-square rounded-full cursor-pointer`} key={i}
-                             style={{backgroundColor}}
-
-                             onClick={() => handleClick(id, level, backgroundColor)}
-                        >
-
-                        </div>
+                      <React.Fragment key={i}>
+                        <SingleColorProperty index={i} showColorPicker={showColorPicker} setShowColorPicker={setShowColorPicker} />
+                      </React.Fragment>
                     )
                 })}
             </div>
