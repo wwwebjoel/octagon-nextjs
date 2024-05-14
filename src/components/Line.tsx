@@ -67,7 +67,6 @@ const DrawLine = ({height, type, level,currentSelectionData}: {height:number; ty
         {type==='optimism' && <OptimismLine height={height} />}
         {type==='balance' && <BalanceLine height={height} />}
         {type==='unity' && <UnityLine height={height} />}
-       
     </>
     )
 }
