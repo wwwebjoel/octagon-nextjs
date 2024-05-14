@@ -3,6 +3,7 @@ import { addVirtueColor } from "@/store/virtues";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ColorPicker from "../colorPicker/ColorPicker";
+import { lineColorChanged } from "@/store/lines";
 
 const SingleColorProperty = ({
   index,
@@ -35,15 +36,66 @@ const SingleColorProperty = ({
     (state: any) => state.entities.octagon[`level${level}`]?.trapezoid[id]?.data
   );
 
-  const handleClick = (id: number, level: number, color: string) => {
-    setShowColorPicker(index);
+  const selectedPointColor: any = useSelector(
+    (state: any) => state.entities.anchor[`level${level}`]?.point[id]?.color
+  );
 
-    // if(point){
-    //     dispatch(anchorPointColorChanged({id, level, color}))
-    // }
-    // if(trapezoid && selectedTrapezoidData){
-    //     dispatch(addVirtueColor({virtue:selectedTrapezoidData, color}))
-    // }
+  const selectedLineColor: any = useSelector(
+    (state: any) => state.entities.lines[`level${level}`]?.line[id]?.color
+  );
+
+  const selectedVirtueColor: any = useSelector(
+    (state:any )=>state.entities.virtues.find((item:any)=>item.virtue === selectedTrapezoidData)?.color
+
+  )
+
+  const handleClick = (id: number, level: number, color: string) => {
+    //check current selection
+
+    //if none selected, show color picker
+    if (!point && !line && !trapezoid) {
+      setShowColorPicker(true);
+    }
+
+    //if point selected check point color
+    //if point color same as selected color, show color picker
+
+    if (point) {
+      //if point color null or different, change color
+      if (!selectedPointColor || selectedPointColor !== color) {
+        dispatch(anchorPointColorChanged({ id, level, color }));
+      }
+      if (selectedPointColor === color) {
+        setShowColorPicker(index);
+      }
+    }
+
+    //Repeat same steps for line
+    if (line) {
+      //if point color null or different, change color
+      if (!selectedLineColor || selectedLineColor !== color) {
+        dispatch(lineColorChanged({ id, level, color }));
+      }
+      if (selectedLineColor === color) {
+        setShowColorPicker(index);
+      }
+    }
+
+    if(trapezoid){
+      if(!selectedTrapezoidData){
+        setShowColorPicker(index)
+      }
+      if(selectedTrapezoidData){
+        if(!selectedVirtueColor || selectedVirtueColor !== color){
+          dispatch(addVirtueColor({virtue: selectedTrapezoidData, color}))
+        }
+        if(selectedVirtueColor === color){
+          setShowColorPicker(index);
+        }
+
+      }
+    }
+
   };
 
   const propertiesColorBox = useSelector(
