@@ -45,11 +45,15 @@ const slice = createSlice({
 
     colorSaved: (state, action)=>{
       state.savedColors[action.payload.position] = action.payload.color
+    },
+
+    propertiesColorChanged: (state, action)=>{
+      state.propertiesColors[action.payload.position] = action.payload.color
     }
   
   },
 });
 
-export const { activeColorChanged, colorSaved } = slice.actions;
+export const { activeColorChanged, colorSaved , propertiesColorChanged} = slice.actions;
 
 export default slice.reducer;

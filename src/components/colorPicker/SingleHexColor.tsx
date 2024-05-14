@@ -2,19 +2,37 @@
 
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {activeColorChanged} from "@/store/colors";
+import {activeColorChanged, propertiesColorChanged} from "@/store/colors";
 import {anchorPointColorChanged, anchorPointShapeChanged} from "@/store/anchor";
+import { lineColorChanged } from "@/store/lines";
+import { addVirtueColor } from "@/store/virtues";
 
-export default function SingleHexColor({color}: {color: string}){
+export default function SingleHexColor({color, index}: {color: string; index: number}){
     const dispatch = useDispatch()
     const currentSelectionData : any = useSelector<any>((state)=>state.entities.currentSelection)
-    const {level, id, point} : {level: number, id: number, point: boolean} = currentSelectionData;
+    const {level, id, point, line, trapezoid} : {level: number; id: number; point: boolean; line: boolean; trapezoid: boolean;} = currentSelectionData;
+
+    const selectedTrapezoidData: any = useSelector(
+        (state: any) => state.entities.octagon[`level${level}`]?.trapezoid[id]?.data
+      );
 
     const handleClick = (id:number, level: number, color: string)=>{
 
         dispatch(activeColorChanged({color}))
+
+        dispatch(propertiesColorChanged({position: index+1, color}))
+
         if(point){
             dispatch(anchorPointColorChanged({id, level, color}))
+        }
+        if(line){
+            dispatch(lineColorChanged({ id, level, color }));
+        }
+
+        if(trapezoid){
+            if(selectedTrapezoidData){
+                dispatch(addVirtueColor({ virtue: selectedTrapezoidData, color }));
+            }
         }
     }
 

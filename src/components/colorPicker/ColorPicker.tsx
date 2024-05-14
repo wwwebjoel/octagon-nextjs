@@ -5,7 +5,7 @@ import CloseIcon from "@/components/common/RoundedCloseIcon";
 import ColorPlusIcon from "@/components/colorPicker/ColorPlusIcon";
 import ColorPickerBoxDownArrow from "@/components/colorPicker/ColorPickerBoxDownArrow";
 import { ActiveColorBox } from "@/components/colorPicker/ActiveColorBox";
-const ColorPicker = ({ setShowColorPicker }: any) => {
+const ColorPicker = ({ setShowColorPicker, index }: any) => {
   return (
     <div className={"relative w-max z-[99999999999]"}>
       <div
@@ -28,7 +28,7 @@ const ColorPicker = ({ setShowColorPicker }: any) => {
             <CloseIcon />
           </div>
         </div>
-        <HexColors />
+        <HexColors index={index}/>
 
         <div className={"mt-[26px] mb-2 flex gap-8 items-center"}>
           <ActiveColorBox />

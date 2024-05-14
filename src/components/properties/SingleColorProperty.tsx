@@ -45,16 +45,18 @@ const SingleColorProperty = ({
   );
 
   const selectedVirtueColor: any = useSelector(
-    (state:any )=>state.entities.virtues.find((item:any)=>item.virtue === selectedTrapezoidData)?.color
-
-  )
+    (state: any) =>
+      state.entities.virtues.find(
+        (item: any) => item.virtue === selectedTrapezoidData
+      )?.color
+  );
 
   const handleClick = (id: number, level: number, color: string) => {
     //check current selection
 
     //if none selected, show color picker
     if (!point && !line && !trapezoid) {
-      setShowColorPicker(true);
+      setShowColorPicker(index);
     }
 
     //if point selected check point color
@@ -81,21 +83,20 @@ const SingleColorProperty = ({
       }
     }
 
-    if(trapezoid){
-      if(!selectedTrapezoidData){
-        setShowColorPicker(index)
+    // For Trapezoid
+    if (trapezoid) {
+      if (!selectedTrapezoidData) {
+        setShowColorPicker(index);
       }
-      if(selectedTrapezoidData){
-        if(!selectedVirtueColor || selectedVirtueColor !== color){
-          dispatch(addVirtueColor({virtue: selectedTrapezoidData, color}))
+      if (selectedTrapezoidData) {
+        if (!selectedVirtueColor || selectedVirtueColor !== color) {
+          dispatch(addVirtueColor({ virtue: selectedTrapezoidData, color }));
         }
-        if(selectedVirtueColor === color){
+        if (selectedVirtueColor === color) {
           setShowColorPicker(index);
         }
-
       }
     }
-
   };
 
   const propertiesColorBox = useSelector(
@@ -104,7 +105,7 @@ const SingleColorProperty = ({
 
   return (
     <div
-      className={`relative h-6 w-6 aspect-square rounded-full cursor-pointer flex justify-center`}
+      className={`relative h-6 w-6 aspect-square rounded-full cursor-pointer flex justify-center ${showColorPicker === index && 'border-[1px] border-solid border-white'}`}
       key={index}
       style={{ backgroundColor: propertiesColorBox[`${index + 1}`] }}
       onClick={() => handleClick(id, level, propertiesColorBox[`${index + 1}`])}
@@ -112,7 +113,7 @@ const SingleColorProperty = ({
       <div className="relative h-0 w-0 overflow-visible">
         {showColorPicker === index && (
           <div className="absolute left-0 bottom-4 -translate-x-1/2">
-            <ColorPicker setShowColorPicker={setShowColorPicker} />
+            <ColorPicker setShowColorPicker={setShowColorPicker} index={index} />
           </div>
         )}
       </div>

@@ -15,16 +15,14 @@ const colors = [
     "#F4A4C0", "#FFB5AF", "#FFC5AB", "#FED9A8", "#FDE4A8", "#FFFBB9", "#F1F7B7", "#CDE8B5", "#CBF0FF", "#D2E2FE",
     "#D8C9FE", "#EFCAFE", "#F9D3E0", "#FFDAD8", "#FFE2D6", "#FEECD4", "#FEF1D5", "#FDFBDD", "#F6FADB", "#DEEED4"
 ];
-function HexColors() {
-
-
+function HexColors({index}: {index:number}) {
 
     return (
        <div className={`grid grid-cols-12 gap-0 rounded-lg overflow-hidden`}>
            {
                colors.map(color=>{
                    return(<React.Fragment key={color}>
-                        <SingleHexColor color={color} />
+                        <SingleHexColor color={color} index={index} />
                        </React.Fragment>
                    )
                })
