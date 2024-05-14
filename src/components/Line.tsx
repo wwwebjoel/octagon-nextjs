@@ -52,11 +52,7 @@ const Line: React.FC<LineProps> = ({ side, index= 0, level=1 }) => {
                          width: `${side}px`,
                         //  height: level===1? '7px': currentSelectionData.level === level || currentSelectionData.level===level+1 ? "5px": `${5/level}px`
                 }}>
-                     {!type || type==='clarity' && <ClarityLine height={ level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level } />}
-                      {type==='optimism' && <OptimismLine height={ level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level } />}
-                      {type==='balance' && <BalanceLine height={ level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level } />}
-                      {type==='unity' && <UnityLine height={ level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level } />}
-                     
+                    <DrawLine type={type} level={level} currentSelectionData={currentSelectionData} height={level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level} />
             </div>
 
         </div>
@@ -64,3 +60,14 @@ const Line: React.FC<LineProps> = ({ side, index= 0, level=1 }) => {
 };
 
 export default Line;
+
+const DrawLine = ({height, type, level,currentSelectionData}: {height:number; type:string|null; level: number; currentSelectionData: string})=>{
+    return(<>
+    {(!type || type ==='clarity')&& <ClarityLine height={height} />}
+        {type==='optimism' && <OptimismLine height={height} />}
+        {type==='balance' && <BalanceLine height={height} />}
+        {type==='unity' && <UnityLine height={height} />}
+       
+    </>
+    )
+}

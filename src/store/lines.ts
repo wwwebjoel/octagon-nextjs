@@ -5,7 +5,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Line {
   id: number;
   selected: boolean;
-  type: string;
+  type: string | null;
   size: number;
   color: string | null;
   luminosity: number;
@@ -23,7 +23,7 @@ interface InitialState {
 
 const defaultLine = {
   selected: false,
-  type: 'clarity',
+  type: null,
   size: 20,
   color: null,
   luminosity: 70,
