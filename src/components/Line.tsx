@@ -3,6 +3,9 @@ import { linesSelectionReset } from '@/store/lines';
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import OptimismLine from './lines/OptimismLine';
+import ClarityLine from './lines/ClarityLine';
+import BalanceLine from './lines/BalanceLine';
+import UnityLine from './lines/UnityLine';
 
 interface LineProps {
     side: number;
@@ -49,7 +52,11 @@ const Line: React.FC<LineProps> = ({ side, index= 0, level=1 }) => {
                          width: `${side}px`,
                         //  height: level===1? '7px': currentSelectionData.level === level || currentSelectionData.level===level+1 ? "5px": `${5/level}px`
                 }}>
-                      <OptimismLine />
+                     {!type || type==='clarity' && <ClarityLine height={ level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level } />}
+                      {type==='optimism' && <OptimismLine height={ level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level } />}
+                      {type==='balance' && <BalanceLine height={ level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level } />}
+                      {type==='unity' && <UnityLine height={ level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level } />}
+                     
             </div>
 
         </div>
