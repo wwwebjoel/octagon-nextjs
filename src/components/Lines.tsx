@@ -1,6 +1,7 @@
 import React from 'react';
 import Line from '@/components/Line';
 import GapLine from "@/components/gapline";
+import OptimismLine from './lines/OptimismLine';
 
 interface LinesProps {
     radius: number;

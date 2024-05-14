@@ -44,7 +44,7 @@ const OptimismLine: React.FC = ({height=10}: {height?: number}) => {
   }, [height]);
 
   return (
-    <div className='relative overflow-visible flex items-center'
+    <div className='relative w-full overflow-visible flex items-center'
     style={{height: height}}
     >
       <div ref={directionContainerRef} className='absolute top-1/2 left-0 -translate-y-1/2 flex items-center overflow-visible'  style={{height: `${height/3}px`}}>
