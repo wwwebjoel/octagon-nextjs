@@ -46,13 +46,13 @@ const Line: React.FC<LineProps> = ({ side, index= 0, level=1 }) => {
 
             
             <div className={`
-                rounded-full absolute origin-left left-0 top-0 -translate-y-1/2 hover:bg-inner-orange cursor-pointer`}
+                rounded-full absolute top-0 left-0 -translate-y-1/2  hover:bg-inner-orange cursor-pointer ${selected && 'animate-bounce'}`}
                      style={{
                          ...(color && {backgroundColor: color} ),
                          width: `${side}px`,
                         //  height: level===1? '7px': currentSelectionData.level === level || currentSelectionData.level===level+1 ? "5px": `${5/level}px`
                 }}>
-                    <DrawLine type={type} level={level} currentSelectionData={currentSelectionData} height={level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 5 : 5/level} />
+                    <DrawLine type={type} level={level} currentSelectionData={currentSelectionData} height={level===1? 7: currentSelectionData.level === level || currentSelectionData.level===level+1 ? 10 : 10/level} />
             </div>
 
         </div>

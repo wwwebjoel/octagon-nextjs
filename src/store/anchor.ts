@@ -26,7 +26,7 @@ const defaultPoint = {
   shape: 'clarity',
   size: 20,
   color: null,
-  luminosity: 70,
+  luminosity: 100,
 };
 
 const createPoint = (id: number) => ({ id, ...defaultPoint });

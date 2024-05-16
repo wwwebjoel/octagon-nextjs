@@ -39,15 +39,21 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
                 <div className={'h-0 w-0 relative z-trapezoid'} style={{rotate: `${((index) * 45 )+ 112.5}deg`}}  onClick = {()=>handleClick(thisTrapeZoidData.data)}>
 
                 <div
-                className={`${thisTrapeZoidData.selected? 'bg-gradient-trapezoid-active' :`${!thisVirtueData?.color && selectedLevel === level? 'bg-inner-carnationPink bg-opacity-70': 'bg-opacity-50' } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
+                className={`relative transition-all duration-300 ${ `${!thisVirtueData?.color && selectedLevel === level? 'bg-inner-carnationPink bg-opacity-70 ': 'bg-opacity-50' } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
                 style={{
-                    ...(thisVirtueData?.color && !thisTrapeZoidData.selected && {background: thisVirtueData.color}),
+                    ...(thisVirtueData?.color && {background: thisVirtueData.color}),
                     width: longSide,
                     height: height,
                     clipPath: `polygon( ${longSide}px 0, ${shortSide+sideExtraLength}px ${height}px, ${sideExtraLength}px ${height}px, 0 0 )`
                 }}>
                     {/*Level: {level}*/}
                     {/*Index: {transformNumber(index)}*/}
+
+                    {thisTrapeZoidData.selected && <div className='absolute top-0 left-0 pt-4 w-full flex justify-center'>
+                        <div className='bg-white h-3 aspect-square rounded-full animate-ping'></div>
+                        </div>}
+
+                    
 
                     {thisTrapeZoidData.data}
 

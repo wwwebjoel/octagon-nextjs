@@ -53,11 +53,15 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
     const modules: any = useSelector<any>(state=>state.entities.modules)
 
     return (
-        <div 
-        className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0 ${selected? !modules.anchorTips && currentSelectionData.point? "animate-pulse": "animate-none" : 'animate-none'} `}
-        style={{ height: `${size}px` ,
+
+      <div className=' h-0 w-0 relative overflow-visible z-point'>
+  <div className='relative aspect-square -translate-x-1/2 -translate-y-1/2' style={{height: `${size}px`}}>
+  <div 
+        className={`relative h-full aspect-square cursor-pointer  transition-all duration-300 ${selected? !modules.anchorTips && currentSelectionData.point? "animate-pulse": "" : ''} `}
+        style={{
         opacity: level===1 && id===7 && modules.anchorTips? 1 : luminosity/100
         }} >
+       
             {shape === 'clarity' && <Clarity selected={selected} color={color || "#fff"}/>}
             {shape === 'unity' && <Unity selected={selected} />}
             {shape === 'patience' && <Patience />}
@@ -66,12 +70,38 @@ const Point: React.FC<PointProps> = ({ level, id }) => {
             {shape === 'boundary' && <Boundaries />}
             {shape === 'flow' && <Flow />}
             {shape === 'aspiration' && <Aspiration />}
+        
 
             {level===1 && id===7 && modules.anchorTips && <div className={'absolute -top-[23px] left-[22px]'}>
                 <AnchorTips />
             </div>}
 
         </div>
+  
+</div>
+
+      </div>
+        // <div 
+        // className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0 transition-all duration-300 ${selected? !modules.anchorTips && currentSelectionData.point? "": "" : ''} `}
+        // style={{ height: `${size}px` ,
+        // opacity: level===1 && id===7 && modules.anchorTips? 1 : luminosity/100
+        // }} >
+       
+        //     {shape === 'clarity' && <Clarity selected={selected} color={color || "#fff"}/>}
+        //     {shape === 'unity' && <Unity selected={selected} />}
+        //     {shape === 'patience' && <Patience />}
+        //     {shape === 'balance' && <Balance />}
+        //     {shape === 'optimism' && <Optimism />}
+        //     {shape === 'boundary' && <Boundaries />}
+        //     {shape === 'flow' && <Flow />}
+        //     {shape === 'aspiration' && <Aspiration />}
+        
+
+        //     {level===1 && id===7 && modules.anchorTips && <div className={'absolute -top-[23px] left-[22px]'}>
+        //         <AnchorTips />
+        //     </div>}
+
+        // </div>
     );
 }
 

@@ -13,7 +13,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'gradient-top-header': "linear-gradient(180deg, rgba(160, 107, 228, 0.6) 13%, rgba(86, 74, 141, 0.6) 71%)",
-        'gradient-trapezoid-inactive': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 0%, rgba(160, 107, 228, 0.6) 43%, rgba(86, 74, 141, 0.6) 100%)",
+        'gradient-trapezoid-inactive': "linear-gradient(180deg, rgba(254, 121, 249, 0.25) 0%, rgba(160, 107, 228, 0.25) 43%, rgba(86, 74, 141, 0.25) 100%)",
         'gradient-trapezoid-active': "linear-gradient(180deg, rgba(255, 172, 1, 0.6) 0%, rgba(255, 245, 0, 0.6) 57%, rgba(255, 245, 0, 0.06) 100%)",
         'gradient-button-purple': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)",
         'gradient-box-purple': "linear-gradient(180deg, rgba(254, 121, 249, 0.6) 25%, rgba(160, 107, 228, 0.6) 50%, rgba(86, 74, 141, 0.6) 100%)",
@@ -28,6 +28,12 @@ const config: Config = {
         "inner-purple2": "#9D53E7",
         "inner-carnationPink": "#FFA0CA",
       },
+      dropShadow: {
+        glow: [
+        "0 0px 20px rgba(255,255, 255, 0.35)",
+        "0 0px 65px rgba(255, 255,255, 0.2)"
+        ]
+        },
       zIndex: {
         'point': '100',
         'line': '90',
