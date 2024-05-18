@@ -98,7 +98,7 @@ const Properties: React.FC = () => {
               ))}
             </div>
           )}
-          <SizeRangeSlider min={anchor ? 10 : 2} max={anchor ? 30 : 15} />
+          <SizeRangeSlider min={anchor ? 10 : 2} max={anchor ? 30 : 30} />
           <PropertiesColors />
           {anchor && <LuminosityRangeSlider />}
         </>
