@@ -5,12 +5,13 @@ import RoundMinus from "@/components/images/RoundMinus";
 interface ButtonProps {
     label: string;
     active?: boolean;
+    smallText?: boolean;
 }
 
-export const Button1: React.FC<ButtonProps> = ({ label, active= false }) => {
+export const Button1: React.FC<ButtonProps> = ({ label, active= false, smallText=false }) => {
 
     return (
-        <div className={`${active? 'bg-gradient-button-purple text-white': 'bg-white text-inner-purple hover:bg-gradient-button-purple hover:text-white'} h-full w-max flex items-center font-bold text-base leading-5 text-center py-0.5 px-[15px] cursor-pointer`}>
+        <div className={`${active? 'bg-gradient-button-purple text-white': 'bg-white text-inner-purple hover:bg-gradient-button-purple hover:text-white'} ${smallText? 'text-xs': 'text-base'} h-full w-max flex items-center font-bold leading-5 text-center py-0.5 px-[15px] cursor-pointer`}>
             {label}
         </div>
     );

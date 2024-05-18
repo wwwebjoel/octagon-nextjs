@@ -28,7 +28,7 @@ export default function Home() {
           <div className={'relative flex w-max m-auto gap-4 py-10'}>
               {modules.wordsBox && <WordsBox/>}
               {modules.octagon && <Octagon radius={radius} gap={gap} level={level}/>}
-              {modules.chooseWordBox && <VirtuesBox/>}
+  
               <Properties/>
               {modules.landscape && <Landscape />}
 

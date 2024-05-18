@@ -12,7 +12,8 @@ const initialState = {
     propertiesBox: {
         active: false,
         type: {
-            anchor: true,
+            words: true,
+            anchor: false,
             path: false,
             space: false,
         }
@@ -48,16 +49,26 @@ const slice = createSlice({
             state.propertiesBox.type.anchor = true
             state.propertiesBox.type.path = false
             state.propertiesBox.type.space = false
+            state.propertiesBox.type.words = false
+            
         },
         pathModuleActivated: state=>{
             state.propertiesBox.type.anchor = false
             state.propertiesBox.type.path = true
             state.propertiesBox.type.space = false
+            state.propertiesBox.type.words = false
         },
         spaceModuleActivated: state=>{
             state.propertiesBox.type.anchor = false
             state.propertiesBox.type.path = false
             state.propertiesBox.type.space = true
+            state.propertiesBox.type.words = false
+        },
+        wordsModuleActivated: state=>{
+            state.propertiesBox.type.anchor = false
+            state.propertiesBox.type.path = false
+            state.propertiesBox.type.space = false
+            state.propertiesBox.type.words = true
         },
     },
 });
@@ -70,6 +81,7 @@ octagonModuleDeactivated,
 octagonModuleActivated,
 anchorModuleActivated,
 pathModuleActivated,
-spaceModuleActivated} = slice.actions;
+spaceModuleActivated,
+wordsModuleActivated} = slice.actions;
 
 export default slice.reducer;

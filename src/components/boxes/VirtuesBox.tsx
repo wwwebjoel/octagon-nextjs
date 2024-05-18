@@ -14,7 +14,7 @@ const VirtuesBox = ()=>{
 
     return(
         <>
-            <Box>
+            {/* <Box> */}
                 <div className={'flex gap-4 justify-between align-center'}>
                     <div className={'font-black text-lg mb-5'}>choose your word</div>
                     <NavDown/>
@@ -37,7 +37,7 @@ const VirtuesBox = ()=>{
                 <div className={'absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2'}>
                <ApplyToAllButton />
            </div>
-            </Box>
+            {/* </Box> */}
         </>
     )
 }
