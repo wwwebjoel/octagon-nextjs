@@ -24,7 +24,7 @@ interface InitialState {
 const defaultLine = {
   selected: false,
   type: null,
-  size: 20,
+  size: 10,
   color: null,
   luminosity: 70,
 };

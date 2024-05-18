@@ -44,22 +44,21 @@ const lineTypes = [
   { icon: <OptimismLine />, title: "optimism" },
 ];
 
-const Properties = () => {
-  const dispatch = useDispatch();
+interface PropertiesState {
+  anchor: boolean;
+  path: boolean;
+  words: boolean;
+}
 
-  const {
-    anchor,
-    path,
-    words,
-  }: { anchor: boolean; path: boolean; words: boolean } = useSelector(
+const Properties: React.FC = () => {
+  const dispatch = useDispatch();
+  const { anchor, path, words } = useSelector(
     (state: any) => state.entities.modules.propertiesBox.type
-  );
+  ) as PropertiesState;
 
   return (
     <Box>
-      <div
-        className={"bg-white overflow-hidden w-max flex mb-4 rounded-[20px]"}
-      >
+      <div className="bg-white overflow-hidden w-max flex mb-4 rounded-[20px]">
         <div onClick={() => dispatch(wordsModuleActivated())}>
           <Button1 label="words" active={words} smallText={true} />
         </div>
@@ -71,43 +70,37 @@ const Properties = () => {
         </div>
       </div>
       {words ? (
-        <>
-          <VirtuesBox />
-        </>
+        <VirtuesBox />
       ) : (
         <>
           {anchor && (
-            <div className={`grid grid-cols-2 gap-[10px]`}>
-              {anchorTypes.map((item) => {
-                return (
-                  <AnchorBox
-                    key={item.title}
-                    icon={item.icon}
-                    title={item.title}
-                    property="anchor"
-                  />
-                );
-              })}
+            <div className="grid grid-cols-2 gap-[10px]">
+              {anchorTypes.map((item) => (
+                <AnchorBox
+                  key={item.title}
+                  icon={item.icon}
+                  title={item.title}
+                  property="anchor"
+                />
+              ))}
             </div>
           )}
           {path && (
-            <div className={`grid grid-cols-2 gap-[10px]`}>
-              {lineTypes.map((item) => {
-                return (
-                  <div key={item.title} className="w-full">
-                    <AnchorBox
-                      icon={item.icon}
-                      title={item.title}
-                      property="line"
-                    />
-                  </div>
-                );
-              })}
+            <div className="grid grid-cols-2 gap-[10px]">
+              {lineTypes.map((item) => (
+                <div key={item.title} className="w-full">
+                  <AnchorBox
+                    icon={item.icon}
+                    title={item.title}
+                    property="line"
+                  />
+                </div>
+              ))}
             </div>
           )}
-          <SizeRangeSlider />
+          <SizeRangeSlider min={anchor ? 10 : 2} max={anchor ? 30 : 15} />
           <PropertiesColors />
-          <LuminosityRangeSlider />
+          {anchor && <LuminosityRangeSlider />}
         </>
       )}
     </Box>

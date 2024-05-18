@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { anchorPointSizeChanged } from "@/store/anchor";
 import RangeSlider from "@/components/common/RangeSlider";
+import { lineSizeChanged } from "@/store/lines";
 
 interface CurrentSelection {
     point: boolean;
@@ -11,10 +12,10 @@ interface CurrentSelection {
     id: number;
 }
 
-export default function SizeRangeSlider() {
+export default function SizeRangeSlider({min,max}: {min:number; max:number}) {
     const dispatch = useDispatch();
 
-    const [sliderValue, setSliderValue] = useState<number>(20);
+    const [sliderValue, setSliderValue] = useState<number>((min+max)/2);
 
     const currentSelection: CurrentSelection = useSelector(
         (state: any) => state.entities.currentSelection
@@ -24,7 +25,7 @@ export default function SizeRangeSlider() {
     const handleSliderChange = (value: string) => {
         setSliderValue(Number(value));
 
-        const { point, level, id } = currentSelection;
+        const { point, level, id, line} = currentSelection;
 
         if (point) {
             dispatch(
@@ -35,12 +36,21 @@ export default function SizeRangeSlider() {
                 })
             );
         }
+        if (line) {
+            dispatch(
+                lineSizeChanged({
+                    id,
+                    level,
+                    size: Number(value),
+                })
+            );
+        }
     };
 
     return (
             <RangeSlider
-                min={10}
-                max={30}
+                min={min}
+                max={max}
                 sliderValue={sliderValue}
                 handleSliderChange={handleSliderChange}
                 title={'size'}

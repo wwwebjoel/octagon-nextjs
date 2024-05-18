@@ -43,10 +43,9 @@ const Line: React.FC<LineProps> = ({ side, index = 0, level = 1 }) => {
       <div
         className={`
                 rounded-full absolute top-0 left-0 -translate-y-1/2  cursor-pointer ${
-                  selected && "animate-bounce"
+                  selected && "animate-pulse"
                 }`}
         style={{
-          //  ...(color && {backgroundColor: color} ),
           width: `${side}px`,
         }}
       >
@@ -56,11 +55,11 @@ const Line: React.FC<LineProps> = ({ side, index = 0, level = 1 }) => {
           currentSelectionData={currentSelectionData}
           height={
             level === 1
-              ? 7
+              ? size
               : currentSelectionData.level === level ||
                 currentSelectionData.level === level + 1
-              ? 10
-              : 10 / level
+              ? size
+              : size / level
           }
           color={color || "#fff"}
         />

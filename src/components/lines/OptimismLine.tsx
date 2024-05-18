@@ -4,11 +4,11 @@ import React, { useEffect, useRef } from 'react';
 
 interface OptimismLineProps {
   height?: number;
-  color: string;
+  color?: string;
 }
 
-const OptimismLine: React.FC<OptimismLineProps> = ({ height = 7, color }) => {
-  const bgColor = color || '#fff';
+const OptimismLine: React.FC<OptimismLineProps> = ({ height = 7, color='#fff' }) => {
+  const bgColor = color;
   const lineRef = useRef<HTMLDivElement>(null);
   const directionContainerRef = useRef<HTMLDivElement>(null);
 

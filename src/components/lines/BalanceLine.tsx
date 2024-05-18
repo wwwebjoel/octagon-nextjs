@@ -3,12 +3,12 @@ import React, { useEffect, useRef, useState } from 'react';
 
 interface BalanceLineProps {
   height?: number;
-  color: string;
+  color?: string;
 }
 
-const BalanceLine: React.FC<BalanceLineProps> = ({ height = 9, color }) => {
+const BalanceLine: React.FC<BalanceLineProps> = ({ height = 9, color="#fff" }) => {
   const [numberOfCircles, setNumberOfCircles] = useState(0);
-  const bgColor = '#fff';
+  const bgColor = color;
   const lineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -3,12 +3,12 @@ import React, { useEffect, useRef, useState } from 'react';
 
 interface UnityLineProps {
   height?: number;
-  color: string;
+  color?: string;
 }
 
-const UnityLine: React.FC<UnityLineProps> = ({ height = 9, color }) => {
+const UnityLine: React.FC<UnityLineProps> = ({ height = 9, color='#fff' }) => {
   const [numberOfCircles, setNumberOfCircles] = useState(0);
-  const bgColor = color || '#fff';
+  const bgColor = color
   const lineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

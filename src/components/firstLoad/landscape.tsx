@@ -9,6 +9,7 @@ import {pointSelected} from "@/store/currentSelection";
 export default function Landscape(){
     const dispatch = useDispatch()
     const handleLandscapeClose = ()=>{
+        localStorage.setItem("landscape", "true");
             dispatch(landscapeModuleDeactivated())
             // dispatch(anchorPointsSelectionReset())
             // dispatch(anchorPointSelected({level:1, id:7}))
