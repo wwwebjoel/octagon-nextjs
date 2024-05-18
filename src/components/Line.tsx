@@ -6,14 +6,21 @@ import OptimismLine from "./lines/OptimismLine";
 import ClarityLine from "./lines/ClarityLine";
 import BalanceLine from "./lines/BalanceLine";
 import UnityLine from "./lines/UnityLine";
+import StarLine from "./lines/StarLine";
 
 interface LineProps {
   side: number;
   index?: number;
   level?: number;
+  constellation?: boolean;
 }
 
-const Line: React.FC<LineProps> = ({ side, index = 0, level = 1 }) => {
+const Line: React.FC<LineProps> = ({
+  side,
+  index = 0,
+  level = 1,
+  constellation = false,
+}) => {
   const dispatch = useDispatch();
 
   const currentSelectionData: any = useSelector<any>(
@@ -30,8 +37,10 @@ const Line: React.FC<LineProps> = ({ side, index = 0, level = 1 }) => {
     // dispatch(anchorPointsSelectionReset())
     // dispatch(pointSelected({level, id}))
     // dispatch(anchorPointSelected({level, id}))
-    dispatch(linesSelectionReset());
+    if(!constellation){
+      dispatch(linesSelectionReset());
     dispatch(lineSelected({ level, id }));
+    }
   };
 
   return (
@@ -49,20 +58,29 @@ const Line: React.FC<LineProps> = ({ side, index = 0, level = 1 }) => {
           width: `${side}px`,
         }}
       >
-        <DrawLine
-          type={type}
-          level={level}
-          currentSelectionData={currentSelectionData}
-          height={
-            level === 1
-              ? size
-              : currentSelectionData.level === level ||
-                currentSelectionData.level === level + 1
-              ? size
-              : size / level
-          }
-          color={color || "#fff"}
-        />
+        {!constellation && (
+          <DrawLine
+            type={type}
+            level={level}
+            currentSelectionData={currentSelectionData}
+            height={
+              level === 1
+                ? size
+                : currentSelectionData.level === level ||
+                  currentSelectionData.level === level + 1
+                ? size
+                : size / level
+            }
+            color={color || "#fff"}
+          />
+        )}
+
+        {constellation && (
+          <StarLine
+            height={1}
+            color={color || "#fff"}
+          />
+        )}
       </div>
     </div>
   );
