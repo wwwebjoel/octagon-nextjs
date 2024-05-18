@@ -1,10 +1,10 @@
 import React from 'react'
 
-const ClarityLine = ({height=7}: {height?:number}) => {
+const ClarityLine = ({height=7, color}: {height?:number, color:string}) => {
   return (
     <div className='w-full' style={{
         height: `${height}px`,
-        backgroundColor: "#fff"
+        backgroundColor: color || "#fff"
     }}></div>
   )
 }

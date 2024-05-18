@@ -61,22 +61,19 @@ const Properties = () => {
         className={"bg-white overflow-hidden w-max flex mb-4 rounded-[20px]"}
       >
         <div onClick={() => dispatch(wordsModuleActivated())}>
-          {" "}
           <Button1 label="words" active={words} smallText={true} />
         </div>
         <div onClick={() => dispatch(anchorModuleActivated())}>
-          {" "}
           <Button1 label="anchors" active={anchor} smallText={true} />
         </div>
         <div onClick={() => dispatch(pathModuleActivated())}>
-          {" "}
           <Button1 label="paths" active={path} smallText={true} />
         </div>
       </div>
       {words ? (
-        <div>
+        <>
           <VirtuesBox />
-        </div>
+        </>
       ) : (
         <>
           {anchor && (
