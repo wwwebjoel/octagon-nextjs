@@ -22,6 +22,9 @@ const BottomHeader = ()=>{
         if(title === "foundations"){
             dispatch(levelSelected({level: 4}))
         }
+        if(title === "constellations"){
+            dispatch(levelSelected({level: 6}))
+        }
         dispatch(activeBottomMenuItemChanged({item:title}))
     }
     return(

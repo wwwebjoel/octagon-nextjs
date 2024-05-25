@@ -37,9 +37,9 @@ const Line: React.FC<LineProps> = ({
     // dispatch(anchorPointsSelectionReset())
     // dispatch(pointSelected({level, id}))
     // dispatch(anchorPointSelected({level, id}))
-    if(!constellation){
+    if (!constellation) {
       dispatch(linesSelectionReset());
-    dispatch(lineSelected({ level, id }));
+      dispatch(lineSelected({ level, id }));
     }
   };
 
@@ -74,13 +74,7 @@ const Line: React.FC<LineProps> = ({
             color={color || "#fff"}
           />
         )}
-
-        {constellation && (
-          <StarLine
-            height={1}
-            color={color || "#fff"}
-          />
-        )}
+        {constellation && <StarLine height={1} color={color || "#fff"} />}
       </div>
     </div>
   );
