@@ -5,6 +5,7 @@ import Trapezoids from "@/components/Trapezoids";
 import Center from "@/components/Center";
 import Stars from "@/components/Stars";
 import ConstellationLine from "./ConstellationLine";
+import DistortionLine from "./DistortionLine";
 
 interface OctagonProps {
   radius: number;
@@ -42,6 +43,7 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level = 0 }) => {
                 })}
 
                 {/* <ConstellationLine radius={radius} gap={gap} level={level} /> */}
+                <DistortionLine radius={radius} gap={gap} level={level} />
                 <div className={"origin-center rotate-[22.5deg]"}>
                   <Stars radius={radius} gap={gap} level={level} />
                 </div>

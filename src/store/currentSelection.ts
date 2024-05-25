@@ -3,6 +3,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  //If if stars selected then level = 6
   level: -1,
   id: -1,
   point: false,
