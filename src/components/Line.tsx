@@ -58,7 +58,7 @@ const Line: React.FC<LineProps> = ({
           width: `${side}px`,
         }}
       >
-        {!constellation && (
+       
           <DrawLine
             type={type}
             level={level}
@@ -73,8 +73,8 @@ const Line: React.FC<LineProps> = ({
             }
             color={color || "#fff"}
           />
-        )}
-        {constellation && <StarLine height={1} color={color || "#fff"} />}
+     
+        {/* {constellation && <StarLine height={1} color={color || "#fff"} />} */}
       </div>
     </div>
   );

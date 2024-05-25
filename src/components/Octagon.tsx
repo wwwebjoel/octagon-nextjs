@@ -10,11 +10,12 @@ import DistortionLine from "./DistortionLine";
 interface OctagonProps {
   radius: number;
   gap: number;
-  level?: number;
+  level: number[];
+
 }
 
-const Octagon: React.FC<OctagonProps> = ({ radius, gap, level = 0 }) => {
-  const octagonDiameter = 2 * (radius + (level - 1) * gap);
+const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
+  const octagonDiameter = 2 * (radius + (level.length - 1) * gap);
   return (
     <div className={"relative p-10"}>
       <div
@@ -31,7 +32,7 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level = 0 }) => {
                 {/* Center Point */}
                 <Center radius={radius} />
 
-                {Array.from({ length: level }).map((_, index) => {
+                {/* {Array.from({ length: level }).map((_, index) => {
                   const level = index + 1;
                   return (
                     <React.Fragment key={level}>
@@ -40,12 +41,23 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level = 0 }) => {
                       <Trapezoids gap={gap} radius={radius} level={level} />
                     </React.Fragment>
                   );
+                })} */}
+
+                {level.map((_, index) => {
+                  const level = index + 1;
+                  return (
+                    <React.Fragment key={level}>
+                      {/* <Points radius={radius} gap={gap} level={level} /> */}
+                      {/* <Lines radius={radius} gap={gap} level={level} /> */}
+                      {/* <Trapezoids gap={gap} radius={radius} level={level} /> */}
+                    </React.Fragment>
+                  );
                 })}
 
                 {/* <ConstellationLine radius={radius} gap={gap} level={level} /> */}
-                <DistortionLine radius={radius} gap={gap} level={level} />
+                {/* <DistortionLine radius={radius} gap={gap} level={level} /> */}
                 <div className={"origin-center rotate-[22.5deg]"}>
-                  <Stars radius={radius} gap={gap} level={level} />
+                  <Stars radius={radius} gap={gap} level={level.length} />
                 </div>
               </div>
             </div>

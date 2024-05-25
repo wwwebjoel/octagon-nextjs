@@ -23,7 +23,7 @@ interface AnchorState {
 
 const defaultPoint = {
   selected: false,
-  shape: 'clarity',
+  shape: "clarity",
   size: 20,
   color: null,
   luminosity: 100,
@@ -31,22 +31,25 @@ const defaultPoint = {
 
 const createPoint = (id: number) => ({ id, ...defaultPoint });
 
-
 const createLevel = (level: number) => ({
   level,
   selected: false,
   point: Object.fromEntries(
-    Array(8).fill(null).map((_, i) => [i + 1, createPoint(i + 1)])
+    Array(8)
+      .fill(null)
+      .map((_, i) => [i + 1, createPoint(i + 1)])
   ),
 });
-const createInitialState = ()=>{
-
-const initialState: AnchorState = {};
-  for (let i = 1; i <= 4; i++) {
-    initialState[`level${i}`] = createLevel(i);
-  }
+const createInitialState = () => {
+  const initialState: AnchorState = {};
+  [1, 2, 2.5, 3, 4].forEach((element) => {
+    initialState[`level${element}`] = createLevel(element);
+  });
+  // for (let i = 1; i <= 4; i++) {
+  //   initialState[`level${i}`] = createLevel(i);
+  // }
   return initialState;
-}
+};
 
 const initialState = createInitialState();
 
@@ -59,33 +62,36 @@ const anchorSlice = createSlice({
   name: "anchor",
   initialState,
   reducers: {
-    anchorPointSelected: (state, action: PayloadAction<AnchorPointSelectedPayload>) => {
+    anchorPointSelected: (
+      state,
+      action: PayloadAction<AnchorPointSelectedPayload>
+    ) => {
       const { id, level } = action.payload;
       state[`level${level}`].point[id].selected = true;
     },
     anchorPointsSelectionReset: (state) => {
-      Object.keys(state).forEach(levelKey => {
-        Object.keys(state[levelKey].point).forEach(pointKey => {
+      Object.keys(state).forEach((levelKey) => {
+        Object.keys(state[levelKey].point).forEach((pointKey) => {
           state[levelKey].point[pointKey].selected = false;
         });
       });
     },
-    anchorPointShapeChanged: (state, action)=>{
+    anchorPointShapeChanged: (state, action) => {
       const { id, level, shape } = action.payload;
       state[`level${level}`].point[id].shape = shape;
     },
-    anchorPointSizeChanged: (state, action)=>{
+    anchorPointSizeChanged: (state, action) => {
       const { id, level, size } = action.payload;
       state[`level${level}`].point[id].size = size;
     },
-    anchorPointLuminosityChanged: (state, action)=>{
+    anchorPointLuminosityChanged: (state, action) => {
       const { id, level, luminosity } = action.payload;
       state[`level${level}`].point[id].luminosity = luminosity;
     },
-    anchorPointColorChanged: (state, action)=>{
+    anchorPointColorChanged: (state, action) => {
       const { id, level, color } = action.payload;
       state[`level${level}`].point[id].color = color;
-    }
+    },
   },
 });
 
@@ -94,8 +100,8 @@ export const {
   anchorPointsSelectionReset,
   anchorPointShapeChanged,
   anchorPointSizeChanged,
-    anchorPointColorChanged,
-    anchorPointLuminosityChanged
+  anchorPointColorChanged,
+  anchorPointLuminosityChanged,
 } = anchorSlice.actions;
 
 export default anchorSlice.reducer;
