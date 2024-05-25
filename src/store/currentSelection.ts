@@ -35,9 +35,12 @@ const slice = createSlice({
       state.point = false
       state.trapezoid = true
     },
+    levelSelected: (state, action)=>{
+      state.level = action.payload.level
+    }
   },
 });
 
-export const { lineSelected, pointSelected, trapezoidSelected } = slice.actions;
+export const { lineSelected, pointSelected, trapezoidSelected, levelSelected} = slice.actions;
 
 export default slice.reducer;
