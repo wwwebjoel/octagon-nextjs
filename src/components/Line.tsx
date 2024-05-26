@@ -63,14 +63,15 @@ const Line: React.FC<LineProps> = ({
             type={type}
             level={level}
             currentSelectionData={currentSelectionData}
-            height={
-              level === 1
-                ? size
-                : currentSelectionData.level === level ||
-                  currentSelectionData.level === level + 1
-                ? size
-                : size / level
-            }
+            // height={
+            //   level === 1
+            //     ? size
+            //     : currentSelectionData.level === level ||
+            //       currentSelectionData.level === level + 1
+            //     ? size
+            //     : size / level
+            // }
+            height= {size/level}
             color={color || "#fff"}
           />
      

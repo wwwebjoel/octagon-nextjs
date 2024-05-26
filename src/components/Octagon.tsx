@@ -55,7 +55,7 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
                 {/* <ConstellationLine radius={radius} gap={gap} level={level} /> */}
                 {/* <DistortionLine radius={radius} gap={gap} level={level} /> */}
                 <div className={"origin-center rotate-[22.5deg]"}>
-                  <Stars radius={radius} gap={gap} level={level.length} />
+                  <Stars radius={radius} gap={gap} level={level.length-1} />
                 </div>
               </div>
             </div>
