@@ -44,12 +44,12 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
                 })} */}
 
                 {level.map((_, index) => {
-                  const level = index + 1;
+                  const currentLevel = level[index];
                   return (
-                    <React.Fragment key={level}>
-                      {/* <Points radius={radius} gap={gap} level={level} /> */}
-                      {/* <Lines radius={radius} gap={gap} level={level} /> */}
-                      {/* <Trapezoids gap={gap} radius={radius} level={level} /> */}
+                    <React.Fragment key={currentLevel}>
+                      <Points radius={radius} gap={gap} level={currentLevel} />
+                      {/* <Lines radius={radius} gap={gap} level={currentLevel} /> */}
+                      {/* <Trapezoids gap={gap} radius={radius} level={currentLevel} /> */}
                     </React.Fragment>
                   );
                 })}
