@@ -41,9 +41,9 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
 
   const handleClick = (e: React.MouseEvent, data: string) => {
     e.stopPropagation();
-    // dispatch(
-    //   newTrapezoidSelected({ level: level, id: transformNumber(index) })
-    // );
+    dispatch(
+      newTrapezoidSelected({ level: level, id: transformNumber(index) })
+    );
     dispatch(trapezoidSelected({ level, id: transformNumber(index), data }));
   };
   const selectedData: any = useSelector<any>(
@@ -51,10 +51,19 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
   );
   return (
     <>
-      {level > 1 && (
+      {level >1  && (
         <div
           className={"h-0 w-0 relative z-trapezoid"}
-          style={{ rotate: `${index * 45 + 112.5}deg` }}
+          style={{ 
+            rotate: `${index * 45 + 112.5}deg` ,
+            ...((level - Math.floor(level))
+            ? {
+             
+                zIndex: 99999999999999,
+              }
+            : {  zIndex: 0 }),
+          
+          }}
           onClick={(e) => handleClick(e, thisTrapeZoidData.data)}
         >
           <div
@@ -67,12 +76,11 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
               ...(thisVirtueData?.color && {
                 background: thisVirtueData.color,
               }),
-              ...(level - Math.floor(level) > 0
+              ...((level - Math.floor(level))
                 ? {
-                    height: height * (level - Math.floor(level)),
-                    zIndex: 99999999999999,
+                    height: height * (level - Math.floor(level))
                   }
-                : { height: height, zIndex: 0 }),
+                : { height: height}),
 
               width: longSide,
               clipPath: `polygon( ${longSide}px 0, ${
