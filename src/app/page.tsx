@@ -13,7 +13,10 @@ import { useSelector } from "react-redux";
 export default function Home() {
   const radius = 80;
   const gap = 80;
-  const level = [1,2,2.5,3,4]
+  const level = [1,2,3,4]
+  const distortionLevel = [1,2,2.5,3,4]
+
+  const distortionActive = useSelector((state:any)=>state.entities.header.activeBottomMenuItem) === 'distortions'
 
   const modules: any = useSelector<any>((state) => state.entities.modules);
   const [showLandscape, setShowLandscape] = useState(false);
@@ -34,7 +37,7 @@ export default function Home() {
         {modules.octagon && (
           <>
             <WordsBox />
-            <Octagon radius={radius} gap={gap} level={level} />
+            <Octagon radius={radius} gap={gap} level={distortionActive?distortionLevel:level} />
             <Properties />
           </>
         )}

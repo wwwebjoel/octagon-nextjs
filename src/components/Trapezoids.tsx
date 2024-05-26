@@ -1,5 +1,6 @@
 import React from "react";
 import Trapezoid from "@/components/Trapezoid";
+import { useSelector } from "react-redux";
 
 interface TrapezoidsProps {
     gap: number;
@@ -9,7 +10,6 @@ interface TrapezoidsProps {
 
 const Trapezoids: React.FC<TrapezoidsProps> = ({ gap, radius, level = 2 }) => {
 
-   
     const r= radius + gap * (level-1);
 
     const trapezoids = Array.from({ length: 8 }).map((_, index) => {

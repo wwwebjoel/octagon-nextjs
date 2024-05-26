@@ -21,6 +21,7 @@ const slice = createSlice({
     },
     activeBottomMenuItemChanged: (state, action: PayloadAction<{ item: string }>) => {
       state.activeBottomMenuItem = action.payload.item;
+      console.log(state.activeBottomMenuItem)
     },
   },
 });

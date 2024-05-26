@@ -25,6 +25,9 @@ const BottomHeader = ()=>{
         if(title === "constellations"){
             dispatch(levelSelected({level: 6}))
         }
+        if(title === "distortions"){
+            dispatch(levelSelected({level: 2.5}))
+        }
         dispatch(activeBottomMenuItemChanged({item:title}))
     }
     return(

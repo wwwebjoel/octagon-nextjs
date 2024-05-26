@@ -14,7 +14,7 @@ interface PointsProps {
 
 const Stars: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
 
-    const r = radius + gap *(level-1) + gap/3
+    const r = radius + gap * 3 + gap/3
     const iStars = Array.from({ length: 8 }).map((_, index) => {
         const angle = (45 * index)
         return (
