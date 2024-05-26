@@ -63,7 +63,7 @@ const Properties: React.FC = () => {
           <Button1 label="words" active={words} smallText={true} />
         </div>
         <div onClick={() => dispatch(anchorModuleActivated())}>
-          <Button1 label="anchors" active={anchor} smallText={true} />
+          <Button1 label="plots" active={anchor} smallText={true} />
         </div>
         <div onClick={() => dispatch(pathModuleActivated())}>
           <Button1 label="paths" active={path} smallText={true} />
