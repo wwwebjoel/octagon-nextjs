@@ -28,13 +28,20 @@ const generateTrapezoid = (): { [key: number]: Trapezoid } => {
 
 const generateLevels = (): State => {
   const levels: State = {};
-  for (let i = 2; i <= 4; i++) {
+  [2, 2.5, 3, 4].forEach((i) => {
     levels[`level${i}`] = {
       level: i,
       selected: false,
       trapezoid: generateTrapezoid(),
     };
-  }
+  });
+  // for (let i = 2; i <= 4; i++) {
+  //   levels[`level${i}`] = {
+  //     level: i,
+  //     selected: false,
+  //     trapezoid: generateTrapezoid(),
+  //   };
+  // }
   return levels;
 };
 

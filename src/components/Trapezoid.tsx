@@ -49,7 +49,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({ gap, radius, level= 2, index=0 })
                     {/*Level: {level}*/}
                     {/*Index: {transformNumber(index)}*/}
 
-                    {thisTrapeZoidData.selected && <div className='absolute top-0 left-0 pt-4 w-full flex justify-center'>
+                    {thisTrapeZoidData?.selected && <div className='absolute top-0 left-0 pt-4 w-full flex justify-center'>
                         <div className='bg-white h-3 aspect-square rounded-full animate-ping'></div>
                         </div>}
 
