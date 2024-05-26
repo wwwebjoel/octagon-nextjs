@@ -42,9 +42,13 @@ const createLevel = (level: number) => ({
 const createInitialState = ()=>{
 
 const initialState: InitialState = {};
-  for (let i = 1; i <= 4; i++) {
-    initialState[`level${i}`] = createLevel(i);
-  }
+
+[1, 2, 2.5, 3, 4].forEach((element) => {
+  initialState[`level${element}`] = createLevel(element);
+});
+  // for (let i = 1; i <= 4; i++) {
+  //   initialState[`level${i}`] = createLevel(i);
+  // }
   return initialState;
 }
 

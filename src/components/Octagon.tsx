@@ -11,7 +11,6 @@ interface OctagonProps {
   radius: number;
   gap: number;
   level: number[];
-
 }
 
 const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
@@ -43,13 +42,12 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
                   );
                 })} */}
 
-                {level.map((_, index) => {
-                  const currentLevel = level[index];
+                {level.map((singleLevel, index) => {
                   return (
-                    <React.Fragment key={currentLevel}>
-                      <Points radius={radius} gap={gap} level={currentLevel} />
-                      {/* <Lines radius={radius} gap={gap} level={currentLevel} /> */}
-                      {/* <Trapezoids gap={gap} radius={radius} level={currentLevel} /> */}
+                    <React.Fragment key={singleLevel}>
+                      <Points radius={radius} gap={gap} level={singleLevel} />
+                      <Lines radius={radius} gap={gap} level={singleLevel} />
+                      {/* <Trapezoids gap={gap} radius={radius} level={singleLevel} /> */}
                     </React.Fragment>
                   );
                 })}
