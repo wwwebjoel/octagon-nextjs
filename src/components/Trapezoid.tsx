@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { newTrapezoidSelected } from "@/store/octagon";
 import { useDispatch } from "react-redux";
 import { trapezoidSelected } from "@/store/currentSelection";
+import { activeBottomMenuItemChanged, activeTopMenuItemChanged } from "@/store/header";
 
 interface TrapezoidProps {
   radius: number;
@@ -41,6 +42,19 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
 
   const handleClick = (e: React.MouseEvent, data: string) => {
     e.stopPropagation();
+    if(level===2){
+      dispatch(activeTopMenuItemChanged({item:"perennials"}))
+      dispatch(activeBottomMenuItemChanged({item:"essence"}))
+    }
+    if(level===3){
+      dispatch(activeTopMenuItemChanged({item:"perennials"}))
+      dispatch(activeBottomMenuItemChanged({item:"roots"}))
+    }
+    if(level===4){
+      dispatch(activeTopMenuItemChanged({item:"annuals"}))
+      dispatch(activeBottomMenuItemChanged({item:"foundations"}))
+    }
+    
     dispatch(
       newTrapezoidSelected({ level: level, id: transformNumber(index) })
     );

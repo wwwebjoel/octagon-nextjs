@@ -4,6 +4,7 @@ import Point from '@/components/Point';
 import { anchorPointSelected, anchorPointsSelectionReset } from '@/store/anchor';
 import { useDispatch, useSelector } from 'react-redux';
 import { pointSelected } from '@/store/currentSelection';
+import { activeBottomMenuItemChanged, activeTopMenuItemChanged } from '@/store/header';
 import Star from "@/components/images/Star";
 
 interface PointsProps {
@@ -13,6 +14,7 @@ interface PointsProps {
 }
 
 const Stars: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
+    const dispatch = useDispatch();
 
     const r = radius + gap * 3 + gap/3
     const iStars = Array.from({ length: 8 }).map((_, index) => {
@@ -31,7 +33,14 @@ const Stars: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
         );
     });
 
-    return <>{iStars}</>;
+    const handleClick = ()=>{
+       
+            dispatch(activeTopMenuItemChanged({item:"perennials"}))
+            dispatch(activeBottomMenuItemChanged({item:"constellations"}))
+          
+    }
+
+    return <div onClick={handleClick}>{iStars}</div>;
 };
 
 export default Stars;
