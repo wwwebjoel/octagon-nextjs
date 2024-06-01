@@ -9,13 +9,13 @@ function ColorPlusIcon({position}:{position:number}){
     const activeColor : any = useSelector<any>(state=>state.entities.colors.activeColor)
     const savedColor : any = useSelector<any>(state=>state.entities.colors.savedColors[position])
     const currentSelectionData : any = useSelector<any>((state)=>state.entities.currentSelection)
-    const {level, id, point} : {level: number, id: number, point: boolean} = currentSelectionData;
+    const {level, id, point} : {level: number[], id: number, point: boolean} = currentSelectionData;
 
     const handleClick = ()=>{
         if(savedColor){
             dispatch(activeColorChanged({color: savedColor}))
             if(point){
-                dispatch(anchorPointColorChanged({id, level, color:savedColor}))
+                dispatch(anchorPointColorChanged({id, level:level[0], color:savedColor}))
             }
         } else {
             dispatch(colorSaved({position, color: activeColor}))

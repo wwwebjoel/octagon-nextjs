@@ -39,7 +39,7 @@ const Line: React.FC<LineProps> = ({
     // dispatch(anchorPointSelected({level, id}))
     if (!constellation) {
       dispatch(linesSelectionReset());
-      dispatch(lineSelected({ level, id }));
+      dispatch(lineSelected({ level:[level], id }));
     }
   };
 

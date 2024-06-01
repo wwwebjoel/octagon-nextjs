@@ -58,7 +58,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     dispatch(
       newTrapezoidSelected({ level: level, id: transformNumber(index) })
     );
-    dispatch(trapezoidSelected({ level, id: transformNumber(index), data }));
+    dispatch(trapezoidSelected({ level:[level], id: transformNumber(index), data }));
   };
   const selectedData: any = useSelector<any>(
     (state) => state.entities.currentSelection

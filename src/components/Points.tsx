@@ -17,7 +17,7 @@ const Points: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
 
     const handleClick = (level: number, id: number)=>{
         dispatch(anchorPointsSelectionReset())
-        dispatch(pointSelected({level, id}))
+        dispatch(pointSelected({level:[level], id}))
         dispatch(anchorPointSelected({level, id}))   
     }
 

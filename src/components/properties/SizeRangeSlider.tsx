@@ -8,7 +8,7 @@ interface CurrentSelection {
     point: boolean;
     line: boolean;
     trapezoid: boolean;
-    level: number;
+    level: number[];
     id: number;
 }
 
@@ -31,7 +31,7 @@ export default function SizeRangeSlider({min,max}: {min:number; max:number}) {
             dispatch(
                 anchorPointSizeChanged({
                     id,
-                    level,
+                    level:level[0],
                     size: Number(value),
                 })
             );
@@ -40,7 +40,7 @@ export default function SizeRangeSlider({min,max}: {min:number; max:number}) {
             dispatch(
                 lineSizeChanged({
                     id,
-                    level,
+                    level:level[0],
                     size: Number(value),
                 })
             );

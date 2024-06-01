@@ -19,7 +19,7 @@ export default function ApplyToAllButton() {
 
 
         if(trapezoid){
-                dispatch(applyDataToLevel({level, id}))
+                dispatch(applyDataToLevel({level:level[0], id}))
 
         }
     }

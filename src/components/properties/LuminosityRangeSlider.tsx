@@ -7,7 +7,7 @@ interface CurrentSelection {
     point: boolean;
     line: boolean;
     trapezoid: boolean;
-    level: number;
+    level: number[];
     id: number;
 }
 
@@ -30,7 +30,7 @@ export default function LuminosityRangeSlider() {
             dispatch(
                 anchorPointLuminosityChanged({
                     id,
-                    level,
+                    level:level[0],
                     luminosity: Number(value),
                 })
             );

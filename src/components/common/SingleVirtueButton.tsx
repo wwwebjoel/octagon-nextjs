@@ -13,13 +13,13 @@ const SingleVirtueButton: React.FC<SingleVirtueButtonProps> = ({ label }) => {
     const dispatch = useDispatch();
 
     const currentSelection: any = useSelector((state: any) => state.entities.currentSelection);
-    const { level, id } = currentSelection || {};
+    const { level, id }: {level: number[], id: number} = currentSelection || {};
 
     const octagonState: any = useSelector((state: any) => state.entities.octagon);
 
     // Access level and id safely, returning null if either is undefined
     const currentSelectedData: any = useSelector((state: any) =>
-        state.entities.octagon[`level${level}`]?.trapezoid[id]?.data
+        state.entities.octagon[`level${level[0]}`]?.trapezoid[id]?.data
     );
 
     // the state as an argument and return an array of strings:

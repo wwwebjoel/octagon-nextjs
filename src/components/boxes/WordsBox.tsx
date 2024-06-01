@@ -20,7 +20,7 @@ interface RootState {
         // Add other state slices if needed
         virtues: any[]; // Assuming the structure of the virtues slice
         currentSelection: {
-            level: number;
+            level: number[];
             id: number;
         };
     };

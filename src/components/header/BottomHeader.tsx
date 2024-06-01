@@ -14,19 +14,19 @@ const BottomHeader = ()=>{
 
     const handleClick = (title: string)=>{
         if(title === "essence"){
-            dispatch(levelSelected({level: 2}))
+            dispatch(levelSelected({level: [2]}))
         }
         if(title === "roots"){
-            dispatch(levelSelected({level: 3}))
+            dispatch(levelSelected({level: [3]}))
         }
         if(title === "foundations"){
-            dispatch(levelSelected({level: 4}))
+            dispatch(levelSelected({level: [4]}))
         }
         if(title === "constellations"){
-            dispatch(levelSelected({level: 6}))
+            dispatch(levelSelected({level: [6]}))
         }
         if(title === "distortions"){
-            dispatch(levelSelected({level: 2.5}))
+            dispatch(levelSelected({level: [2.5]}))
         }
         dispatch(activeBottomMenuItemChanged({item:title}))
     }

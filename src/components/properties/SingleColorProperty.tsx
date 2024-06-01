@@ -25,7 +25,7 @@ const SingleColorProperty = ({
     line,
     trapezoid,
   }: {
-    level: number;
+    level: number[];
     id: number;
     point: boolean;
     line: boolean;
@@ -33,15 +33,15 @@ const SingleColorProperty = ({
   } = currentSelectionData;
 
   const selectedTrapezoidData: any = useSelector(
-    (state: any) => state.entities.octagon[`level${level}`]?.trapezoid[id]?.data
+    (state: any) => state.entities.octagon[`level${level[0]}`]?.trapezoid[id]?.data
   );
 
   const selectedPointColor: any = useSelector(
-    (state: any) => state.entities.anchor[`level${level}`]?.point[id]?.color
+    (state: any) => state.entities.anchor[`level${level[0]}`]?.point[id]?.color
   );
 
   const selectedLineColor: any = useSelector(
-    (state: any) => state.entities.lines[`level${level}`]?.line[id]?.color
+    (state: any) => state.entities.lines[`level${level[0]}`]?.line[id]?.color
   );
 
   const selectedVirtueColor: any = useSelector(
@@ -108,7 +108,7 @@ const SingleColorProperty = ({
       className={`relative h-6 w-6 aspect-square rounded-full cursor-pointer flex justify-center ${showColorPicker === index && 'border-[1px] border-solid border-white'}`}
       key={index}
       style={{ backgroundColor: propertiesColorBox[`${index + 1}`] }}
-      onClick={() => handleClick(id, level, propertiesColorBox[`${index + 1}`])}
+      onClick={() => handleClick(id, level[0], propertiesColorBox[`${index + 1}`])}
     >
       <div className="relative h-0 w-0 overflow-visible">
         {showColorPicker === index && (
