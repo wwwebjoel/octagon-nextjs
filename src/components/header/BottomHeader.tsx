@@ -17,16 +17,19 @@ const BottomHeader = ()=>{
             dispatch(levelSelected({level: [2]}))
         }
         if(title === "roots"){
-            dispatch(levelSelected({level: [3]}))
+            dispatch(levelSelected({level: [2,3]}))
         }
         if(title === "foundations"){
-            dispatch(levelSelected({level: [4]}))
+            dispatch(levelSelected({level: [2,3]}))
         }
         if(title === "constellations"){
             dispatch(levelSelected({level: [6]}))
         }
         if(title === "distortions"){
             dispatch(levelSelected({level: [2.5]}))
+        }
+        if(title === "environment"){
+            dispatch(levelSelected({level: [4]}))
         }
         dispatch(activeBottomMenuItemChanged({item:title}))
     }
