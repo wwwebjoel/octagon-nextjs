@@ -25,6 +25,7 @@ import {
   wordsModuleActivated,
 } from "@/store/modules";
 import VirtuesBox from "../boxes/VirtuesBox";
+import ApplyToAllButton from "../common/ApplyToAllButton";
 
 const anchorTypes = [
   { icon: <Clarity />, title: "clarity" },
@@ -103,6 +104,9 @@ const Properties: React.FC = () => {
           {anchor && <LuminosityRangeSlider />}
         </>
       )}
+       <div className={'absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2'}>
+               <ApplyToAllButton />
+                </div>
     </Box>
   );
 };

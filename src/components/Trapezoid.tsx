@@ -82,8 +82,8 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
         >
           <div
             className={`relative transition-all duration-300 ${`${
-              !thisVirtueData?.color && selectedData.level === level && selectedData.trapezoid
-                ? "bg-inner-carnationPink bg-opacity-70 "
+              !thisVirtueData?.color && selectedData.level.includes(level) && selectedData.trapezoid
+                ? "bg-inner-carnationPink bg-opacity-40 "
                 : "bg-opacity-50"
             } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
             style={{

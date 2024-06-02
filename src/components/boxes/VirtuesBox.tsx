@@ -34,9 +34,9 @@ const VirtuesBox = ()=>{
                    }
                     </div>
                 </div>
-                <div className={'absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2'}>
+                {/* <div className={'absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2'}>
                <ApplyToAllButton />
-           </div>
+                </div> */}
             {/* </Box> */}
         </>
     )

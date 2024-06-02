@@ -5,6 +5,9 @@ import {applyDataToLevel} from "@/store/octagon";
 
 export default function ApplyToAllButton() {
     const dispatch = useDispatch();
+    const { anchor, path, words } = useSelector(
+        (state: any) => state.entities.modules.propertiesBox.type
+      );
 
     const currentSelection : any = useSelector<any>(state=>state.entities.currentSelection)
     const { level,
@@ -16,11 +19,8 @@ export default function ApplyToAllButton() {
 
 
     const handleClick = ()=>{
-
-
-        if(trapezoid){
+        if(words && trapezoid){
                 dispatch(applyDataToLevel({level:level[0], id}))
-
         }
     }
 
