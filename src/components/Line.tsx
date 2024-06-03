@@ -39,7 +39,7 @@ const Line: React.FC<LineProps> = ({
     // dispatch(anchorPointSelected({level, id}))
     if (!constellation) {
       dispatch(linesSelectionReset());
-      dispatch(lineSelected({ level:[level], id }));
+      dispatch(lineSelected({ level: [level], id }));
     }
   };
 
@@ -58,23 +58,22 @@ const Line: React.FC<LineProps> = ({
           width: `${side}px`,
         }}
       >
-       
-          <DrawLine
-            type={type}
-            level={level}
-            currentSelectionData={currentSelectionData}
-            // height={
-            //   level === 1
-            //     ? size
-            //     : currentSelectionData.level === level ||
-            //       currentSelectionData.level === level + 1
-            //     ? size
-            //     : size / level
-            // }
-            height= {size/level}
-            color={color || "#fff"}
-          />
-     
+        <DrawLine
+          type={type}
+          level={level}
+          currentSelectionData={currentSelectionData}
+          // height={
+          //   level === 1
+          //     ? size
+          //     : currentSelectionData.level === level ||
+          //       currentSelectionData.level === level + 1
+          //     ? size
+          //     : size / level
+          // }
+          height={size / level}
+          color={color || "#fff"}
+        />
+
         {/* {constellation && <StarLine height={1} color={color || "#fff"} />} */}
       </div>
     </div>
@@ -98,12 +97,17 @@ const DrawLine = ({
 }) => {
   return (
     <>
-      {(!type || type === "clarity") && (
-        <ClarityLine height={height} color={color} />
-      )}
+      {!type &&
+        (level !== 2.5 ? (
+          <ClarityLine height={height} color={color} />
+        ) : (
+          <UnityLine height={height} color={color} />
+        ))}
+
       {type === "optimism" && <OptimismLine height={height} color={color} />}
       {type === "balance" && <BalanceLine height={height} color={color} />}
       {type === "unity" && <UnityLine height={height} color={color} />}
+      {type === "clarity" && <ClarityLine height={height} color={color} />}
     </>
   );
 };
