@@ -148,7 +148,7 @@ import {
   activeBottomMenuItemChanged,
   activeTopMenuItemChanged,
 } from "@/store/header";
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from "gsap";
 
 interface TrapezoidProps {
   radius: number;
@@ -191,7 +191,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     (e: React.MouseEvent<HTMLDivElement>, data: string) => {
       e.stopPropagation();
 
-      const menuChanges = {
+      const menuChanges: any = {
         2: { top: "perennials", bottom: "essence" },
         3: { top: "perennials", bottom: "roots" },
         4: { top: "annuals", bottom: "foundations" },
