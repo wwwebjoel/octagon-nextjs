@@ -11,8 +11,6 @@
 // } from "@/store/header";
 // import { gsap } from "gsap/dist/gsap";
 
-
-
 // interface TrapezoidProps {
 //   radius: number;
 //   gap: number;
@@ -76,8 +74,8 @@
 
 //   useEffect(() => {
 //     tl.to(".trapezoid", {
-//       duration: 3, 
-//       rotation: 360, 
+//       duration: 3,
+//       rotation: 360,
 //     });
 //   }, []);
 
@@ -167,21 +165,26 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
 }) => {
   const dispatch = useDispatch();
 
-  const thisTrapezoidData = useSelector((state: any) =>
-    state.entities.octagon[`level${level}`]?.trapezoid[transformNumber(index)]
+  const thisTrapezoidData = useSelector(
+    (state: any) =>
+      state.entities.octagon[`level${level}`]?.trapezoid[transformNumber(index)]
   );
 
   const thisVirtueData = useSelector((state: any) =>
     state.entities.virtues.find(
-      (item:any) => item.virtue === thisTrapezoidData?.data
+      (item: any) => item.virtue === thisTrapezoidData?.data
     )
   );
 
-  const selectedData = useSelector((state: any) => state.entities.currentSelection);
+  const selectedData = useSelector(
+    (state: any) => state.entities.currentSelection
+  );
 
   const height = gap * Math.sin((67.5 * Math.PI) / 180);
-  const longSide = (radius + (level - 1) * gap) / Math.sqrt(1 + 1 / Math.sqrt(2));
-  const shortSide = (radius + (level - 2) * gap) / Math.sqrt(1 + 1 / Math.sqrt(2));
+  const longSide =
+    (radius + (level - 1) * gap) / Math.sqrt(1 + 1 / Math.sqrt(2));
+  const shortSide =
+    (radius + (level - 2) * gap) / Math.sqrt(1 + 1 / Math.sqrt(2));
   const sideExtraLength = (longSide - shortSide) / 2;
 
   const handleClick = useCallback(
@@ -201,7 +204,9 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
       }
 
       dispatch(newTrapezoidSelected({ level, id: transformNumber(index) }));
-      dispatch(trapezoidSelected({ level: [level], id: transformNumber(index), data }));
+      dispatch(
+        trapezoidSelected({ level: [level], id: transformNumber(index), data })
+      );
     },
     [dispatch, index, level]
   );
@@ -209,7 +214,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
   useEffect(() => {
     const tl = gsap.timeline({ repeat: 0 });
     tl.to(".trapezoid", {
-      duration: 3,
+      duration: 1,
       rotation: 360,
     });
 
@@ -217,15 +222,6 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
       tl.kill();
     };
   }, []);
-
-  const trapezoidClasses = 
-              `trapezoid relative transition-all duration-300 ${`${
-                !thisVirtueData?.color &&
-                selectedData.level.includes(level) &&
-                selectedData.trapezoid
-                  ? "bg-inner-carnationPink bg-opacity-40 "
-                  : "bg-opacity-50"
-              } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`
 
   return (
     <>
@@ -239,12 +235,20 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
           onClick={(e) => handleClick(e, thisTrapezoidData.data)}
         >
           <div
-            className={trapezoidClasses}
+            className={`trapezoid relative transition-all duration-300 ${`${
+              !thisVirtueData?.color &&
+              selectedData.level.includes(level) &&
+              selectedData.trapezoid
+                ? "bg-inner-carnationPink bg-opacity-40 "
+                : "bg-opacity-50"
+            } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
             style={{
               background: thisVirtueData?.color || undefined,
               height: height * (level - Math.floor(level)) || height,
               width: longSide,
-              clipPath: `polygon(${longSide}px 0, ${shortSide + sideExtraLength}px ${height}px, ${sideExtraLength}px ${height}px, 0 0)`,
+              clipPath: `polygon(${longSide}px 0, ${
+                shortSide + sideExtraLength
+              }px ${height}px, ${sideExtraLength}px ${height}px, 0 0)`,
             }}
           >
             {thisTrapezoidData?.selected && (

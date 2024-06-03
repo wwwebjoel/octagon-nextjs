@@ -5,7 +5,7 @@ import {Button2} from "@/components/common/Buttons";
 import headerData from "@/data/header.json"
 import {useDispatch, useSelector} from "react-redux";
 import {activeBottomMenuItemChanged} from "@/store/header";
-import { levelSelected } from '@/store/currentSelection';
+import { levelSelected, trapezoidSelected } from '@/store/currentSelection';
 
 const BottomHeader = ()=>{
     const dispatch = useDispatch()
@@ -14,22 +14,23 @@ const BottomHeader = ()=>{
 
     const handleClick = (title: string)=>{
         if(title === "essence"){
-            dispatch(levelSelected({level: [2]}))
+            dispatch(trapezoidSelected({level: [2], id: -1}))
         }
         if(title === "roots"){
-            dispatch(levelSelected({level: [2,3]}))
+            dispatch(trapezoidSelected({level: [2,3], id: -1}))
         }
         if(title === "foundations"){
-            dispatch(levelSelected({level: [2,3]}))
+            dispatch(trapezoidSelected({level: [2,3], id: -1}))
         }
         if(title === "constellations"){
             dispatch(levelSelected({level: [6]}))
+           
         }
         if(title === "distortions"){
-            dispatch(levelSelected({level: [2.5]}))
+            dispatch(trapezoidSelected({level: [2.5], id: -1}))
         }
         if(title === "environment"){
-            dispatch(levelSelected({level: [4]}))
+            dispatch(trapezoidSelected({level: [4], id: -1}))
         }
         dispatch(activeBottomMenuItemChanged({item:title}))
     }
