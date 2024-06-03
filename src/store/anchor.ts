@@ -92,6 +92,19 @@ const anchorSlice = createSlice({
       const { id, level, color } = action.payload;
       state[`level${level}`].point[id].color = color;
     },
+
+    applyPointChangesToLevel: (state, action) => {
+      const { level, id } = action.payload;
+      const levelKey = `level${level}`;
+      const {shape, size, color, luminosity} = state[levelKey].point[id]
+
+      Object.keys(state[levelKey].point).forEach((key: any) => {
+        state[levelKey].point[key].shape = shape
+        state[levelKey].point[key].size = size
+        state[levelKey].point[key].color = color
+        state[levelKey].point[key].luminosity = luminosity
+      });
+    }
   },
 });
 
@@ -102,6 +115,7 @@ export const {
   anchorPointSizeChanged,
   anchorPointColorChanged,
   anchorPointLuminosityChanged,
+  applyPointChangesToLevel
 } = anchorSlice.actions;
 
 export default anchorSlice.reducer;

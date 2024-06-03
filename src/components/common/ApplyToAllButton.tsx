@@ -2,6 +2,8 @@
 
 import {useDispatch, useSelector} from "react-redux";
 import {applyDataToLevel} from "@/store/octagon";
+import { applyPointChangesToLevel } from "@/store/anchor";
+import { applyLineChangesToLevel } from "@/store/lines";
 
 export default function ApplyToAllButton() {
     const dispatch = useDispatch();
@@ -21,6 +23,12 @@ export default function ApplyToAllButton() {
     const handleClick = ()=>{
         if(words && trapezoid){
                 dispatch(applyDataToLevel({level:level[0], id}))
+        }
+        if(point){
+            dispatch(applyPointChangesToLevel({level:level[0], id}))
+        }
+        if(line){
+            dispatch(applyLineChangesToLevel({level:level[0], id}))
         }
     }
 
