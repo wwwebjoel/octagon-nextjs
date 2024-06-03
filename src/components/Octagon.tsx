@@ -47,7 +47,11 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
                     <React.Fragment key={singleLevel}>
                       <Points radius={radius} gap={gap} level={singleLevel} />
                       <Lines radius={radius} gap={gap} level={singleLevel} />
-                      <Trapezoids gap={gap} radius={radius} level={singleLevel} />
+                      <Trapezoids
+                        gap={gap}
+                        radius={radius}
+                        level={singleLevel}
+                      />
                     </React.Fragment>
                   );
                 })}
@@ -55,7 +59,7 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
                 {/* <ConstellationLine radius={radius} gap={gap} level={level} /> */}
                 {/* <DistortionLine radius={radius} gap={gap} level={level} /> */}
                 <div className={"origin-center rotate-[22.5deg]"}>
-                  <Stars radius={radius} gap={gap} level={level.length-1} />
+                  <Stars radius={radius} gap={gap} level={level.length - 1} />
                 </div>
               </div>
             </div>
