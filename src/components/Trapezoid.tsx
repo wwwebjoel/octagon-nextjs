@@ -212,10 +212,11 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
   );
 
   useEffect(() => {
-    const tl = gsap.timeline({ repeat: 0 });
+    const tl = gsap.timeline()
     tl.to(".trapezoid", {
-      duration: 1,
-      rotation: 360,
+      duration: 0.2,
+      rotation: 0,
+      ease: "none",
     });
 
     return () => {
@@ -235,7 +236,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
           onClick={(e) => handleClick(e, thisTrapezoidData.data)}
         >
           <div
-            className={`trapezoid relative transition-all duration-300 ${`${
+            className={`trapezoid relative transition-all duration-300 rotate-180 origin-center ${`${
               !thisVirtueData?.color &&
               selectedData.level.includes(level) &&
               selectedData.trapezoid
