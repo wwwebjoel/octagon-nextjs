@@ -14,7 +14,7 @@ interface OctagonProps {
 }
 
 const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
-  const octagonDiameter = 2 * (radius + (level.length - 1) * gap);
+  const octagonDiameter = 2 * (radius + 3 * gap);
   return (
     <div className={"relative p-10"}>
       <div
