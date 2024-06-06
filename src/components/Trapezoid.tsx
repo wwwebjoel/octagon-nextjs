@@ -249,17 +249,17 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
           className="h-0 w-0 relative z-trapezoid"
           style={{
             rotate: `${index * 45 + 112.5}deg`,
-            zIndex: level - Math.floor(level) ? 99999999999999 : 0,
+            zIndex: level - Math.floor(level) ? 999999999999 : 0,
           }}
           onClick={(e) => handleClick(e, thisTrapezoidData.data)}
         >
 
           <div
-            className={`trapezoid relative transition-all duration-300 rotate-180 origin-center overflow-visible ${`${
+            className={`trapezoid relative transition-all duration-300 rotate-180 origin-center ${`${
               !thisVirtueData?.color &&
               selectedData.level.includes(level) &&
               selectedData.trapezoid
-                ? "bg-inner-carnationPink bg-opacity-40 "
+                ? level===2.5? "bg-[#e35f01]" :"bg-inner-carnationPink bg-opacity-40 "
                 : "bg-opacity-50"
             } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
             style={{
