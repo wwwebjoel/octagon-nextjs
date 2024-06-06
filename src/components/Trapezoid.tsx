@@ -228,9 +228,9 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
   useEffect(() => {
     const tl1 = gsap.timeline()
     tl1.to(".trapezoid-block", {
-      duration: 1,
+      duration: .8,
       rotation: 0,
-      opacity: .5,
+      opacity: .4,
       scale: 1,
       x:0,
       y:"50%",
@@ -286,7 +286,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
               shortSide + sideExtraLength
             }px ${height}px, ${sideExtraLength}px ${height}px, 0 0)`,
           }}
-          className={`trapezoid-block absolute left-0 top-0 w-full h-full rotate-90 bg-blue-500 opacity-0 scale-125 translate-x-1/2 -translate-y-1/2`}></div>}
+          className={`trapezoid-block absolute left-0 top-0 w-full h-full rotate-90 bg-inner-carnationPink opacity-0 scale-125 translate-x-1/2 -translate-y-1/2`}></div>}
 
         </div>
       )}
