@@ -230,6 +230,10 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     tl1.to(".trapezoid-block", {
       duration: 1,
       rotation: 0,
+      opacity: .5,
+      scale: 1,
+      x:0,
+      y:"50%",
       ease: "none",
     });
 
@@ -249,8 +253,9 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
           }}
           onClick={(e) => handleClick(e, thisTrapezoidData.data)}
         >
+
           <div
-            className={`trapezoid relative transition-all duration-300 rotate-180 origin-center ${`${
+            className={`trapezoid relative transition-all duration-300 rotate-180 origin-center overflow-visible ${`${
               !thisVirtueData?.color &&
               selectedData.level.includes(level) &&
               selectedData.trapezoid
@@ -266,7 +271,6 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
               }px ${height}px, ${sideExtraLength}px ${height}px, 0 0)`,
             }}
           >
-             {selectedData.level.includes(level) && <div className={`trapezoid-block absolute left-0 top-0 w-full h-full rotate-90 bg-blue-500 ${(selectedData.level.includes(level) )? "opacity-1": "opacity-0"}`}></div>}
             {thisTrapezoidData?.selected && (
               <div className="absolute top-0 left-0 pt-4 w-full flex justify-center">
                 <div className="bg-white h-3 aspect-square rounded-full animate-ping"></div>
@@ -274,6 +278,16 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
             )}
             {thisTrapezoidData.data}
           </div>
+          {selectedData.level.includes(level) && level!==2.5  && <div 
+           style={{
+            height: height * (level - Math.floor(level)) || height,
+            width: longSide,
+            clipPath: `polygon(${longSide}px 0, ${
+              shortSide + sideExtraLength
+            }px ${height}px, ${sideExtraLength}px ${height}px, 0 0)`,
+          }}
+          className={`trapezoid-block absolute left-0 top-0 w-full h-full rotate-90 bg-blue-500 opacity-0 scale-125 translate-x-1/2 -translate-y-1/2`}></div>}
+
         </div>
       )}
     </>
