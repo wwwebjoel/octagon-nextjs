@@ -46,8 +46,8 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
                   return (
                     <React.Fragment key={singleLevel}>
                       <div className="relative" style={{zIndex: 500}}><Points radius={radius} gap={gap} level={singleLevel} /></div>
-                      <Lines radius={radius} gap={gap} level={singleLevel} />
-                     <div className="relative" style={{zIndex: 400}}> <Trapezoids
+                      <div className="relative" style={{zIndex: 400}}> <Lines radius={radius} gap={gap} level={singleLevel} /></div>
+                     <div className="relative" style={{zIndex: 300}}> <Trapezoids
                         gap={gap}
                         radius={radius}
                         level={singleLevel}
