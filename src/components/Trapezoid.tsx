@@ -222,7 +222,21 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     return () => {
       tl.kill();
     };
-  }, []);
+  });
+
+
+  useEffect(() => {
+    const tl1 = gsap.timeline()
+    tl1.to(".trapezoid-block", {
+      duration: 1,
+      rotation: 0,
+      ease: "none",
+    });
+
+    return () => {
+      tl1.kill();
+    };
+  });
 
   return (
     <>
@@ -252,6 +266,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
               }px ${height}px, ${sideExtraLength}px ${height}px, 0 0)`,
             }}
           >
+             {selectedData.level.includes(level) && <div className={`trapezoid-block absolute left-0 top-0 w-full h-full rotate-90 bg-blue-500 ${(selectedData.level.includes(level) )? "opacity-1": "opacity-0"}`}></div>}
             {thisTrapezoidData?.selected && (
               <div className="absolute top-0 left-0 pt-4 w-full flex justify-center">
                 <div className="bg-white h-3 aspect-square rounded-full animate-ping"></div>
