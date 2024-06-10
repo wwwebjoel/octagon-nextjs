@@ -155,6 +155,7 @@ interface TrapezoidProps {
   gap: number;
   level?: number;
   index?: number;
+  angle?: number;
 }
 
 const Trapezoid: React.FC<TrapezoidProps> = ({
@@ -162,6 +163,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
   radius,
   level = 2,
   index = 0,
+  angle=0
 }) => {
   const dispatch = useDispatch();
 
@@ -276,7 +278,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
                 <div className="bg-white h-3 aspect-square rounded-full animate-ping"></div>
               </div>
             )}
-            {thisTrapezoidData.data}
+            <div className={`${angle<180? "rotate-180": "rotate-0"}`}>{thisTrapezoidData.data}</div>
           </div>
           {selectedData.level.includes(level) && level!==2.5  && <div 
            style={{
