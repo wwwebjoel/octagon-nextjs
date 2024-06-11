@@ -8,7 +8,7 @@ function OctagonSVG({ active=false }: { active?:boolean }) {
       }}
     >
       <div
-        className={`${active? "bg-inner-yellow bg-opacity-60": "bg-gradient-box-purple bg-opacity-80"}   w-32 aspect-square mt-[-100px] shadow-2xl`}
+        className={`${active? "bg-inner-yellow bg-opacity-60": "bg-gradient-box-purple bg-opacity-80"}   w-28 aspect-square mt-[-85px] shadow-2xl`}
         style={{
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           backdropFilter: "blur(5px)",
