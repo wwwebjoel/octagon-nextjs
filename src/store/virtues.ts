@@ -35,12 +35,15 @@ const virtuesSlice = createSlice({
       if (foundVirtue) {
         foundVirtue.color = color;
       }
-
-
+    },
+    changeVirtue: (state, action: PayloadAction<{ newVirtue: string, index: number }>) => {
+     
+      const {newVirtue, index} = action.payload;
+     state[index].virtue = newVirtue
     }
   }
 });
 
-export const { addVirtue, addVirtueColor } = virtuesSlice.actions;
+export const { addVirtue, addVirtueColor, changeVirtue } = virtuesSlice.actions;
 
 export default virtuesSlice.reducer;

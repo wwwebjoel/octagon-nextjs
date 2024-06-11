@@ -9,18 +9,20 @@ import WordsBox from "@/components/boxes/WordsBox";
 import Properties from "@/components/properties/Properties";
 import Landscape from "@/components/firstLoad/landscape";
 import { useSelector } from "react-redux";
+import OctagonSVG from "@/components/images/Octagon";
 
 export default function Home() {
   const radius = 80;
   const gap = 80;
-  const level = [1,2,3,4]
-  const distortionLevel = [1,2,2.5,3,4]
+  const level = [1, 2, 3, 4];
+  const distortionLevel = [1, 2, 2.5, 3, 4];
 
-  const distortionActive = useSelector((state:any)=>state.entities.header.activeBottomMenuItem) === 'distortions'
+  const distortionActive =
+    useSelector((state: any) => state.entities.header.activeBottomMenuItem) ===
+    "distortions";
 
   const modules: any = useSelector<any>((state) => state.entities.modules);
   const [showLandscape, setShowLandscape] = useState(false);
-
 
   return (
     <div className={"relative min-h-screen"}>
@@ -36,8 +38,22 @@ export default function Home() {
       <div className={"relative flex w-max m-auto gap-4 py-10"}>
         {modules.octagon && (
           <>
-            <WordsBox />
-            <Octagon radius={radius} gap={gap} level={distortionActive?distortionLevel:level} />
+            <div className="flex flex-col items-center gap-5">
+              <WordsBox />
+              <div
+                className=" relative items-center flex flex-col pt-32"
+                
+              >
+                <div className="relative z-30"><OctagonSVG /></div>
+                <div className="relative z-20"><OctagonSVG active={true}/></div>
+                <div className="relative z-10"><OctagonSVG /></div>
+              </div>
+            </div>
+            <Octagon
+              radius={radius}
+              gap={gap}
+              level={distortionActive ? distortionLevel : level}
+            />
             <Properties />
           </>
         )}
