@@ -27,13 +27,7 @@ function Star({
   useEffect(() => {
     const anim1 = gsap.timeline();
     const anim2 = gsap.timeline();
-    anim1.to(`#star-${index}`, {
-      scale: 1.3,
-      repeat: -1,
-      yoyo: true,
-      duration: randomNumber,
-      ease: "easeInOut",
-    });
+
     anim2.to(`#star-${index}`, {
       opacity: 1,
       repeat: -1,
@@ -45,13 +39,22 @@ function Star({
 
   return (
     <div
-      className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0  w-[62px] h-[62px]"
+      className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0 p-1  w-[70px] aspect-square"
       key={index}
     >
+      <div id={`star-${index}`} className="absolute inset-0 rounded-full flex items-center justify-center opacity-0"
+
+      
+      >
+        <div className="w-1 h-1 rounded-full"
+        style={{
+          boxShadow: '0px 0px 20px 20px rgba(255,255,255,.35)'
+        }}></div>
+      </div>
       <svg
-      id={`star-${index}`}
+      
         xmlns="http://www.w3.org/2000/svg"
-        className={"relative star w-full h-full scale-75 opacity-40"}
+        className={"relative star w-full h-full"}
         fill="none"
         viewBox="0 0 63 62"
       >
