@@ -17,12 +17,22 @@ export default function Home() {
   const level = [1, 2, 3, 4];
   const distortionLevel = [1, 2, 2.5, 3, 4];
 
-  const distortionActive =
-    useSelector((state: any) => state.entities.header.activeBottomMenuItem) ===
-    "distortions";
+  const activeBottomMenuItem = useSelector(
+    (state: any) => state.entities.header.activeBottomMenuItem
+  );
+
+  const distortionActive = activeBottomMenuItem === "distortions";
 
   const modules: any = useSelector<any>((state) => state.entities.modules);
   const [showLandscape, setShowLandscape] = useState(false);
+
+  const menuItems = {
+    roots: 4,
+    foundations: 3,
+    essence: 2,
+    contributions: 1,
+    constellations: 0,
+  };
 
   return (
     <div className={"relative min-h-screen"}>
@@ -40,13 +50,23 @@ export default function Home() {
           <>
             <div className="flex flex-col items-center gap-5">
               <WordsBox />
-              <div
-                className=" relative items-center flex flex-col pt-32"
-                
-              >
-                <div className="relative z-30"><OctagonSVG /></div>
-                <div className="relative z-20"><OctagonSVG active={true}/></div>
-                <div className="relative z-10"><OctagonSVG /></div>
+              <div className=" relative items-center flex flex-col pt-32">
+                {Array.from({ length: 5 }, (_, i) => {
+                  const isActive = Object.entries(menuItems).some(
+                    ([key, value]) =>
+                      activeBottomMenuItem === key && i === value
+                  );
+
+                  return (
+                    <div
+                      key={i}
+                      className="relative"
+                      style={{ zIndex: 10 - i }}
+                    >
+                      <OctagonSVG active={isActive} />{" "}
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <Octagon
