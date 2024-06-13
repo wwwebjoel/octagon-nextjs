@@ -9,7 +9,6 @@ import WordsBox from "@/components/boxes/WordsBox";
 import Properties from "@/components/properties/Properties";
 import Landscape from "@/components/firstLoad/landscape";
 import { useSelector } from "react-redux";
-import OctagonSVG from "@/components/images/Octagon";
 
 export default function Home() {
   const radius = 80;
@@ -26,14 +25,6 @@ export default function Home() {
   const modules: any = useSelector<any>((state) => state.entities.modules);
   const [showLandscape, setShowLandscape] = useState(false);
 
-  const menuItems = {
-    roots: 4,
-    foundations: 3,
-    essence: 2,
-    contributions: 1,
-    constellations: 0,
-  };
-
   return (
     <div className={"relative min-h-screen"}>
       <Image
@@ -48,27 +39,8 @@ export default function Home() {
       <div className={"relative flex w-max m-auto gap-4 py-10"}>
         {modules.octagon && (
           <>
-            <div className="flex flex-col items-center gap-5">
               <WordsBox />
-              <div className=" relative items-center flex flex-col pt-32">
-                {Array.from({ length: 5 }, (_, i) => {
-                  const isActive = Object.entries(menuItems).some(
-                    ([key, value]) =>
-                      activeBottomMenuItem === key && i === value
-                  );
-
-                  return (
-                    <div
-                      key={i}
-                      className="relative"
-                      style={{ zIndex: 10 - i }}
-                    >
-                      <OctagonSVG active={isActive} />{" "}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+           
             <Octagon
               radius={radius}
               gap={gap}

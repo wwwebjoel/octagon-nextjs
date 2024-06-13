@@ -6,6 +6,8 @@ import Center from "@/components/Center";
 import Stars from "@/components/Stars";
 import ConstellationLine from "./ConstellationLine";
 import DistortionLine from "./DistortionLine";
+import { useSelector } from "react-redux";
+import OctagonSVG from "./images/Octagon";
 
 interface OctagonProps {
   radius: number;
@@ -15,8 +17,11 @@ interface OctagonProps {
 
 const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
   const octagonDiameter = 2 * (radius + 3 * gap);
+
   return (
     <div className={"relative p-10"}>
+      <Layers />
+
       <div
         className="relative"
         style={{
@@ -45,13 +50,21 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
                 {level.map((singleLevel, index) => {
                   return (
                     <React.Fragment key={singleLevel}>
-                      <div className="relative" style={{zIndex: 500}}><Points radius={radius} gap={gap} level={singleLevel} /></div>
-                      <div className="relative" style={{zIndex: 400}}> <Lines radius={radius} gap={gap} level={singleLevel} /></div>
-                     <div className="relative" style={{zIndex: 300}}> <Trapezoids
-                        gap={gap}
-                        radius={radius}
-                        level={singleLevel}
-                      /></div>
+                      <div className="relative" style={{ zIndex: 500 }}>
+                        <Points radius={radius} gap={gap} level={singleLevel} />
+                      </div>
+                      <div className="relative" style={{ zIndex: 400 }}>
+                        {" "}
+                        <Lines radius={radius} gap={gap} level={singleLevel} />
+                      </div>
+                      <div className="relative" style={{ zIndex: 300 }}>
+                        {" "}
+                        <Trapezoids
+                          gap={gap}
+                          radius={radius}
+                          level={singleLevel}
+                        />
+                      </div>
                     </React.Fragment>
                   );
                 })}
@@ -66,6 +79,35 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
           </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+const Layers = () => {
+  const activeBottomMenuItem = useSelector(
+    (state: any) => state.entities.header.activeBottomMenuItem
+  );
+
+  const menuItems = {
+    roots: 4,
+    foundations: 3,
+    essence: 2,
+    contributions: 1,
+    constellations: 0,
+  };
+  return (
+    <div className=" absolute top-0 left-0 items-center flex flex-col pt-10 pl-5">
+      {Array.from({ length: 5 }, (_, i) => {
+        const isActive = Object.entries(menuItems).some(
+          ([key, value]) => activeBottomMenuItem === key && i === value
+        );
+
+        return (
+          <div key={i} className="relative" style={{ zIndex: 10 - i }}>
+            <OctagonSVG active={isActive} />{" "}
+          </div>
+        );
+      })}
     </div>
   );
 };
