@@ -7,7 +7,6 @@ import Stars from "@/components/Stars";
 import ConstellationLine from "./ConstellationLine";
 import DistortionLine from "./DistortionLine";
 import { useSelector } from "react-redux";
-import OctagonSVG from "./images/Octagon";
 
 interface OctagonProps {
   radius: number;
@@ -20,8 +19,6 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
 
   return (
     <div className={"relative p-10"}>
-      <Layers />
-
       <div
         className="relative"
         style={{
@@ -79,35 +76,6 @@ const Octagon: React.FC<OctagonProps> = ({ radius, gap, level }) => {
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-const Layers = () => {
-  const activeBottomMenuItem = useSelector(
-    (state: any) => state.entities.header.activeBottomMenuItem
-  );
-
-  const menuItems = {
-    roots: 4,
-    foundations: 3,
-    essence: 2,
-    contributions: 1,
-    constellations: 0,
-  };
-  return (
-    <div className=" absolute top-0 left-0 items-center flex flex-col pt-10 pl-5">
-      {Array.from({ length: 5 }, (_, i) => {
-        const isActive = Object.entries(menuItems).some(
-          ([key, value]) => activeBottomMenuItem === key && i === value
-        );
-
-        return (
-          <div key={i} className="relative" style={{ zIndex: 10 - i }}>
-            <OctagonSVG active={isActive} />{" "}
-          </div>
-        );
-      })}
     </div>
   );
 };

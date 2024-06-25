@@ -138,7 +138,7 @@
 // export default Trapezoid;
 
 "use client";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { transformNumber } from "../../utilities/transformNumber";
 import { useSelector } from "react-redux";
 import { newTrapezoidSelected } from "@/store/octagon";
@@ -166,6 +166,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
   angle=0
 }) => {
   const dispatch = useDispatch();
+  const trapezoidRef = useRef(null);
 
   const thisTrapezoidData = useSelector(
     (state: any) =>
@@ -244,10 +245,30 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     };
   });
 
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+  
+      tl.to("#level4Id", {
+        duration: 2,
+        rotationX: -360,
+        ease: "power2.inOut",
+        delay: 1,
+      });
+
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
     <>
       {level > 1 && (
         <div
+        id = {level === 4 ? "level4Id": "levelId"}
+        ref={trapezoidRef}
           className="h-0 w-0 relative z-trapezoid"
           style={{
             rotate: `${index * 45 + 112.5}deg`,

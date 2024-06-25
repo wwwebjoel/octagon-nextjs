@@ -9,6 +9,7 @@ import WordsBox from "@/components/boxes/WordsBox";
 import Properties from "@/components/properties/Properties";
 import Landscape from "@/components/firstLoad/landscape";
 import { useSelector } from "react-redux";
+import Test from "@/components/test/Test";
 
 export default function Home() {
   const radius = 80;
@@ -39,8 +40,10 @@ export default function Home() {
       <div className={"relative flex w-max m-auto gap-4 py-10"}>
         {modules.octagon && (
           <>
+            <div className="flex flex-col">
               <WordsBox />
-           
+            </div>
+
             <Octagon
               radius={radius}
               gap={gap}

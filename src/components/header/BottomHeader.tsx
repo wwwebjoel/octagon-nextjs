@@ -6,6 +6,7 @@ import headerData from "@/data/header.json"
 import {useDispatch, useSelector} from "react-redux";
 import {activeBottomMenuItemChanged} from "@/store/header";
 import { levelSelected, trapezoidSelected } from '@/store/currentSelection';
+import OctagonSVG from '../images/Octagon';
 
 const BottomHeader = ()=>{
     const dispatch = useDispatch()
@@ -50,9 +51,42 @@ const BottomHeader = ()=>{
                 )
 
             }
+
+                <Layers />
         </div>
     )
 }
 
 export default BottomHeader
 
+
+const Layers = () => {
+    const activeBottomMenuItem = useSelector(
+      (state: any) => state.entities.header.activeBottomMenuItem
+    );
+  
+    const menuItems = {
+      roots: 4,
+      foundations: 3,
+      essence: 2,
+      contributions: 1,
+      constellations: 0,
+    };
+    return (
+      <div className="items-center flex flex-col pt-10 pl-5">
+        {Array.from({ length: 5 }, (_, i) => {
+          const isActive = Object.entries(menuItems).some(
+            ([key, value]) => activeBottomMenuItem === key && i === value
+          );
+  
+          return (
+            <div key={i} className="relative" style={{ zIndex: 10 - i }}>
+              <OctagonSVG active={isActive} />
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+  
+  
