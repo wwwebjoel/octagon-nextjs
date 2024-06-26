@@ -38,9 +38,9 @@ export const Button3: React.FC<ButtonProps> = ({ label, active=false }) => {
 export const Button4: React.FC<ButtonProps> = ({ label, active=false }) => {
     return (
         <div className={`${active?'bg-transparent':'bg-transparent'} text-white h-12 w-max min-w-[147.5px] flex items-center justify-center font-bold text-base leading-5 text-center py-0.5 px-[15px] cursor-pointer rounded-[20px] gap-2`}>
-            <AngleBracketContainer bracket={"〈"} active={active}/>
+            <AngleBracketContainer bracket={"⟨"} active={active}/>
             {label}
-            <AngleBracketContainer bracket={"〉"} active={active}/>
+            <AngleBracketContainer bracket={"⟩"} active={active}/>
         </div>
     );
 };
