@@ -145,8 +145,7 @@ import { newTrapezoidSelected } from "@/store/octagon";
 import { useDispatch } from "react-redux";
 import { trapezoidSelected } from "@/store/currentSelection";
 import {
-  activeBottomMenuItemChanged,
-  activeTopMenuItemChanged,
+  activeMenuItemChanged
 } from "@/store/header";
 import { gsap } from "gsap";
 
@@ -194,17 +193,17 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     (e: React.MouseEvent<HTMLDivElement>, data: string) => {
       e.stopPropagation();
 
-      const menuChanges: any = {
-        2: { top: "perennials", bottom: "essence" },
-        3: { top: "perennials", bottom: "roots" },
-        4: { top: "annuals", bottom: "foundations" },
-      };
+      // const menuChanges: any = {
+      //   2: { top: "perennials", bottom: "essence" },
+      //   3: { top: "perennials", bottom: "roots" },
+      //   4: { top: "annuals", bottom: "foundations" },
+      // };
 
-      const { top, bottom } = menuChanges[level] || {};
-      if (top && bottom) {
-        dispatch(activeTopMenuItemChanged({ item: top }));
-        dispatch(activeBottomMenuItemChanged({ item: bottom }));
-      }
+      // const { top, bottom } = menuChanges[level] || {};
+      // if (top && bottom) {
+      //   // dispatch(activeMenuItemChanged({ item: top }));
+      //   // dispatch(activeBottomMenuItemChanged({ item: bottom }));
+      // }
 
       dispatch(newTrapezoidSelected({ level, id: transformNumber(index) }));
       dispatch(

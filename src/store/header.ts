@@ -5,9 +5,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface HeaderState {
   activeTopMenuItem: string;
   activeBottomMenuItem: string;
+  activeMenuItem: string;
 }
 
 const initialState: HeaderState = {
+  activeMenuItem: "",
   activeTopMenuItem: 'perennials',
   activeBottomMenuItem: 'essence',
 };
@@ -21,12 +23,14 @@ const slice = createSlice({
     },
     activeBottomMenuItemChanged: (state, action: PayloadAction<{ item: string }>) => {
       state.activeBottomMenuItem = action.payload.item;
-      console.log(state.activeBottomMenuItem)
+    },
+    activeMenuItemChanged: (state, action: PayloadAction<{ item: string }>) => {
+      state.activeMenuItem = action.payload.item;
     },
   },
 });
 
-export const { activeTopMenuItemChanged, activeBottomMenuItemChanged } = slice.actions;
+export const { activeTopMenuItemChanged, activeBottomMenuItemChanged, activeMenuItemChanged } = slice.actions;
 
 export default slice.reducer;
 

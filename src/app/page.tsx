@@ -17,11 +17,11 @@ export default function Home() {
   const level = [1, 2, 3, 4];
   const distortionLevel = [1, 2, 2.5, 3, 4];
 
-  const activeBottomMenuItem = useSelector(
-    (state: any) => state.entities.header.activeBottomMenuItem
+  const activeMenuItem = useSelector(
+    (state: any) => state.entities.header.activeMenuItem
   );
 
-  const distortionActive = activeBottomMenuItem === "distortions";
+  const distortionActive = activeMenuItem === "distortions";
 
   const modules: any = useSelector<any>((state) => state.entities.modules);
   const [showLandscape, setShowLandscape] = useState(false);

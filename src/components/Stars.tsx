@@ -4,7 +4,7 @@ import Point from '@/components/Point';
 import { anchorPointSelected, anchorPointsSelectionReset } from '@/store/anchor';
 import { useDispatch, useSelector } from 'react-redux';
 import { pointSelected } from '@/store/currentSelection';
-import { activeBottomMenuItemChanged, activeTopMenuItemChanged } from '@/store/header';
+import { activeMenuItemChanged } from '@/store/header';
 import Star from "@/components/images/Star";
 import { gsap } from 'gsap';
 
@@ -38,8 +38,7 @@ const Stars: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
 
     const handleClick = ()=>{
        
-            dispatch(activeTopMenuItemChanged({item:"perennials"}))
-            dispatch(activeBottomMenuItemChanged({item:"constellations"}))
+            dispatch(activeMenuItemChanged({item:"constellations"}))
           
     }
 

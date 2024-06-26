@@ -4,16 +4,13 @@ import React from "react";
 import { Button4 } from "@/components/common/Buttons";
 import headerData from "@/data/header.json";
 import { useDispatch, useSelector } from "react-redux";
-import { activeBottomMenuItemChanged } from "@/store/header";
+import { activeMenuItemChanged } from "@/store/header";
 import { levelSelected, trapezoidSelected } from "@/store/currentSelection";
 import OctagonSVG from "../images/Octagon";
 
 const BottomHeader = () => {
   const dispatch = useDispatch();
-  const { activeTopMenuItem }: any = useSelector<any>(
-    (state) => state.entities.header
-  );
-  const { activeBottomMenuItem }: any = useSelector<any>(
+  const { activeMenuItem }: any = useSelector<any>(
     (state) => state.entities.header
   );
 
@@ -39,7 +36,7 @@ const BottomHeader = () => {
           const { title } = secondaryItem;
           return (
             <div key={title} onClick={() => handleClick(title, dispatch)}>
-              <Button4 label={title} active={title === activeBottomMenuItem} />
+              <Button4 label={title} active={title === activeMenuItem} />
             </div>
           );
         })} 
@@ -70,12 +67,12 @@ export const handleClick = (title: string, dispatch: any) => {
   if (title === "environment") {
     dispatch(trapezoidSelected({ level: [4], id: -1 }));
   }
-  dispatch(activeBottomMenuItemChanged({ item: title }));
+  dispatch(activeMenuItemChanged({ item: title }));
 };
 
 const Layers = () => {
-  const activeBottomMenuItem = useSelector(
-    (state: any) => state.entities.header.activeBottomMenuItem
+  const activeMenuItem = useSelector(
+    (state: any) => state.entities.header.activeMenuItem
   );
 
   const menuItems = {
@@ -89,7 +86,7 @@ const Layers = () => {
     <div className="items-center flex flex-col pt-10 pl-5">
       {Array.from({ length: 5 }, (_, i) => {
         const isActive = Object.entries(menuItems).some(
-          ([key, value]) => activeBottomMenuItem === key && i === value
+          ([key, value]) => activeMenuItem === key && i === value
         );
 
         return (

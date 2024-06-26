@@ -3,7 +3,7 @@ import React from "react";
 import { Button4 } from "@/components/common/Buttons";
 import headerData from "@/data/header.json";
 import { useDispatch, useSelector } from "react-redux";
-import { activeTopMenuItemChanged } from "@/store/header";
+import { activeMenuItemChanged } from "@/store/header";
 import { handleClick } from "../BottomHeader";
 
 interface HeaderItem {
@@ -12,13 +12,13 @@ interface HeaderItem {
 
 const TopMenu = () => {
   const dispatch = useDispatch();
-  const { activeTopMenuItem }: any = useSelector<any>(
+  const { activeMenuItem }: any = useSelector<any>(
     (state) => state.entities.header
   );
 
   const clicked = (title: string, dispatch: any) => {
     handleClick(title, dispatch);
-    dispatch(activeTopMenuItemChanged({ item: title }));
+    dispatch(activeMenuItemChanged({ item: title }));
   };
 
   return (
@@ -31,7 +31,7 @@ const TopMenu = () => {
         const { title } = data;
         return (
           <div key={title} onClick={() => clicked(title, dispatch)}>
-            <Button4 label={title} active={title === activeTopMenuItem} />
+            <Button4 label={title} active={title === activeMenuItem} />
           </div>
         );
       })}
