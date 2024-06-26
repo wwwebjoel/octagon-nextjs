@@ -1,33 +1,30 @@
 {
   "topHeader": [
     {
-      "title": "perennials",
-      "bottomHeader": [
-        {"title":  "essence"},
-        {"title":  "roots"},
-        {"title":  "constellations"}
-      ]
+      "title": "essence"
     },
     {
-      "title": "annuals",
-      "bottomHeader": [
-        {"title":  "foundations"},
-        {"title":  "distortions"},
-        {"title":  "environment"},
-        {"title":  "contributions"}
-      ]
+      "title": "expressions"
     },
     {
-      "title": "dailies",
-      "bottomHeader": [
-        {"title":  "expressions   "}
-      ]
+      "title": "environment"
+    }
+  ],
+  "bottomHeader": [
+    {
+      "title": "roots"
     },
     {
-      "title": "ripples"
+      "title": "foundations"
     },
     {
-      "title": "Wellgorithms"
+      "title": "distortions"
+    },
+    {
+      "title": "contributions"
+    },
+    {
+      "title": "constellations"
     }
   ]
 }

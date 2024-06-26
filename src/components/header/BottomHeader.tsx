@@ -44,7 +44,7 @@ const BottomHeader = () => {
         "h-[70px] w-full bg-black bg-opacity-40 flex items-center justify-center gap-5"
       }
     >
-      {headerData?.topHeader
+      {/* {headerData?.topHeader
         ?.find((item) => item?.title === activeTopMenuItem)
         ?.bottomHeader?.map((secondaryItem) => {
           const { title } = secondaryItem;
@@ -53,7 +53,16 @@ const BottomHeader = () => {
               <Button2 label={title} active={title === activeBottomMenuItem} />
             </div>
           );
-        })}
+        })} */}
+
+      {headerData?.bottomHeader?.map((secondaryItem) => {
+          const { title } = secondaryItem;
+          return (
+            <div key={title} onClick={() => handleClick(title)}>
+              <Button2 label={title} active={title === activeBottomMenuItem} />
+            </div>
+          );
+        })} 
 
       <Layers />
     </div>
