@@ -34,3 +34,19 @@ export const Button3: React.FC<ButtonProps> = ({ label, active=false }) => {
         </div>
     );
 };
+
+export const Button4: React.FC<ButtonProps> = ({ label, active=false }) => {
+    return (
+        <div className={`${active?'bg-transparent':'bg-transparent'} text-white h-12 w-max min-w-[147.5px] flex items-center justify-center font-bold text-base leading-5 text-center py-0.5 px-[15px] cursor-pointer rounded-[20px] gap-2`}>
+            <AngleBracketContainer bracket={"〈"} active={active}/>
+            {label}
+            <AngleBracketContainer bracket={"〉"} active={active}/>
+        </div>
+    );
+};
+
+const AngleBracketContainer= ({bracket, active}: {bracket:string; active:boolean})=>{
+    return(
+        <div className={`${active?'text-inner-orange':'text-[#b76df9]'} font-black text-2xl`}>{bracket}</div>
+    )
+}

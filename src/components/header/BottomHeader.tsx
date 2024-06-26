@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Button2 } from "@/components/common/Buttons";
+import { Button4 } from "@/components/common/Buttons";
 import headerData from "@/data/header.json";
 import { useDispatch, useSelector } from "react-redux";
 import { activeBottomMenuItemChanged } from "@/store/header";
@@ -17,27 +17,7 @@ const BottomHeader = () => {
     (state) => state.entities.header
   );
 
-  const handleClick = (title: string) => {
-    if (title === "essence") {
-      dispatch(trapezoidSelected({ level: [2], id: -1 }));
-    }
-    if (title === "roots") {
-      dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
-    }
-    if (title === "foundations") {
-      dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
-    }
-    if (title === "constellations") {
-      dispatch(levelSelected({ level: [6] }));
-    }
-    if (title === "distortions") {
-      dispatch(trapezoidSelected({ level: [2.5], id: -1 }));
-    }
-    if (title === "environment") {
-      dispatch(trapezoidSelected({ level: [4], id: -1 }));
-    }
-    dispatch(activeBottomMenuItemChanged({ item: title }));
-  };
+  
   return (
     <div
       className={
@@ -58,8 +38,8 @@ const BottomHeader = () => {
       {headerData?.bottomHeader?.map((secondaryItem) => {
           const { title } = secondaryItem;
           return (
-            <div key={title} onClick={() => handleClick(title)}>
-              <Button2 label={title} active={title === activeBottomMenuItem} />
+            <div key={title} onClick={() => handleClick(title, dispatch)}>
+              <Button4 label={title} active={title === activeBottomMenuItem} />
             </div>
           );
         })} 
@@ -70,6 +50,28 @@ const BottomHeader = () => {
 };
 
 export default BottomHeader;
+
+export const handleClick = (title: string, dispatch: any) => {
+  if (title === "essence") {
+    dispatch(trapezoidSelected({ level: [2], id: -1 }));
+  }
+  if (title === "roots") {
+    dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
+  }
+  if (title === "foundations") {
+    dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
+  }
+  if (title === "constellations") {
+    dispatch(levelSelected({ level: [6] }));
+  }
+  if (title === "distortions") {
+    dispatch(trapezoidSelected({ level: [2.5], id: -1 }));
+  }
+  if (title === "environment") {
+    dispatch(trapezoidSelected({ level: [4], id: -1 }));
+  }
+  dispatch(activeBottomMenuItemChanged({ item: title }));
+};
 
 const Layers = () => {
   const activeBottomMenuItem = useSelector(
