@@ -3,7 +3,6 @@ import React from "react";
 import { Button4 } from "@/components/common/Buttons";
 import headerData from "@/data/header.json";
 import { useDispatch, useSelector } from "react-redux";
-import { activeMenuItemChanged } from "@/store/header";
 import { handleClick } from "../BottomHeader";
 
 interface HeaderItem {

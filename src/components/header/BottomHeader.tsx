@@ -14,7 +14,6 @@ const BottomHeader = () => {
     (state) => state.entities.header
   );
 
-  
   return (
     <div
       className={
@@ -33,13 +32,13 @@ const BottomHeader = () => {
         })} */}
 
       {headerData?.bottomHeader?.map((secondaryItem) => {
-          const { title } = secondaryItem;
-          return (
-            <div key={title} onClick={() => handleClick(title, dispatch)}>
-              <Button4 label={title} active={title === activeMenuItem} />
-            </div>
-          );
-        })} 
+        const { title } = secondaryItem;
+        return (
+          <div key={title} onClick={() => handleClick(title, dispatch)}>
+            <Button4 label={title} active={title === activeMenuItem} />
+          </div>
+        );
+      })}
 
       <Layers />
     </div>
@@ -52,6 +51,12 @@ export const handleClick = (title: string, dispatch: any) => {
   if (title === "essence") {
     dispatch(trapezoidSelected({ level: [2], id: -1 }));
   }
+  if (title === "expressions") {
+    dispatch(trapezoidSelected({ level: [3], id: -1 }));
+  }
+  if (title === "environment") {
+    dispatch(trapezoidSelected({ level: [4], id: -1 }));
+  }
   if (title === "roots") {
     dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
   }
@@ -63,9 +68,6 @@ export const handleClick = (title: string, dispatch: any) => {
   }
   if (title === "distortions") {
     dispatch(trapezoidSelected({ level: [2.5], id: -1 }));
-  }
-  if (title === "environment") {
-    dispatch(trapezoidSelected({ level: [4], id: -1 }));
   }
   dispatch(activeMenuItemChanged({ item: title }));
 };
@@ -91,7 +93,7 @@ const Layers = () => {
 
         return (
           <div key={i} className="relative" style={{ zIndex: 10 - i }}>
-            <OctagonSVG active={isActive} width="50px" marginTop="-40px"/>
+            <OctagonSVG active={isActive} width="50px" marginTop="-40px" />
           </div>
         );
       })}
