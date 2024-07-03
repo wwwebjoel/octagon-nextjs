@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { newTrapezoidSelected } from "@/store/octagon";
 import { useDispatch } from "react-redux";
 import { trapezoidSelected } from "@/store/currentSelection";
-import { activeMenuItemChanged } from "@/store/header";
 import { gsap } from "gsap";
 
 interface TrapezoidProps {
@@ -26,26 +25,27 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
   const dispatch = useDispatch();
   const trapezoidRef = useRef(null);
 
-  const thisTrapezoidData = useSelector(
-    (state: any) =>
-      state.entities.octagon[`level${level}`]?.trapezoid[transformNumber(index)]
-  );
-
-  const thisVirtueData = useSelector((state: any) =>
-    state.entities.virtues.find(
-      (item: any) => item.virtue === thisTrapezoidData?.data
-    )
-  );
-
-  const selectedData = useSelector(
-    (state: any) => state.entities.currentSelection
-  );
-
-  const {activeMenuItem} = useSelector((state: any) => state.entities.header)
-
-  const previousActiveMenuItem = useSelector(
-    (state: any) => state.entities.header.previousActiveMenuItem
-  );
+  const {
+    thisTrapezoidData,
+    thisVirtueData,
+    selectedData,
+    activeMenuItem,
+    previousActiveMenuItem,
+  } = useSelector((state: any) => {
+    const levelKey = `level${level}`;
+    const trapezoidData =
+      state.entities.octagon[levelKey]?.trapezoid[transformNumber(index)];
+    const virtueData = state.entities.virtues.find(
+      (item: any) => item.virtue === trapezoidData?.data
+    );
+    return {
+      thisTrapezoidData: trapezoidData,
+      thisVirtueData: virtueData,
+      selectedData: state.entities.currentSelection,
+      activeMenuItem: state.entities.header.activeMenuItem,
+      previousActiveMenuItem: state.entities.header.previousActiveMenuItem,
+    };
+  });
 
   const height = gap * Math.sin((67.5 * Math.PI) / 180);
   const longSide =
