@@ -41,6 +41,8 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     (state: any) => state.entities.currentSelection
   );
 
+  const {activeMenuItem} = useSelector((state: any) => state.entities.header)
+
   const previousActiveMenuItem = useSelector(
     (state: any) => state.entities.header.previousActiveMenuItem
   );
@@ -91,7 +93,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
       {
         duration: 0.8,
         rotation: 0,
-        opacity: 0.4,
+        opacity: 0.6,
         scale: 1,
         x: 0,
         y: "50%",
@@ -102,7 +104,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     return () => {
       tl1.kill();
     };
-  });
+  }, [activeMenuItem]);
 
   useEffect(() => {
     // console.log(previousActiveMenuItem)
@@ -124,7 +126,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     return () => {
       tl1.kill();
     };
-  });
+  }, [activeMenuItem]);
 
   // useEffect(() => {
   //   const tl = gsap.timeline();
