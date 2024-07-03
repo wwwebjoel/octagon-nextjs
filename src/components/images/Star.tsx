@@ -22,7 +22,9 @@ function Star({
     (state: any) => state.entities.currentSelection.level
   );
 
-  const randomNumber = Math.random() +1 ;
+  const {activeMenuItem} = useSelector((state: any) => state.entities.header)
+
+  const randomNumber = Math.random() + 1;
 
   useEffect(() => {
     const anim1 = gsap.timeline();
@@ -37,22 +39,42 @@ function Star({
     });
   }, []);
 
+  useEffect(() => {
+    if(activeMenuItem === "constellations"){
+      const tl1 = gsap.timeline();
+    tl1
+      .to(".stars", {
+        duration: 0.5,
+        scale: 3.5,
+      })
+      .to(".stars", {
+        duration: 0.5,
+        scale: 1
+      });
+
+    return () => {
+      tl1.kill();
+    };
+    }
+  }, [activeMenuItem]);
+
   return (
     <div
-      className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0 p-1  w-[70px] aspect-square"
+      className="stars absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-point left-0 top-0 p-1  w-[70px] aspect-square"
       key={index}
     >
-      <div id={`star-${index}`} className="absolute inset-0 rounded-full flex items-center justify-center opacity-0"
-
-      
+      <div
+        id={`star-${index}`}
+        className=" absolute inset-0 rounded-full flex items-center justify-center opacity-0"
       >
-        <div className="w-1 h-1 rounded-full"
-        style={{
-          boxShadow: '0px 0px 20px 20px rgba(255,255,255,.35)'
-        }}></div>
+        <div
+          className="w-1 h-1 rounded-full"
+          style={{
+            boxShadow: "0px 0px 20px 20px rgba(255,255,255,.35)",
+          }}
+        ></div>
       </div>
       <svg
-      
         xmlns="http://www.w3.org/2000/svg"
         className={"relative star w-full h-full"}
         fill="none"

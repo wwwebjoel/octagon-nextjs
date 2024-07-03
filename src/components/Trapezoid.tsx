@@ -41,6 +41,10 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     (state: any) => state.entities.currentSelection
   );
 
+  const previousActiveMenuItem = useSelector(
+    (state: any) => state.entities.header.previousActiveMenuItem
+  );
+  
   const height = gap * Math.sin((67.5 * Math.PI) / 180);
   const longSide =
     (radius + (level - 1) * gap) / Math.sqrt(1 + 1 / Math.sqrt(2));
@@ -70,24 +74,30 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
     return () => {
       tl.kill();
     };
-  });
+  }, []);
 
   useEffect(() => {
+    // console.log(previousActiveMenuItem)
     const tl1 = gsap.timeline();
-    tl1.fromTo(".trapezoid-block", {
-      rotation: 90,
-      opacity: 0,
-      scale: 1.25,
-      x: "50%",
-      y: "-50%",
-    }, {
-      duration: 0.8,
-      rotation: 0,
-      opacity: 0.4,
-      scale: 1,
-      x: 0,
-      y: "50%",
-      ease: "none",});
+    tl1.fromTo(
+      ".trapezoid-block",
+      {
+        rotation: 90,
+        opacity: 0,
+        scale: 1.25,
+        x: "50%",
+        y: "-50%",
+      },
+      {
+        duration: 0.8,
+        rotation: 0,
+        opacity: 0.4,
+        scale: 1,
+        x: 0,
+        y: "50%",
+        ease: "none",
+      }
+    );
 
     return () => {
       tl1.kill();

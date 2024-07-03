@@ -63,6 +63,9 @@ export const handleClick = (title: string, dispatch: any) => {
   if (title === "foundations") {
     dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
   }
+  if (title === "contributions") {
+    dispatch(levelSelected({ level: [4], id: -1 }));
+  }
   if (title === "constellations") {
     dispatch(levelSelected({ level: [6] }));
   }

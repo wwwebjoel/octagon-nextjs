@@ -50,7 +50,6 @@ const Stars: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
         {Array.from({ length: 8 }).map((_, index) => {
         const angle = (45 * index)
        
-        
         return (
             <div onClick={handleClick}
                 key={index}

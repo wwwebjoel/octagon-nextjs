@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   //If if stars selected then level = [6]
+  prevLevel: [],
   level: [],
   id: -1,
   point: false,
@@ -16,6 +17,7 @@ const slice = createSlice({
   initialState,
   reducers: {
     lineSelected: (state, action) => {
+      state.prevLevel = state.level,
       state.level = action.payload.level
       state.id = action.payload.id
       state.line= true
@@ -23,6 +25,7 @@ const slice = createSlice({
       state.trapezoid = false
     },
     pointSelected: (state, action) => {
+      state.prevLevel = state.level,
       state.level = action.payload.level
       state.id = action.payload.id
       state.line= false
@@ -30,6 +33,7 @@ const slice = createSlice({
       state.trapezoid = false
       },
     trapezoidSelected: (state, action) => {
+      state.prevLevel = state.level,
       state.level = action.payload.level
       state.id = action.payload.id
       state.line= false
@@ -37,6 +41,7 @@ const slice = createSlice({
       state.trapezoid = true
     },
     levelSelected: (state, action)=>{
+      state.prevLevel = state.level,
       state.level = action.payload.level
     }
   },
