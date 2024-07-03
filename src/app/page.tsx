@@ -69,9 +69,12 @@ const Layers = () => {
   const menuItems = {
     roots: 4,
     foundations: 3,
+    expressions: 2,
+    environment: 2,
     essence: 2,
     contributions: 1,
     constellations: 0,
+    distortions: 2,
   };
   return (
     <div className="items-center flex flex-col pt-40 pl-5 pr-10">
