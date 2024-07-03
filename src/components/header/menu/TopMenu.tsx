@@ -16,11 +16,6 @@ const TopMenu = () => {
     (state) => state.entities.header
   );
 
-  const clicked = (title: string, dispatch: any) => {
-    handleClick(title, dispatch);
-    dispatch(activeMenuItemChanged({ item: title }));
-  };
-
   return (
     <div
       className={
@@ -30,7 +25,7 @@ const TopMenu = () => {
       {headerData?.topHeader?.map((data: HeaderItem) => {
         const { title } = data;
         return (
-          <div key={title} onClick={() => clicked(title, dispatch)}>
+          <div key={title} onClick={() => handleClick(title, dispatch)}>
             <Button4 label={title} active={title === activeMenuItem} />
           </div>
         );
