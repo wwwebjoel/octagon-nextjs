@@ -74,35 +74,40 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
 
   useEffect(() => {
     const tl1 = gsap.timeline();
-    tl1.to(".trapezoid-block", {
+    tl1.fromTo(".trapezoid-block", {
+      rotation: 90,
+      opacity: 0,
+      scale: 1.25,
+      x: "50%",
+      y: "-50%",
+    }, {
       duration: 0.8,
       rotation: 0,
       opacity: 0.4,
       scale: 1,
       x: 0,
       y: "50%",
-      ease: "none",
-    });
+      ease: "none",});
 
     return () => {
       tl1.kill();
     };
   });
 
-  useEffect(() => {
-    const tl = gsap.timeline();
+  // useEffect(() => {
+  //   const tl = gsap.timeline();
 
-    tl.to("#level4Id", {
-      duration: 2,
-      rotationX: -360,
-      ease: "power2.inOut",
-      delay: 1,
-    });
+  //   tl.to("#level4Id", {
+  //     duration: 2,
+  //     rotationX: -360,
+  //     ease: "power2.inOut",
+  //     delay: 1,
+  //   });
 
-    return () => {
-      tl.kill();
-    };
-  });
+  //   return () => {
+  //     tl.kill();
+  //   };
+  // });
 
   return (
     <>
