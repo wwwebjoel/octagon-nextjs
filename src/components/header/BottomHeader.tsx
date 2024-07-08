@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { activeMenuItemChanged } from "@/store/header";
 import { levelSelected, trapezoidSelected } from "@/store/currentSelection";
 import OctagonSVG from "../images/Octagon";
+import Layers from "../images/Layers";
 
 const BottomHeader = () => {
   const dispatch = useDispatch();
@@ -20,25 +21,21 @@ const BottomHeader = () => {
         "h-[70px] w-full bg-black bg-opacity-40 flex items-center justify-center gap-5"
       }
     >
-      {/* {headerData?.topHeader
-        ?.find((item) => item?.title === activeTopMenuItem)
-        ?.bottomHeader?.map((secondaryItem) => {
-          const { title } = secondaryItem;
-          return (
-            <div key={title} onClick={() => handleClick(title)}>
-              <Button2 label={title} active={title === activeBottomMenuItem} />
-            </div>
-          );
-        })} */}
-
-      {headerData?.bottomHeader?.map((secondaryItem) => {
+     
+      <div className="flex gap-4 text-[#fff] items-center">
+        <div>Layers</div>
+      <div className="w-12">
+        <Layers />
+      </div>
+      </div>
+      {/* {headerData?.bottomHeader?.map((secondaryItem) => {
         const { title } = secondaryItem;
         return (
           <div key={title} onClick={() => handleClick(title, dispatch)}>
             <Button4 label={title} active={title === activeMenuItem} />
           </div>
         );
-      })}
+      })} */}
 
     
     </div>

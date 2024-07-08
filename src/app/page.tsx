@@ -55,7 +55,7 @@ export default function Home() {
           </>
         )}
 
-        {modules.landscape && <Landscape />}
+        {/* {modules.landscape && <Landscape />} */}
       </div>
     </div>
   );
