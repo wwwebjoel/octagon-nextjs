@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { activeMenuItemChanged } from "@/store/header";
 import { levelSelected, trapezoidSelected } from "@/store/currentSelection";
 import OctagonSVG from "../images/Octagon";
-import Layers from "../images/Layers";
+import LayersSVG from "../images/LayersSVG";
+
 
 const BottomHeader = () => {
   const dispatch = useDispatch();
@@ -24,8 +25,8 @@ const BottomHeader = () => {
      
       <div className="flex gap-4 text-[#fff] items-center">
         <div>Layers</div>
-      <div className="w-12">
-        <Layers />
+      <div className="w-12 cursor-pointer">
+        <LayersSVG />
       </div>
       </div>
       {/* {headerData?.bottomHeader?.map((secondaryItem) => {
