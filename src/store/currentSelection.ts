@@ -10,6 +10,7 @@ const initialState = {
   point: false,
   line: false,
   trapezoid: false,
+  menuClicked: false
 };
 
 const slice = createSlice({
@@ -43,10 +44,13 @@ const slice = createSlice({
     levelSelected: (state, action)=>{
       state.prevLevel = state.level,
       state.level = action.payload.level
-    }
+    },
+
+    menuClicked: (state, action)=>{
+      state.menuClicked = action.payload.menuClicked}
   },
 });
 
-export const { lineSelected, pointSelected, trapezoidSelected, levelSelected} = slice.actions;
+export const { lineSelected, pointSelected, trapezoidSelected, levelSelected, menuClicked} = slice.actions;
 
 export default slice.reducer;

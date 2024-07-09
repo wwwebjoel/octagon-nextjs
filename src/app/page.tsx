@@ -17,9 +17,11 @@ export default function Home() {
     (state: any) => state.entities.header.activeMenuItem
   );
 
-  const distortionActive = activeMenuItem === "distortions";
+  const { menuClicked } = useSelector(
+    (state: any) => state.entities.currentSelection
+  );
 
-  const modules: any = useSelector<any>((state) => state.entities.modules);
+  const distortionActive = activeMenuItem === "distortions";
 
   const topItems = ["essence", "expressions", "environment"];
   const bottomItems = ["roots", "foundations", "distortions", "contriutions"];
@@ -37,16 +39,17 @@ export default function Home() {
 
       <div className={"relative flex w-10/12 m-auto gap-4 py-10"}>
         <div className="w-full">
-          {topItems.some((item) => item === activeMenuItem) && (
-            <div className="pt-20">
-              <div
-                className="beveled-edge py-4 px-4 bg-transparent"
-              >
-                Title
+          {topItems.some((item) => item === activeMenuItem) &&
+            menuClicked && (
+              <div className="pt-20">
+                <div className="beveled-edge py-4 px-4 bg-transparent">
+                  Title
+                </div>
+                <div className="beveled-edge min-h-40 py-4 px-4 mt-1">
+                  Description
+                </div>
               </div>
-              <div className="beveled-edge min-h-40 py-4 px-4 mt-1">Description</div>
-            </div>
-          )}
+            )}
 
           {bottomItems.some((item) => item === activeMenuItem) && <Layers />}
         </div>
