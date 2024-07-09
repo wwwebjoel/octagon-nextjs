@@ -22,6 +22,7 @@ export default function Home() {
   const modules: any = useSelector<any>((state) => state.entities.modules);
 
   const topItems = ["essence", "expressions", "environment"]
+  const bottomItems = ["roots", "foundations", "distortions", "contriutions"]
 
   return (
     <div className={"relative min-h-screen"}>
@@ -43,8 +44,10 @@ export default function Home() {
             <div className="bg-red-300 min-h-40 py-4 px-4">Description</div>
           </div>}
 
+          {bottomItems.some(item=> item === activeMenuItem) && <Layers />}
+
         </div>
-        <div
+        <div className="shrink-0"
         style={{width:`${9*radius}px`}}
         >
         <Octagon
@@ -53,7 +56,7 @@ export default function Home() {
               level={distortionActive ? distortionLevel : level}
             />
         </div>
-        <div className="w-full bg-red-200"></div>
+        <div className="w-full bg-red-200 opacity-20"></div>
        
 
        

@@ -6,10 +6,12 @@ interface HeaderState {
   activeTopMenuItem: string;
   activeBottomMenuItem: string;
   activeMenuItem: string;
-  previousActiveMenuItem: string
+  previousActiveMenuItem: string;
+  layers: boolean;
 }
 
 const initialState: HeaderState = {
+  layers: false,
   activeMenuItem: "",
   activeTopMenuItem: 'perennials',
   activeBottomMenuItem: 'essence',
@@ -32,10 +34,13 @@ const slice = createSlice({
       state.previousActiveMenuItem = state.activeMenuItem;
       state.activeMenuItem = action.payload.item;
     },
+    layersActivated: (state)=>{
+      state.layers = true;
+    }
   },
 });
 
-export const { activeTopMenuItemChanged, activeBottomMenuItemChanged, activeMenuItemChanged } = slice.actions;
+export const { activeTopMenuItemChanged, activeBottomMenuItemChanged, activeMenuItemChanged, layersActivated } = slice.actions;
 
 export default slice.reducer;
 

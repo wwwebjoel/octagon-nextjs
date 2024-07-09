@@ -24,8 +24,8 @@ const Layers = () => {
           );
   
           return (
-            <div key={i} className="relative" style={{ zIndex: 10 - i }}>
-              <OctagonSVG active={isActive} width="200px" marginTop="-150px" />
+            <div key={i} className="relative w-full" style={{ zIndex: 10 - i }}>
+              <OctagonSVG active={isActive} width="100%" marginTop="-72%" />
             </div>
           );
         })}
