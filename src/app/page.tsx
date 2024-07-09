@@ -21,8 +21,8 @@ export default function Home() {
 
   const modules: any = useSelector<any>((state) => state.entities.modules);
 
-  const topItems = ["essence", "expressions", "environment"]
-  const bottomItems = ["roots", "foundations", "distortions", "contriutions"]
+  const topItems = ["essence", "expressions", "environment"];
+  const bottomItems = ["roots", "foundations", "distortions", "contriutions"];
 
   return (
     <div className={"relative min-h-screen"}>
@@ -36,30 +36,28 @@ export default function Home() {
       <Header />
 
       <div className={"relative flex w-10/12 m-auto gap-4 py-10"}>
-
         <div className="w-full">
+          {topItems.some((item) => item === activeMenuItem) && (
+            <div className="pt-20">
+              <div
+                className="beveled-edge py-4 px-4 bg-transparent"
+              >
+                Title
+              </div>
+              <div className="beveled-edge min-h-40 py-4 px-4 mt-1">Description</div>
+            </div>
+          )}
 
-          {topItems.some(item=> item === activeMenuItem) && <div className="pt-20">
-            <div className="bg-yellow-300 py-4 px-4">Title</div>
-            <div className="bg-red-300 min-h-40 py-4 px-4">Description</div>
-          </div>}
-
-          {bottomItems.some(item=> item === activeMenuItem) && <Layers />}
-
+          {bottomItems.some((item) => item === activeMenuItem) && <Layers />}
         </div>
-        <div className="shrink-0"
-        style={{width:`${9*radius}px`}}
-        >
-        <Octagon
-              radius={radius}
-              gap={gap}
-              level={distortionActive ? distortionLevel : level}
-            />
+        <div className="shrink-0" style={{ width: `${9 * radius}px` }}>
+          <Octagon
+            radius={radius}
+            gap={gap}
+            level={distortionActive ? distortionLevel : level}
+          />
         </div>
         <div className="w-full bg-red-200 opacity-20"></div>
-       
-
-       
       </div>
     </div>
   );

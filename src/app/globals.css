@@ -26,3 +26,72 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.beveled-edge {
+  padding: 1rem 2rem;
+  color: #ffffff;
+  background-image: 
+     linear-gradient(180deg, #ffdc00, #ffdc00),   /* top border */
+     linear-gradient(225deg, #ffdc00, #ffdc00),   /* right border */
+     linear-gradient(0deg, #ffdc00, #ffdc00),     /* bottom border */
+     linear-gradient(90deg, #ffdc00, #ffdc00),    /* left border */
+     linear-gradient(135deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px),  /* top-left corner */
+     linear-gradient(225deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px),  /* top-right corner */
+     linear-gradient(315deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px),  /* bottom-right corner */
+     linear-gradient(45deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px)   /* bottom-left corner */
+     ;
+  background-position: 
+    top right,
+    top right,
+    bottom left,
+    bottom left,
+    top left,
+    top right,
+    bottom right,
+    bottom left;
+  background-size: 
+    calc(100% - 15px) 2px,
+    2px calc(100% - 15px),
+    calc(100% - 15px) 2px,
+    2px calc(100% - 15px),
+    15px 15px,
+    15px 15px,
+    15px 15px,
+    15px 15px;
+  background-repeat: no-repeat;
+}
+
+
+.beveled-edge {
+  padding: 1rem 2rem;
+  color: #ffffff;
+  background-image: 
+    linear-gradient(180deg, #ffdc00, #ffdc00),  /* top border */
+    linear-gradient(225deg, #ffdc00, #ffdc00),  /* right border */
+    linear-gradient(0deg, #ffdc00, #ffdc00),    /* bottom border */
+    linear-gradient(90deg, #ffdc00, #ffdc00),   /* left border */
+    linear-gradient(135deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px), /* top-left corner */
+    linear-gradient(225deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px), /* top-right corner */
+    linear-gradient(315deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px), /* bottom-right corner */
+    linear-gradient(45deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px);  /* bottom-left corner */
+  background-position: 
+    top center, /* Top bar */
+    center left,
+    bottom center,
+    center right,
+    top left,
+    top right,
+    bottom right,
+    bottom left;
+  background-size: 
+    calc(100% - 28px) 2px,  /* top border */
+    2px calc(100% - 28px),  /* right border */
+    calc(100% - 28px) 2px,  /* bottom border */
+    2px calc(100% - 28px),  /* left border */
+    15px 15px,              /* top-left corner */
+    15px 15px,              /* top-right corner */
+    15px 15px,              /* bottom-right corner */
+    15px 15px;              /* bottom-left corner */
+  background-repeat: no-repeat;
+}
+
