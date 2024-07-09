@@ -40,7 +40,7 @@ export default function Home() {
       <div className={"relative flex w-10/12 m-auto gap-4 py-10"}>
         <div className="w-full">
           {topItems.some((item) => item === activeMenuItem) &&
-            menuClicked && (
+            menuClicked===1 && (
               <div className="pt-20">
                 <div className="beveled-edge py-4 px-4 bg-transparent">
                   Title

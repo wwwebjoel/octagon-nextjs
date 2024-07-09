@@ -48,37 +48,37 @@ export default BottomHeader;
 export const handleClick = (title: string, dispatch: any) => {
   if (title === "essence") {
     dispatch(trapezoidSelected({ level: [2], id: -1 }));
-    dispatch(menuClicked({menuClicked: true}))
+    dispatch(menuClicked({menuClicked: 1}))
   }
   if (title === "expressions") {
     dispatch(trapezoidSelected({ level: [3], id: -1 }));
-    dispatch(menuClicked({menuClicked: true}))
+    dispatch(menuClicked({menuClicked: 1}))
   }
   if (title === "environment") {
     dispatch(trapezoidSelected({ level: [4], id: -1 }));
-    dispatch(menuClicked({menuClicked: true}))
+    dispatch(menuClicked({menuClicked: 1}))
   }
   if (title === "roots") {
     dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
-    dispatch(menuClicked({menuClicked: true}))
+    dispatch(menuClicked({menuClicked: 1}))
   }
   if (title === "foundations") {
     dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
-    dispatch(menuClicked({menuClicked: true}))
+    dispatch(menuClicked({menuClicked: 1}))
   }
   if (title === "contributions") {
     dispatch(levelSelected({ level: [4], id: -1 }));
-    dispatch(menuClicked({menuClicked: true}))
+    dispatch(menuClicked({menuClicked: 1}))
   }
   if (title === "constellations") {
     dispatch(levelSelected({ level: [6] }));
-    dispatch(menuClicked({menuClicked: true}))
+    dispatch(menuClicked({menuClicked: 1}))
   }
   if (title === "distortions") {
     dispatch(trapezoidSelected({ level: [2.5], id: -1 }));
-    dispatch(menuClicked({menuClicked: true}))
+    dispatch(menuClicked({menuClicked: 1}))
   }
   dispatch(activeMenuItemChanged({ item: title }));
-  dispatch(menuClicked({menuClicked: true}))
+  dispatch(menuClicked({menuClicked: 1}))
 };
 

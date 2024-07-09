@@ -10,7 +10,7 @@ const initialState = {
   point: false,
   line: false,
   trapezoid: false,
-  menuClicked: false
+  menuClicked: 0
 };
 
 const slice = createSlice({
