@@ -67,11 +67,14 @@ const SingleWord = ({
         ...(thisVirtueData?.color && { background: thisVirtueData.color }),
       }}
     >
+      
+      <div className="w-11/12">
       <input
         className="text-white bg-transparent flex justify-center focus:outline-none"
         value={newWord}
         onChange={handleChange}
       />
+      </div>
     </div>
   );
 };

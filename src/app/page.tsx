@@ -38,7 +38,7 @@ export default function Home() {
       />
       <Header />
 
-      <div className={"relative flex w-10/12 min-w-[1200px] m-auto gap-4 py-10"}>
+      <div className={"relative flex w-10/12 min-w-[1280px] m-auto gap-4 py-10"}>
         <div className="w-full">
           {topItems.some((item) => item === activeMenuItem) &&
             menuClicked===1 && (

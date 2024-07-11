@@ -46,7 +46,8 @@ const WordsBox: React.FC = () => {
     octagonState[`level${level}`]?.trapezoid[id]?.data;
 
   return (
-    <Box>
+   <div className="w-full max-w-[220px] m-auto">
+     <Box>
       <div className={"font-black text-lg mb-5"}>words</div>
 
       <div className={`flex flex-col gap-[10px]`}>
@@ -64,6 +65,7 @@ const WordsBox: React.FC = () => {
         )}
       </div>
     </Box>
+   </div>
   );
 };
 
