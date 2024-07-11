@@ -17,7 +17,7 @@ const Layers = () => {
       distortions: 2,
     };
     return (
-      <div className="items-center flex flex-col pt-40 pl-5 pr-10 w-full">
+      <div className="items-center flex flex-col pt-40 pl-5 pr-10 w-full max-w-[200px] m-auto">
         {Array.from({ length: 5 }, (_, i) => {
           const isActive = Object.entries(menuItems).some(
             ([key, value]) => activeMenuItem === key && i === value
