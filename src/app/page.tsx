@@ -38,7 +38,7 @@ export default function Home() {
       />
       <Header />
 
-      <div className={"relative flex w-10/12 m-auto gap-4 py-10"}>
+      <div className={"relative flex w-10/12 min-w-[1200px] m-auto gap-4 py-10"}>
         <div className="w-full">
           {topItems.some((item) => item === activeMenuItem) &&
             menuClicked===1 && (
@@ -63,7 +63,7 @@ export default function Home() {
             level={distortionActive ? distortionLevel : level}
           />
         </div>
-        <div className="w-full">
+        <div className="w-full min-w-[250px]">
         {menuClicked === 1 && <Layers />}
         {menuClicked === 2 && <Properties />}
         </div>
