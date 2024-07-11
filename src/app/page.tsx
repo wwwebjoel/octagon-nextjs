@@ -51,7 +51,7 @@ export default function Home() {
               </div>
             )}
 
-          {bottomItems.some((item) => item === activeMenuItem) && <Layers />}
+         
         </div>
         <div className="shrink-0" style={{ width: `${9 * radius}px` }}>
           <Octagon
@@ -60,7 +60,9 @@ export default function Home() {
             level={distortionActive ? distortionLevel : level}
           />
         </div>
-        <div className="w-full bg-red-200 opacity-20"></div>
+        <div className="w-full">
+        <Layers />
+        </div>
       </div>
     </div>
   );
