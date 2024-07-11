@@ -6,6 +6,8 @@ import Image from "next/image";
 import Header from "@/components/header/Header";
 import { useSelector } from "react-redux";
 import Layers from "@/components/Layers";
+import Properties from "@/components/properties/Properties";
+import WordsBox from "@/components/boxes/WordsBox";
 
 export default function Home() {
   const radius = 80;
@@ -24,7 +26,6 @@ export default function Home() {
   const distortionActive = activeMenuItem === "distortions";
 
   const topItems = ["essence", "expressions", "environment"];
-  const bottomItems = ["roots", "foundations", "distortions", "contriutions"];
 
   return (
     <div className={"relative min-h-screen"}>
@@ -51,6 +52,8 @@ export default function Home() {
               </div>
             )}
 
+            {menuClicked === 2 && <WordsBox />}
+
          
         </div>
         <div className="shrink-0" style={{ width: `${9 * radius}px` }}>
@@ -61,7 +64,8 @@ export default function Home() {
           />
         </div>
         <div className="w-full">
-        <Layers />
+        {menuClicked === 1 && <Layers />}
+        {menuClicked === 2 && <Properties />}
         </div>
       </div>
     </div>

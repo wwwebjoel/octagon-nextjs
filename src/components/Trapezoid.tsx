@@ -4,7 +4,7 @@ import { transformNumber } from "../../utilities/transformNumber";
 import { useSelector } from "react-redux";
 import { newTrapezoidSelected } from "@/store/octagon";
 import { useDispatch } from "react-redux";
-import { trapezoidSelected } from "@/store/currentSelection";
+import { menuClicked, trapezoidSelected } from "@/store/currentSelection";
 import { gsap } from "gsap";
 
 interface TrapezoidProps {
@@ -61,6 +61,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
       dispatch(
         trapezoidSelected({ level: [level], id: transformNumber(index), data })
       );
+      dispatch(menuClicked({ menuClicked: 2 }));
     },
     [dispatch, index, level]
   );
