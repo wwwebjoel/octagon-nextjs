@@ -1,0 +1,38 @@
+[
+  {
+    "title": "ServeSense",
+    "type": "Web Ops & Growth Systems",
+    "description": "Managed 600+ client websites with focus on tracking implementation, performance improvements, and CRM automation workflows.",
+    "url": ""
+  },
+  {
+    "title": "TrioDash",
+    "type": "Modern Web Experience",
+    "description": "End-to-end web app with advanced scrolling animations, horizontal scrolling, custom form handlers, and interactive components.",
+    "url": "https://triodash.com"
+  },
+  {
+    "title": "Scam Alert App",
+    "type": "Web App",
+    "description": "Web application for fraud detection and analysis.",
+    "url": ""
+  },
+  {
+    "title": "HPA Lyart",
+    "type": "Custom Web App",
+    "description": "Custom web application built to spec with full-stack delivery.",
+    "url": ""
+  },
+  {
+    "title": "HyperPerformance Funnel",
+    "type": "Funnel + CRM Integration",
+    "description": "High-converting funnel page with CRM integration and automated lead nurture workflows.",
+    "url": ""
+  },
+  {
+    "title": "Indy Vascular",
+    "type": "WordPress",
+    "description": "WordPress builder-based website with ongoing optimization and maintenance.",
+    "url": ""
+  }
+]

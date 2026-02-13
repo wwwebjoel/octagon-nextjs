@@ -36,7 +36,7 @@ const OctagonSVG: React.FC<OctagonSVGProps> = ({
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1, transition: { duration: 0 } }}
-            className="bg-inner-yellow bg-opacity-60 absolute inset-0"
+            className="bg-portfolio-cyan bg-opacity-30 absolute inset-0"
           ></motion.div>
         )}
       </div>

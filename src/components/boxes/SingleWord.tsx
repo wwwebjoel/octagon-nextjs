@@ -61,8 +61,10 @@ const SingleWord = ({
     <div
       className={`${
         !thisVirtueData?.color &&
-        (currentSelectedData === word ? "bg-[#FFAC01]" : "bg-[#9D53E7]")
-      } rounded-full flex justify-center p-1`}
+        (currentSelectedData === word
+          ? "bg-portfolio-cyan/20 border border-portfolio-cyan/40"
+          : "bg-portfolio-indigo/15 border border-portfolio-indigo/25")
+      } rounded-full flex justify-center p-1 transition-all duration-200`}
       style={{
         ...(thisVirtueData?.color && { background: thisVirtueData.color }),
       }}
@@ -70,7 +72,7 @@ const SingleWord = ({
       
       <div className="w-11/12">
       <input
-        className="text-white bg-transparent flex justify-center focus:outline-none"
+        className="text-white/90 text-xs font-medium bg-transparent flex justify-center focus:outline-none tracking-wide"
         value={newWord}
         onChange={handleChange}
       />

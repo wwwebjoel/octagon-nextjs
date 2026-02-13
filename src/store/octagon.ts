@@ -26,22 +26,67 @@ const generateTrapezoid = (): { [key: number]: Trapezoid } => {
   return trapezoid;
 };
 
+// Pre-populate skill data for portfolio display
+const skillsByLevel: { [level: string]: { [key: number]: string } } = {
+  level2: {
+    1: "React",
+    2: "Next.js",
+    3: "Node.js",
+    4: "Laravel",
+    5: "WordPress",
+    6: "TypeScript",
+    7: "REST APIs",
+    8: "SQL",
+  },
+  "level2.5": {
+    1: "GoHighLevel",
+    2: "N8N",
+    3: "Zapier",
+    4: "ActiveCampaign",
+    5: "GTM",
+    6: "Meta Pixel",
+    7: "Hotjar",
+    8: "Webhooks",
+  },
+  level3: {
+    1: "Figma",
+    2: "Tailwind CSS",
+    3: "GSAP",
+    4: "Framer Motion",
+    5: "Elementor",
+    6: "Divi",
+    7: "NoSQL",
+    8: "Git",
+  },
+  level4: {
+    1: "Web Apps",
+    2: "WP Builds",
+    3: "Funnels & CRM",
+    4: "Tracking Setup",
+    5: "Automation",
+    6: "Analytics",
+    7: "Web Ops",
+    8: "Integrations",
+  },
+};
+
 const generateLevels = (): State => {
   const levels: State = {};
   [2, 2.5, 3, 4].forEach((i) => {
-    levels[`level${i}`] = {
+    const levelKey = `level${i}`;
+    const trapezoid = generateTrapezoid();
+    const preloaded = skillsByLevel[levelKey];
+    if (preloaded) {
+      for (let k = 1; k <= 8; k++) {
+        trapezoid[k].data = preloaded[k] ?? null;
+      }
+    }
+    levels[levelKey] = {
       level: i,
       selected: false,
-      trapezoid: generateTrapezoid(),
+      trapezoid,
     };
   });
-  // for (let i = 2; i <= 4; i++) {
-  //   levels[`level${i}`] = {
-  //     level: i,
-  //     selected: false,
-  //     trapezoid: generateTrapezoid(),
-  //   };
-  // }
   return levels;
 };
 

@@ -19,15 +19,16 @@ const BottomHeader = () => {
   return (
     <div
       className={
-        "h-[70px] w-full bg-black bg-opacity-40 flex items-center justify-center gap-5 transition-all duration-300"
+        "h-[56px] w-full flex items-center justify-center gap-2 transition-all duration-300 border-t border-portfolio-indigo/10"
       }
+      style={{ background: 'rgba(6, 5, 15, 0.95)', backdropFilter: 'blur(12px)' }}
     >
      
-      <div className="flex gap-4 text-[#fff] items-center">
-        <div>Layers</div>
-      <div className="w-12 cursor-pointer" onClick={()=>dispatch(layersActivated())}>
-        <LayersSVG />
-      </div>
+      <div className="flex gap-2 text-white/50 items-center border-r border-portfolio-indigo/20 pr-4 mr-2">
+        <div className="text-xs font-semibold tracking-widest uppercase text-portfolio-slate">Layers</div>
+        <div className="w-7 cursor-pointer opacity-60 hover:opacity-100 transition-opacity" onClick={() => dispatch(layersActivated())}>
+          <LayersSVG />
+        </div>
       </div>
       {layers && headerData?.bottomHeader?.map((secondaryItem) => {
         const { title } = secondaryItem;
@@ -46,36 +47,36 @@ const BottomHeader = () => {
 export default BottomHeader;
 
 export const handleClick = (title: string, dispatch: any) => {
-  if (title === "essence") {
+  if (title === "about") {
     dispatch(trapezoidSelected({ level: [2], id: -1 }));
     dispatch(menuClicked({menuClicked: 1}))
   }
-  if (title === "expressions") {
+  if (title === "skills") {
     dispatch(trapezoidSelected({ level: [3], id: -1 }));
     dispatch(menuClicked({menuClicked: 1}))
   }
-  if (title === "environment") {
+  if (title === "projects") {
     dispatch(trapezoidSelected({ level: [4], id: -1 }));
     dispatch(menuClicked({menuClicked: 1}))
   }
-  if (title === "roots") {
-    dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
+  if (title === "web dev") {
+    dispatch(trapezoidSelected({ level: [2], id: -1 }));
     dispatch(menuClicked({menuClicked: 1}))
   }
-  if (title === "foundations") {
-    dispatch(trapezoidSelected({ level: [2, 3], id: -1 }));
+  if (title === "tools") {
+    dispatch(trapezoidSelected({ level: [3], id: -1 }));
     dispatch(menuClicked({menuClicked: 1}))
   }
-  if (title === "contributions") {
+  if (title === "automation") {
+    dispatch(trapezoidSelected({ level: [2.5], id: -1 }));
+    dispatch(menuClicked({menuClicked: 1}))
+  }
+  if (title === "services") {
     dispatch(levelSelected({ level: [4], id: -1 }));
     dispatch(menuClicked({menuClicked: 1}))
   }
-  if (title === "constellations") {
-    dispatch(levelSelected({ level: [6] }));
-    dispatch(menuClicked({menuClicked: 1}))
-  }
-  if (title === "distortions") {
-    dispatch(trapezoidSelected({ level: [2.5], id: -1 }));
+  if (title === "contact") {
+    dispatch(levelSelected({ level: [4] }));
     dispatch(menuClicked({menuClicked: 1}))
   }
   dispatch(activeMenuItemChanged({ item: title }));

@@ -59,7 +59,7 @@ const Properties: React.FC = () => {
 
   return (
     <Box>
-      <div className="bg-white overflow-hidden w-max flex mb-4 rounded-[20px]">
+      <div className="overflow-hidden w-max flex mb-5 rounded-full border border-portfolio-indigo/25 bg-white/5">
         <div onClick={() => dispatch(wordsModuleActivated())}>
           <Button1 label="words" active={words} smallText={true} />
         </div>

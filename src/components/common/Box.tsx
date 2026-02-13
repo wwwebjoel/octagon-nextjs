@@ -4,9 +4,10 @@ interface BoxProps {
     children: ReactNode;
 }
 
-const Box: React.FC<BoxProps> = ({ children=<></> }) => {
+const Box: React.FC<BoxProps> = ({ children = <></> }) => {
     return (
-        <div className={'relative text-white w-full min-h-2 h-max bg-gradient-box-purple border-[1px] border-inner-purple2 rounded-[15px] p-[15px] pb-[35px]'}>
+        <div className={'relative text-white w-full min-h-2 h-max bg-gradient-box-purple border border-portfolio-indigo/20 rounded-2xl p-4 pb-9'}
+            style={{ backdropFilter: 'blur(12px)' }}>
             {children}
         </div>
     );

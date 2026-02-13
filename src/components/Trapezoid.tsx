@@ -158,15 +158,15 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
           onClick={(e) => handleClick(e, thisTrapezoidData.data)}
         >
           <div
-            className={`trapezoid relative transition-all duration-300 rotate-180 origin-center ${`${
+            className={`trapezoid relative transition-all duration-300 rotate-180 origin-center ${
               !thisVirtueData?.color &&
               selectedData.level.includes(level) &&
               selectedData.trapezoid
                 ? level === 2.5
-                  ? "bg-[#e35f01]"
-                  : "bg-inner-carnationPink bg-opacity-40 "
+                  ? "bg-portfolio-indigo/20"
+                  : "bg-portfolio-cyan/10"
                 : "bg-opacity-50"
-            } cursor-pointer bg-gradient-trapezoid-inactive`}  flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
+            } cursor-pointer bg-gradient-trapezoid-inactive flex justify-center items-center hover:bg-gradient-trapezoid-active text-white`}
             style={{
               background: thisVirtueData?.color || undefined,
               height: height * (level - Math.floor(level)) || height,
@@ -181,7 +181,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
                 <div className="bg-white h-3 aspect-square rounded-full animate-ping"></div>
               </div>
             )}
-            <div className={`${angle < 180 ? "rotate-180" : "rotate-0"}`}>
+            <div className={`${angle < 180 ? "rotate-180" : "rotate-0"} text-[10px] font-semibold tracking-wide text-white/80 text-center px-1`}>
               {thisTrapezoidData.data}
             </div>
           </div>
@@ -194,7 +194,7 @@ const Trapezoid: React.FC<TrapezoidProps> = ({
                   shortSide + sideExtraLength
                 }px ${height}px, ${sideExtraLength}px ${height}px, 0 0)`,
               }}
-              className={`trapezoid-block absolute left-0 top-0 w-full h-full rotate-90 bg-inner-carnationPink opacity-0 scale-125 translate-x-1/2 -translate-y-1/2`}
+              className={`trapezoid-block absolute left-0 top-0 w-full h-full rotate-90 bg-portfolio-indigo opacity-0 scale-125 translate-x-1/2 -translate-y-1/2`}
             ></div>
           )}
         </div>

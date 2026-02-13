@@ -5,8 +5,8 @@ import {Providers} from "@/store/Provider";
 const montserrat = "Montserrat Alternates, sans-serif";
 
 export const metadata: Metadata = {
-  title: "inner-xr",
-  description: "inner-XR",
+  title: "Joel Pradhan — Full-Stack Developer",
+  description: "Full-Stack Developer & Marketing Automation Expert. 10+ years building production websites and web apps.",
 };
 
 export default function RootLayout({

@@ -14,7 +14,7 @@ const Center: React.FC<CenterProps> = ({ radius = 10 }) => {
             }}>
                 <div className={'-m-2 bg-cover grid items-center justify-center aspect-square -rotate-[22.5deg] cursor-pointer'}
                 style={{
-                    backgroundImage: 'url(/images/foundations.png)'
+                    background: 'radial-gradient(circle, rgba(99, 102, 241, 0.7) 0%, rgba(67, 56, 202, 0.85) 55%, rgba(6, 5, 15, 1) 100%)'
                 }}
                 ></div>
             </div>

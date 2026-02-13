@@ -4,78 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background:
+    radial-gradient(ellipse at 20% 15%, rgba(99, 102, 241, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(34, 211, 238, 0.08) 0%, transparent 45%),
+    #06050F;
+  min-height: 100vh;
 }
 
 .beveled-edge {
   padding: 1rem 2rem;
   color: #ffffff;
-  background-image: 
-     linear-gradient(180deg, #ffdc00, #ffdc00),   /* top border */
-     linear-gradient(225deg, #ffdc00, #ffdc00),   /* right border */
-     linear-gradient(0deg, #ffdc00, #ffdc00),     /* bottom border */
-     linear-gradient(90deg, #ffdc00, #ffdc00),    /* left border */
-     linear-gradient(135deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px),  /* top-left corner */
-     linear-gradient(225deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px),  /* top-right corner */
-     linear-gradient(315deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px),  /* bottom-right corner */
-     linear-gradient(45deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px)   /* bottom-left corner */
-     ;
-  background-position: 
-    top right,
-    top right,
-    bottom left,
-    bottom left,
-    top left,
-    top right,
-    bottom right,
-    bottom left;
-  background-size: 
-    calc(100% - 15px) 2px,
-    2px calc(100% - 15px),
-    calc(100% - 15px) 2px,
-    2px calc(100% - 15px),
-    15px 15px,
-    15px 15px,
-    15px 15px,
-    15px 15px;
-  background-repeat: no-repeat;
-}
-
-
-.beveled-edge {
-  padding: 1rem 2rem;
-  color: #ffffff;
-  background-image: 
-    linear-gradient(180deg, #ffdc00, #ffdc00),  /* top border */
-    linear-gradient(225deg, #ffdc00, #ffdc00),  /* right border */
-    linear-gradient(0deg, #ffdc00, #ffdc00),    /* bottom border */
-    linear-gradient(90deg, #ffdc00, #ffdc00),   /* left border */
-    linear-gradient(135deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px), /* top-left corner */
-    linear-gradient(225deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px), /* top-right corner */
-    linear-gradient(315deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px), /* bottom-right corner */
-    linear-gradient(45deg, transparent 9px, #ffdc00 10px, #ffdc00 12px, transparent 12px);  /* bottom-left corner */
-  background-position: 
-    top center, /* Top bar */
+  background-image:
+    linear-gradient(180deg, #6366F1, #6366F1),  /* top border */
+    linear-gradient(225deg, #6366F1, #6366F1),  /* right border */
+    linear-gradient(0deg, #6366F1, #6366F1),    /* bottom border */
+    linear-gradient(90deg, #6366F1, #6366F1),   /* left border */
+    linear-gradient(135deg, transparent 9px, #6366F1 10px, #6366F1 12px, transparent 12px), /* top-left corner */
+    linear-gradient(225deg, transparent 9px, #6366F1 10px, #6366F1 12px, transparent 12px), /* top-right corner */
+    linear-gradient(315deg, transparent 9px, #6366F1 10px, #6366F1 12px, transparent 12px), /* bottom-right corner */
+    linear-gradient(45deg, transparent 9px, #6366F1 10px, #6366F1 12px, transparent 12px);  /* bottom-left corner */
+  background-position:
+    top center,
     center left,
     bottom center,
     center right,
@@ -83,15 +33,14 @@ body {
     top right,
     bottom right,
     bottom left;
-  background-size: 
-    calc(100% - 28px) 2px,  /* top border */
-    2px calc(100% - 28px),  /* right border */
-    calc(100% - 28px) 2px,  /* bottom border */
-    2px calc(100% - 28px),  /* left border */
-    15px 15px,              /* top-left corner */
-    15px 15px,              /* top-right corner */
-    15px 15px,              /* bottom-right corner */
-    15px 15px;              /* bottom-left corner */
+  background-size:
+    calc(100% - 28px) 1px,
+    1px calc(100% - 28px),
+    calc(100% - 28px) 1px,
+    1px calc(100% - 28px),
+    15px 15px,
+    15px 15px,
+    15px 15px,
+    15px 15px;
   background-repeat: no-repeat;
 }
-

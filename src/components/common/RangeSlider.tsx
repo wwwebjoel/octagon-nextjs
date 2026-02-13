@@ -16,7 +16,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, sliderValue,title, 
                 {title === 'luminosity' && <div>{`${sliderValue}%`}</div>}
 
             </div>
-            <div className="rounded-full bg-white bg-opacity-20 w-full py-[8px] px-1">
+            <div className="rounded-full bg-portfolio-indigo/10 border border-portfolio-indigo/20 w-full py-[8px] px-1">
                 <div className="relative top-0 left-0 h-[0] w-full">
 
                     <input

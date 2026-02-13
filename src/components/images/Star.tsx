@@ -40,7 +40,7 @@ function Star({
   }, []);
 
   useEffect(() => {
-    if(activeMenuItem === "constellations"){
+    if(activeMenuItem === "contact"){
       const tl1 = gsap.timeline();
     tl1
       .to(".stars", {

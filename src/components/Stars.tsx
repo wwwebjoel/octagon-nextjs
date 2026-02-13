@@ -38,7 +38,7 @@ const Stars: React.FC<PointsProps> = ({ radius, gap=0, level=1 }) => {
 
     const handleClick = ()=>{
        
-            dispatch(activeMenuItemChanged({item:"constellations"}))
+            dispatch(activeMenuItemChanged({item:"contact"}))
           
     }
 

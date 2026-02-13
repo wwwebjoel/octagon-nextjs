@@ -6,15 +6,15 @@ const Layers = () => {
       (state: any) => state.entities.header.activeMenuItem
     );
   
-    const menuItems = {
-      roots: 4,
-      foundations: 3,
-      expressions: 2,
-      environment: 2,
-      essence: 2,
-      contributions: 1,
-      constellations: 0,
-      distortions: 2,
+    const menuItems: Record<string, number> = {
+      about: 2,
+      skills: 2,
+      projects: 1,
+      "web dev": 3,
+      tools: 3,
+      automation: 2,
+      services: 1,
+      contact: 0,
     };
     return (
       <div className="items-center flex flex-col pt-40 pl-5 pr-10 w-full max-w-[200px] m-auto">
